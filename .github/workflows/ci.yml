@@ -1,11 +1,18 @@
 name: CI
 
-# Build + test every component INSIDE its defined Docker container.
-# Path filters keep each job scoped to the component that changed.
+# Build + test every component INSIDE its defined Docker container, package the
+# build output as versioned tarballs, and — when triggered by a version tag —
+# publish a GitHub Release built from those very same CI artifacts.
+#
+# Normal push / PR : build + unit tests (+ non-blocking integration), upload CI artifacts.
+# Tag  vX.Y.Z      : build BOTH components, then publish a Release from the CI output.
+#   git tag v0.2.0 && git push origin v0.2.0
 
 on:
   push:
     branches: [main, master]
+    tags:
+      - 'v*'
   pull_request:
   workflow_dispatch:
 
@@ -13,13 +20,17 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: write   # required for the release job to create releases / upload assets
+
 jobs:
-  # ── Detect which components changed, to gate the heavy build jobs ────────
+  # ── Detect what changed + whether this run is a release (tag) ────────────
   changes:
     runs-on: ubuntu-latest
     outputs:
       odc_root: ${{ steps.filter.outputs.odc_root }}
       odc_onboard_v2: ${{ steps.filter.outputs.odc_onboard_v2 }}
+      is_release: ${{ startsWith(github.ref, 'refs/tags/v') }}
     steps:
       - uses: actions/checkout@v4
       - uses: dorny/paths-filter@v3
@@ -34,13 +45,23 @@ jobs:
               - 'scripts/docker-build-onboard-aarch64.sh'
               - '.github/workflows/ci.yml'
 
-  # ── odc-root: containerized build + unit tests (deploy/linux/Dockerfile) ─
+  # ── odc-root: containerized build + unit tests + packaged artifact ───────
   odc-root-linux:
     needs: changes
-    if: ${{ needs.changes.outputs.odc_root == 'true' }}
+    # Build when odc-root changed OR when cutting a release (tags build all).
+    if: ${{ needs.changes.outputs.odc_root == 'true' || needs.changes.outputs.is_release == 'true' }}
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
+
+      - name: Resolve version
+        id: ver
+        run: |
+          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
+            echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+          else
+            echo "version=0.0.0-dev+${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Build odc-root in Docker and export artifacts
         working-directory: odc-root
@@ -69,24 +90,47 @@ jobs:
           docker compose -f deploy/test/docker-compose.yml up \
             --abort-on-container-exit --exit-code-from odc-test odc-test
 
-      - name: Upload odc-root linux artifacts
+      - name: Package release tarball + checksum (from CI output)
+        working-directory: odc-root
+        run: |
+          V='${{ steps.ver.outputs.version }}'
+          pkg="odc-root-linux-x86_64-v${V}"
+          mkdir -p "pkg/${pkg}"
+          cp -a deploy/export/linux/. "pkg/${pkg}/"
+          mkdir -p artifacts
+          tar -C pkg -czf "artifacts/${pkg}.tar.gz" "${pkg}"
+          ( cd artifacts && sha256sum "${pkg}.tar.gz" > "${pkg}.tar.gz.sha256" )
+          ls -lh artifacts
+
+      - name: Upload odc-root CI artifact (release-ready)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: odc-root-linux-ci
-          path: odc-root/deploy/export/linux/
+          name: odc-root-linux
+          path: |
+            odc-root/artifacts/*.tar.gz
+            odc-root/artifacts/*.sha256
           if-no-files-found: warn
 
-  # ── odc-onboard-v2: aarch64 cross-build INSIDE debian:trixie container ───
+  # ── odc-onboard-v2: aarch64 cross-build + packaged artifact ──────────────
   odc-onboard-v2-aarch64:
     needs: changes
-    if: ${{ needs.changes.outputs.odc_onboard_v2 == 'true' }}
+    if: ${{ needs.changes.outputs.odc_onboard_v2 == 'true' || needs.changes.outputs.is_release == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - name: Set up QEMU (for --platform linux/amd64 pulls)
         uses: docker/setup-qemu-action@v3
+
+      - name: Resolve version
+        id: ver
+        run: |
+          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
+            echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+          else
+            echo "version=0.0.0-dev+${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Cross-build odc-onboard-v2 (aarch64) in container
         run: |
@@ -100,12 +144,32 @@ jobs:
           file dist/aarch64/odc-onboard/odc-onboard-v2 | grep -q 'aarch64' \
             || { echo 'ERROR: not an aarch64 binary'; exit 1; }
 
-      - name: Upload odc-onboard-v2 aarch64 artifacts
+      - name: Strip bundled VPN credentials (never ship secrets)
+        run: |
+          rm -f dist/aarch64/odc-onboard/config/vpn/*.ovpn \
+                dist/aarch64/odc-onboard/config/vpn/*.conf \
+                dist/aarch64/odc-onboard/config/vpn/*.key 2>/dev/null || true
+          echo "config/vpn after strip:"; ls -la dist/aarch64/odc-onboard/config/vpn || true
+
+      - name: Package release tarball + checksum (from CI output)
+        run: |
+          V='${{ steps.ver.outputs.version }}'
+          pkg="odc-onboard-v2-aarch64-v${V}"
+          mkdir -p "stage/${pkg}"
+          cp -a dist/aarch64/odc-onboard/. "stage/${pkg}/"
+          mkdir -p artifacts
+          tar -C stage -czf "artifacts/${pkg}.tar.gz" "${pkg}"
+          ( cd artifacts && sha256sum "${pkg}.tar.gz" > "${pkg}.tar.gz.sha256" )
+          ls -lh artifacts
+
+      - name: Upload odc-onboard-v2 CI artifact (release-ready)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: odc-onboard-v2-aarch64-ci
-          path: dist/aarch64/odc-onboard/
+          name: odc-onboard-v2-aarch64
+          path: |
+            artifacts/*.tar.gz
+            artifacts/*.sha256
           if-no-files-found: warn
 
   # ── Aggregate gate so branch protection can require a single check ───────
@@ -126,3 +190,37 @@ jobs:
             fi
           done
           echo "CI passed (built components succeeded; unchanged components skipped)."
+
+  # ── Release: publish a GitHub Release from the CI-built artifacts ─────────
+  # Runs only on version tags. Downloads the tarballs the build jobs just
+  # produced (the exact CI output) and attaches them to the Release.
+  release:
+    needs: [odc-root-linux, odc-onboard-v2-aarch64]
+    if: ${{ startsWith(github.ref, 'refs/tags/v') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download CI build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: ci-artifacts
+
+      - name: Collect release assets
+        run: |
+          mkdir -p assets
+          find ci-artifacts -type f \( -name '*.tar.gz' -o -name '*.sha256' \) \
+            -exec cp {} assets/ \;
+          echo "Release assets (from CI output):"
+          ls -lh assets
+          # Guard: never publish an empty release.
+          test -n "$(ls -A assets 2>/dev/null)" || { echo 'No CI artifacts to release'; exit 1; }
+
+      - name: Create / update GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: OpenDroneCore ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}
+          generate_release_notes: true
+          fail_on_unmatched_files: true
+          files: |
+            assets/*.tar.gz
+            assets/*.sha256
