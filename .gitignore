@@ -90,3 +90,13 @@ host-configs/
 scripts/lab-*
 *.env
 !**/*.env.example
+
+# Documentation folders (markdown docs) - excluded from repo
+docs-architecture/
+docs-topology/
+odc-onboard/docs/
+odc-onboard-v2/docs/
+odc-root/docs/
+odc-onboard-v2/odc-hosts-architecture/
+# Always keep the root README
+!/README.md
