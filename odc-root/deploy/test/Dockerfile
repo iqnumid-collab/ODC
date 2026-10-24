@@ -36,7 +36,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /usr/bin/odc-* /usr/bin/
-COPY --from=builder /usr/lib/libodc-common* /usr/lib/ 2>/dev/null || true
+# Note: odc-common is a STATIC library, so there is no shared lib to copy.
+# (A COPY instruction cannot use shell redirection like `2>/dev/null`.)
 
 RUN ldconfig
 
