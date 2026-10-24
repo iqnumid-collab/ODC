@@ -77,8 +77,6 @@ logs/
 **/dev/src-pipeline/mediamtx
 odc-root/deploy/output/
 mediamtx
-# CI workflows excluded from initial push (token lacks 'workflow' scope)
-.github/workflows/
 
 # VPN client configs with embedded keys/certs (NEVER commit) - explicit, overrides deps negation
 **/configs/*.ovpn

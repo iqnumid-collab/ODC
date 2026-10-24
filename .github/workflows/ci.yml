@@ -1,0 +1,122 @@
+name: CI
+
+# Build + test every component INSIDE its defined Docker container.
+# Path filters keep each job scoped to the component that changed.
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ── Detect which components changed, to gate the heavy build jobs ────────
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      odc_root: ${{ steps.filter.outputs.odc_root }}
+      odc_onboard_v2: ${{ steps.filter.outputs.odc_onboard_v2 }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            odc_root:
+              - 'odc-root/**'
+              - '.github/workflows/ci.yml'
+            odc_onboard_v2:
+              - 'odc-onboard-v2/**'
+              - 'scripts/docker-build-onboard-aarch64.sh'
+              - '.github/workflows/ci.yml'
+
+  # ── odc-root: containerized build + unit tests (deploy/linux/Dockerfile) ─
+  odc-root-linux:
+    needs: changes
+    if: ${{ needs.changes.outputs.odc_root == 'true' }}
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build odc-root in Docker (unit tests run inside image build)
+        working-directory: odc-root
+        run: |
+          docker build -t odc-root-linux:ci -f deploy/linux/Dockerfile .
+
+      - name: Export built artifacts from image
+        working-directory: odc-root
+        run: |
+          mkdir -p deploy/export/linux
+          cid=$(docker create odc-root-linux:ci)
+          docker cp "$cid:/output/." deploy/export/linux/
+          docker rm "$cid"
+          ls -lhR deploy/export/linux
+
+      - name: Integration tests (docker compose)
+        working-directory: odc-root
+        run: |
+          docker compose -f deploy/test/docker-compose.yml build odc-test
+          docker compose -f deploy/test/docker-compose.yml up \
+            --abort-on-container-exit --exit-code-from odc-test odc-test
+
+      - name: Upload odc-root linux artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: odc-root-linux-ci
+          path: odc-root/deploy/export/linux/
+          if-no-files-found: warn
+
+  # ── odc-onboard-v2: aarch64 cross-build INSIDE debian:trixie container ───
+  odc-onboard-v2-aarch64:
+    needs: changes
+    if: ${{ needs.changes.outputs.odc_onboard_v2 == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up QEMU (for --platform linux/amd64 pulls)
+        uses: docker/setup-qemu-action@v3
+
+      - name: Cross-build odc-onboard-v2 (aarch64) in container
+        run: |
+          chmod +x scripts/docker-build-onboard-aarch64.sh
+          ./scripts/docker-build-onboard-aarch64.sh
+
+      - name: Verify aarch64 ELF
+        run: |
+          sudo apt-get update && sudo apt-get install -y file
+          file dist/aarch64/odc-onboard/odc-onboard-v2
+          file dist/aarch64/odc-onboard/odc-onboard-v2 | grep -q 'aarch64' \
+            || { echo 'ERROR: not an aarch64 binary'; exit 1; }
+
+      - name: Upload odc-onboard-v2 aarch64 artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: odc-onboard-v2-aarch64-ci
+          path: dist/aarch64/odc-onboard/
+          if-no-files-found: warn
+
+  # ── Aggregate gate so branch protection can require a single check ───────
+  ci-success:
+    needs: [odc-root-linux, odc-onboard-v2-aarch64]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify no required job failed
+        run: |
+          # Jobs that were skipped (no relevant changes) are acceptable.
+          results='${{ needs.odc-root-linux.result }} ${{ needs.odc-onboard-v2-aarch64.result }}'
+          echo "job results: $results"
+          for r in $results; do
+            if [ "$r" = "failure" ] || [ "$r" = "cancelled" ]; then
+              echo "A required build job failed."
+              exit 1
+            fi
+          done
+          echo "CI passed (built components succeeded; unchanged components skipped)."

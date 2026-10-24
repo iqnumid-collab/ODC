@@ -1,0 +1,147 @@
+name: Release
+
+# Tag-triggered release. All build artifacts are produced INSIDE the project's
+# defined Docker containers, packaged as tarballs with checksums, and published
+# as GitHub Release assets.
+#
+# Trigger:  git tag v0.2.0 && git push origin v0.2.0
+# Dry run:  workflow_dispatch (builds + packages, no Release published)
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write   # required to create releases / upload assets
+
+jobs:
+  # ── odc-root (Linux x86_64) release build in deploy/linux/Dockerfile ─────
+  build-odc-root-linux:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve version
+        id: ver
+        run: |
+          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
+            echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+          else
+            echo "version=0.0.0-dev+${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build odc-root in Docker (Release)
+        working-directory: odc-root
+        run: |
+          docker build -t odc-root-linux:release -f deploy/linux/Dockerfile .
+          cid=$(docker create odc-root-linux:release)
+          mkdir -p out
+          docker cp "$cid:/output/." out/
+          docker rm "$cid"
+          ls -lhR out
+
+      - name: Package tarball + checksum
+        working-directory: odc-root
+        run: |
+          V='${{ steps.ver.outputs.version }}'
+          pkg="odc-root-linux-x86_64-v${V}"
+          mkdir -p "dist/${pkg}"
+          cp -a out/. "dist/${pkg}/"
+          tar -C dist -czf "dist/${pkg}.tar.gz" "${pkg}"
+          ( cd dist && sha256sum "${pkg}.tar.gz" > "${pkg}.tar.gz.sha256" )
+          ls -lh dist
+
+      - name: Upload build output (workflow artifact)
+        uses: actions/upload-artifact@v4
+        with:
+          name: odc-root-linux-release
+          path: |
+            odc-root/dist/*.tar.gz
+            odc-root/dist/*.sha256
+
+  # ── odc-onboard-v2 (aarch64) release build in debian:trixie container ────
+  build-odc-onboard-v2-aarch64:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Resolve version
+        id: ver
+        run: |
+          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
+            echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+          else
+            echo "version=0.0.0-dev+${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Cross-build odc-onboard-v2 (aarch64) in container
+        run: |
+          chmod +x scripts/docker-build-onboard-aarch64.sh
+          ./scripts/docker-build-onboard-aarch64.sh
+
+      - name: Strip bundled VPN credentials (never ship secrets)
+        run: |
+          # The build stages configs/ into config/vpn/. Remove any key material.
+          rm -f dist/aarch64/odc-onboard/config/vpn/*.ovpn \
+                dist/aarch64/odc-onboard/config/vpn/*.conf \
+                dist/aarch64/odc-onboard/config/vpn/*.key 2>/dev/null || true
+          echo "config/vpn after strip:"; ls -la dist/aarch64/odc-onboard/config/vpn || true
+
+      - name: Verify aarch64 ELF
+        run: |
+          sudo apt-get update && sudo apt-get install -y file
+          file dist/aarch64/odc-onboard/odc-onboard-v2 | grep -q 'aarch64' \
+            || { echo 'ERROR: not an aarch64 binary'; exit 1; }
+
+      - name: Package tarball + checksum
+        run: |
+          V='${{ steps.ver.outputs.version }}'
+          pkg="odc-onboard-v2-aarch64-v${V}"
+          mkdir -p "stage/${pkg}"
+          cp -a dist/aarch64/odc-onboard/. "stage/${pkg}/"
+          mkdir -p release-dist
+          tar -C stage -czf "release-dist/${pkg}.tar.gz" "${pkg}"
+          ( cd release-dist && sha256sum "${pkg}.tar.gz" > "${pkg}.tar.gz.sha256" )
+          ls -lh release-dist
+
+      - name: Upload build output (workflow artifact)
+        uses: actions/upload-artifact@v4
+        with:
+          name: odc-onboard-v2-aarch64-release
+          path: |
+            release-dist/*.tar.gz
+            release-dist/*.sha256
+
+  # ── Publish GitHub Release with all packaged assets (tags only) ──────────
+  publish:
+    needs: [build-odc-root-linux, build-odc-onboard-v2-aarch64]
+    if: github.ref_type == 'tag'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download all release artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Collect assets
+        run: |
+          mkdir -p assets
+          find artifacts -type f \( -name '*.tar.gz' -o -name '*.sha256' \) \
+            -exec cp {} assets/ \;
+          echo "Release assets:"; ls -lh assets
+
+      - name: Create / update GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: OpenDroneCore ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}
+          generate_release_notes: true
+          fail_on_unmatched_files: true
+          files: |
+            assets/*.tar.gz
+            assets/*.sha256
