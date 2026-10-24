@@ -44,15 +44,16 @@ jobs:
 
       - name: Build odc-root in Docker and export artifacts
         working-directory: odc-root
-        env:
-          DOCKER_BUILDKIT: "1"
         run: |
-          # The Dockerfile's final stage is `FROM scratch` containing /output.
-          # BuildKit's local exporter writes that filesystem straight to disk
-          # (no `docker create` on a scratch image, which has no command).
+          # Build the `builder` stage (ubuntu-based, has a shell) which runs
+          # the compile + unit tests, then extract /output via a container.
+          # (The final `FROM scratch` stage has no command, so docker create
+          # can't run against it.)
+          docker build --target builder -t odc-root-linux:ci -f deploy/linux/Dockerfile .
           mkdir -p deploy/export/linux
-          docker build --output type=local,dest=deploy/export/linux \
-            -f deploy/linux/Dockerfile .
+          cid=$(docker create odc-root-linux:ci)
+          docker cp "$cid:/output/." deploy/export/linux/
+          docker rm "$cid"
           echo "Exported artifacts:"
           ls -lhR deploy/export/linux
 
