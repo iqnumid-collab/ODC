@@ -1,0 +1,19 @@
+flowchart TB
+  Disc[MODEM_DISCOVERY] --> DSC[QMI-DSC preflight]
+  DSC --> DMS[QMI-DMS identity mode]
+  DMS --> UIM[QMI-UIM card states]
+  UIM --> Gate{SIM ready and APN set?}
+  Gate -->|no| SM_err[QMI-SM Error backoff hotplug]
+  Gate -->|yes| NAS[QMI-NAS register RF]
+  NAS --> WDS[QMI-WDS session]
+  WDS --> NET[QMI-NET iface ping]
+  NET --> SM_ok[QMI-SM happy path restart]
+  SM_err --> Gaps[COMPLIANCE_GAPS not FAIL]
+  SM_ok --> Gaps
+
+  UIM -.->|fixture| F1[no_SIM runnable today]
+  UIM -.->|fixture| F2[plain_SIM planned]
+  UIM -.->|SKIP| F3[PIN_SIM unavailable]
+  NAS -.->|fixture| F4[RF_attenuate]
+  WDS -.->|fixture| F5[wrong_APN]
+  WDS -.->|placeholder| F6[APN_TBD]

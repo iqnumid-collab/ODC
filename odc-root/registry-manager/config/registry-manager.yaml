@@ -1,0 +1,35 @@
+version: 1
+
+general:
+  log_level: info
+  pid_file: /run/odc-root/registry-manager.pid
+
+ipc:
+  socket_path: /run/odc-root/odc-ipc.sock
+
+database:
+  path: /var/lib/odc-root/odc-root.db
+
+websocket:
+  listen_port: 9443
+  listen_address: 0.0.0.0
+  tls_cert_path: /etc/odc-root/ws/server.crt
+  tls_key_path: /etc/odc-root/ws/server.key
+  url_path: /ws
+  max_connections: 1000
+  idle_timeout_sec: 300
+  mtls:
+    enabled: true
+    ca_cert_path: /etc/odc-root/ca/ca.crt
+    verify_depth: 2
+    crl_path: ""
+    cipher_list: "ECDHE+AESGCM:!aNULL:!MD5:!RC4"
+    require_client_cert: true
+
+ca:
+  cert_path: /etc/odc-root/ca/ca.crt
+  key_path: /etc/odc-root/ca/ca.key
+  key_bits: 2048
+  validity_days: 365
+
+webhooks: []

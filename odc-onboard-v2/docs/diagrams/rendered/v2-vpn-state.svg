@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 761.683 581.1" width="761.683" height="581.1" style="--bg:#1a1b26;--fg:#a9b1d6;--line:#3d59a1;--accent:#7aa2f7;--muted:#565f89;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<polyline class="edge" data-from="_start" data-to="Idle" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="161.79850000000005,304.55 161.79850000000005,332.225 274.08166666666665,332.225 274.08166666666665,351" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Idle" data-to="Connecting" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="start / auto" points="274.08166666666665,387.9 274.08166666666665,480.20000000000005 211.56000000000006,480.20000000000005 211.56000000000006,504.20000000000005" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Connecting" data-to="Connected" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="handshake OK" points="168.10400000000004,504.20000000000005 168.10400000000004,492.20000000000005 80,492.20000000000005 80,88.9 473.994,88.9 473.994,76.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Connecting" data-to="Error" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="failure" points="189.83200000000005,504.20000000000005 189.83200000000005,492.20000000000005 169.74666666666667,492.20000000000005 169.74666666666667,327 233.69783333333334,327 233.69783333333334,313.45" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Connected" data-to="Disconnecting" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="stop" points="491.6066666666667,76.9 491.6066666666667,100.9 374.1185,100.9 374.1185,187.2" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Connected" data-to="Reconnecting" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="health fail" points="509.21933333333334,76.9 509.21933333333334,363 497.81033333333335,363 497.81033333333335,431.30000000000007 497.535,431.30000000000007 497.535,443.30000000000007" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Reconnecting" data-to="Connecting" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="476.95833333333337,480.20000000000005 476.95833333333337,492.20000000000005 233.288,492.20000000000005 233.288,504.20000000000005" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Disconnecting" data-to="Disconnected" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="374.1185,224.10000000000002 374.11850000000004,276.55" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Disconnected" data-to="Idle" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="374.11850000000004,313.45000000000005 374.11850000000004,332.225 274.08166666666665,332.225 274.08166666666665,351" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Error" data-to="Reconnecting" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="retry policy" points="259.0431666666667,313.45 259.0431666666667,327 371.72366666666665,327 371.72366666666665,431.30000000000007 456.38166666666666,431.30000000000007 456.38166666666666,443.30000000000007" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Connected" data-to="IpReady" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="IPv4 assigned" points="526.832,76.9 526.832,112.9 564.7090000000001,112.9 564.7090000000001,181.2 609.6113333333333,181.2 609.6113333333333,187.2" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="IpReady" data-to="Connected" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="address removed" points="639.8966666666666,187.2 639.8966666666666,181.2 661.981,181.2 661.981,100.9 544.4446666666666,100.9 544.4446666666666,76.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="edge-label" data-from="Idle" data-to="Connecting" data-label="start / auto">
+  <rect x="241.08166666666665" y="430.90000000000003" width="65.76400000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="273.96366666666665" y="446.05" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">start / auto</text>
+</g>
+<g class="edge-label" data-from="Connecting" data-to="Connected" data-label="handshake OK">
+  <rect x="36.00000000000001" y="454.90000000000003" width="87.14800000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="79.57400000000001" y="470.05" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">handshake OK</text>
+</g>
+<g class="edge-label" data-from="Connecting" data-to="Error" data-label="failure">
+  <rect x="145.74666666666667" y="430.90000000000003" width="47.35" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="169.42166666666668" y="446.05" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">failure</text>
+</g>
+<g class="edge-label" data-from="Connected" data-to="Disconnecting" data-label="stop">
+  <rect x="355.1185" y="107.9" width="37.846000000000004" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="374.0415" y="123.05000000000001" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">stop</text>
+</g>
+<g class="edge-label" data-from="Connected" data-to="Reconnecting" data-label="health fail">
+  <rect x="466.81033333333335" y="370.00000000000006" width="61.01200000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="497.3163333333334" y="385.15000000000003" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">health fail</text>
+</g>
+<g class="edge-label" data-from="Error" data-to="Reconnecting" data-label="retry policy">
+  <rect x="335.72366666666665" y="394.00000000000006" width="71.70400000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="371.5756666666667" y="409.15000000000003" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">retry policy</text>
+</g>
+<g class="edge-label" data-from="Connected" data-to="IpReady" data-label="IPv4 assigned">
+  <rect x="522.2090000000001" y="119.9" width="84.77200000000002" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="564.595" y="135.05" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">IPv4 assigned</text>
+</g>
+<g class="edge-label" data-from="IpReady" data-to="Connected" data-label="address removed">
+  <rect x="610.981" y="119.9" width="101.404" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="661.683" y="135.05" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">address removed</text>
+</g>
+<g class="node" data-id="_start" data-label="" data-shape="state-start">
+  <circle cx="161.79850000000005" cy="290.55" r="12" fill="var(--_text)" stroke="none" />
+</g>
+<g class="node" data-id="Idle" data-label="Idle" data-shape="rounded">
+  <rect x="242.73266666666666" y="351" width="62.69799999999999" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="274.08166666666665" y="369.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Idle</text>
+</g>
+<g class="node" data-id="Connecting" data-label="Connecting" data-shape="rounded">
+  <rect x="146.37600000000003" y="504.20000000000005" width="108.64" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="200.69600000000003" y="522.6500000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Connecting</text>
+</g>
+<g class="node" data-id="Connected" data-label="Connected" data-shape="rounded">
+  <rect x="456.3813333333333" y="40" width="105.676" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="509.21933333333334" y="58.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Connected</text>
+</g>
+<g class="node" data-id="Error" data-label="Error" data-shape="rounded">
+  <rect x="208.35250000000002" y="276.55" width="76.036" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="246.37050000000002" y="295" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Error</text>
+</g>
+<g class="node" data-id="Disconnecting" data-label="Disconnecting" data-shape="rounded">
+  <rect x="310.9065" y="187.2" width="126.424" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="374.1185" y="205.64999999999998" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Disconnecting</text>
+</g>
+<g class="node" data-id="Reconnecting" data-label="Reconnecting" data-shape="rounded">
+  <rect x="415.22833333333335" y="443.30000000000007" width="123.46" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="476.95833333333337" y="461.75000000000006" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Reconnecting</text>
+</g>
+<g class="node" data-id="Disconnected" data-label="Disconnected" data-shape="rounded">
+  <rect x="312.3885" y="276.55" width="123.46" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="374.11850000000004" y="295" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Disconnected</text>
+</g>
+<g class="node" data-id="IpReady" data-label="IpReady" data-shape="rounded">
+  <rect x="579.3259999999999" y="187.2" width="90.856" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="624.7539999999999" y="205.64999999999998" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">IpReady</text>
+</g>
+</svg>

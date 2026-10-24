@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750.5219999999999 304.75" width="750.5219999999999" height="304.75" style="--bg:#1a1b26;--fg:#a9b1d6;--line:#3d59a1;--accent:#7aa2f7;--muted:#565f89;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<g class="subgraph" data-id="molt" data-label="molt_192_168_10_10">
+  <rect x="505.3499999999999" y="56.899999999999984" width="179.17200000000003" height="178.70000000000002" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="505.3499999999999" y="56.899999999999984" width="179.17200000000003" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="517.3499999999999" y="70.89999999999998" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">molt_192_168_10_10</text>
+</g>
+<g class="subgraph" data-id="dut" data-label="DUT_rpi_eth0">
+  <rect x="58" y="40" width="204.36599999999996" height="130.7" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="58" y="40" width="204.36599999999996" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="70" y="54" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">DUT_rpi_eth0</text>
+</g>
+<polyline class="edge" data-from="SrcM" data-to="Cmp" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="rtsp://192.168.10.10:8554/stream" points="668.5219999999999,192.7 702.5219999999999,192.7 702.5219999999999,245.60000000000002 40,245.60000000000002 40,119.35 74,119.35" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Cmp" data-to="MonM" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="rtsp://DUT_IP:8555/stream" points="246.36599999999996,119.35 521.3499999999999,119.35" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="edge-label" data-from="SrcM" data-to="Cmp" data-label="rtsp://192.168.10.10:8554/stream">
+  <rect x="296.9219999999999" y="229.60000000000002" width="158.42800000000003" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="376.1359999999999" y="244.75000000000003" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">rtsp://192.168.10.10:8554/stream</text>
+</g>
+<g class="edge-label" data-from="Cmp" data-to="MonM" data-label="rtsp://DUT_IP:8555/stream">
+  <rect x="312.366" y="103.35" width="142.98399999999998" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="383.85799999999995" y="118.5" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">rtsp://DUT_IP:8555/stream</text>
+</g>
+<g class="node" data-id="SrcM" data-label="odc-video-source
+:8554" data-shape="rectangle">
+  <rect x="521.3499999999999" y="165.79999999999998" width="147.17200000000003" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="594.9359999999999" y="192.7" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="594.9359999999999" dy="-3.9000000000000012">odc-video-source</tspan><tspan x="594.9359999999999" dy="16.900000000000002">:8554</tspan></text>
+</g>
+<g class="node" data-id="MonM" data-label="odc-rtsp-monitor" data-shape="rectangle">
+  <rect x="521.3499999999999" y="100.89999999999998" width="138.28000000000003" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="590.4899999999999" y="119.34999999999998" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">odc-rtsp-monitor</text>
+</g>
+<g class="node" data-id="Cmp" data-label="rtsp.compressor
+listen 0.0.0.0:8555
+ingest from molt LAN IP" data-shape="rectangle">
+  <rect x="74" y="84" width="172.36599999999996" height="70.7" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="160.183" y="119.35" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="160.183" dy="-12.350000000000001">rtsp.compressor</tspan><tspan x="160.183" dy="16.900000000000002">listen 0.0.0.0:8555</tspan><tspan x="160.183" dy="16.900000000000002">ingest from molt LAN IP</tspan></text>
+</g>
+</svg>

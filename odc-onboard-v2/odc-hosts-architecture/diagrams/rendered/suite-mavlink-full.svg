@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1489.685 391.15" width="1489.685" height="391.15" style="--bg:#1a1b26;--fg:#a9b1d6;--line:#3d59a1;--accent:#7aa2f7;--muted:#565f89;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<g class="subgraph" data-id="moltHost" data-label="molt_orchestrator">
+  <rect x="1020.4350000000001" y="62" width="232.52399999999994" height="226.70000000000002" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="1020.4350000000001" y="62" width="232.52399999999994" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="1032.435" y="76" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">molt_orchestrator</text>
+</g>
+<g class="subgraph" data-id="dut" data-label="odc_device_Pi">
+  <rect x="52" y="144.7" width="750.993" height="173.45000000000002" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="52" y="144.7" width="750.993" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="64" y="158.7" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">odc_device_Pi</text>
+</g>
+<polyline class="edge" data-from="Driver" data-to="dut" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="apply_fixture_graph_cli" points="1236.9589999999998,189.35000000000002 1282.9589999999998,189.35000000000002 1282.9589999999998,332 39.999999999999886,332 39.999999999999886,221.14999999999998 51.999999999999886,221.14999999999998" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="RTR" data-to="GCS_LAN" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="LAN_GCS" points="463.902,265.9 461.823,265.9 461.823,254.25 1046.068,254.25" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="VPN" data-to="HEX" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="WG_OVPN" points="435.74399999999997,201 461.823,201 461.823,196.14999999999998 894.2950000000001,196.14999999999998 894.2950000000001,50.99999999999997 1294.9589999999998,50.99999999999997 1294.9589999999998,129.87499999999994 1306.9589999999998,129.87499999999994" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="EXT" data-to="HEX" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="UDP_client_target_ip" points="786.993,283.7 844.993,283.69999999999993 844.993,298.7 1294.9589999999998,298.7 1294.9589999999998,148.32499999999996 1306.9589999999998,148.32499999999996" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="GCS_VPN" data-to="HEX" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1227.3259999999998,124.45 1282.9589999999998,124.44999999999999 1282.9589999999998,139.09999999999997 1306.9589999999998,139.09999999999997" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="FC" data-to="RTR" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="UART" points="184.791,272.05 333.032,272.05" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="VPN" data-to="EXT" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="transport_binding" points="435.74399999999997,213.3 461.823,213.3 461.823,218.14999999999998 603.821,218.14999999999998 603.821,277.55 639.821,277.55" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="RTR" data-to="EXT" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="router_ref" points="463.902,278.2 461.823,278.2 461.823,289.85 639.821,289.85" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="edge-label" data-from="Driver" data-to="dut" data-label="apply_fixture_graph_cli">
+  <rect x="1144.449" y="316" width="130.51000000000002" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="1209.7040000000002" y="331.15" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">apply_fixture_graph_cli</text>
+</g>
+<g class="edge-label" data-from="RTR" data-to="GCS_LAN" data-label="LAN_GCS">
+  <rect x="904.0770000000001" y="238.24999999999997" width="66.358" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="937.2560000000001" y="253.39999999999998" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">LAN_GCS</text>
+</g>
+<g class="edge-label" data-from="VPN" data-to="HEX" data-label="WG_OVPN">
+  <rect x="902.2950000000001" y="35" width="68.14" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="936.3650000000001" y="50.15" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">WG_OVPN</text>
+</g>
+<g class="edge-label" data-from="EXT" data-to="HEX" data-label="UDP_client_target_ip">
+  <rect x="852.993" y="282.70000000000005" width="117.44200000000004" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="911.714" y="297.85" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">UDP_client_target_ip</text>
+</g>
+<g class="edge-label" data-from="FC" data-to="RTR" data-label="UART">
+  <rect x="228.791" y="256.05" width="46.162" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="251.87199999999999" y="271.2" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">UART</text>
+</g>
+<g class="edge-label" data-from="VPN" data-to="EXT" data-label="transport_binding">
+  <rect x="493.823" y="202.15" width="101.99800000000002" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="544.822" y="217.3" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">transport_binding</text>
+</g>
+<g class="edge-label" data-from="RTR" data-to="EXT" data-label="router_ref">
+  <rect x="511.6429999999999" y="273.85" width="66.358" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="544.8219999999999" y="289" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">router_ref</text>
+</g>
+<g class="node" data-id="HEX" data-label="hexa_five_tunnel" data-shape="rectangle">
+  <rect x="1306.9589999999998" y="120.64999999999998" width="142.726" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1378.322" y="139.09999999999997" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">hexa_five_tunnel</text>
+</g>
+<g class="node" data-id="Driver" data-label="SSH_driver" data-shape="rectangle">
+  <rect x="1123.873" y="170.9" width="113.086" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1180.416" y="189.35000000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">SSH_driver</text>
+</g>
+<g class="node" data-id="GCS_LAN" data-label="GCS_LAN_TCP5760_UDP" data-shape="rectangle">
+  <rect x="1046.068" y="235.8" width="200.52399999999994" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1146.33" y="254.25" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">GCS_LAN_TCP5760_UDP</text>
+</g>
+<g class="node" data-id="GCS_VPN" data-label="GCS_over_tunnel_UDP" data-shape="rectangle">
+  <rect x="1046.068" y="106" width="181.25799999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1136.697" y="124.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">GCS_over_tunnel_UDP</text>
+</g>
+<g class="node" data-id="FC" data-label="ttyACM0_FC" data-shape="rectangle">
+  <rect x="68" y="253.6" width="116.79099999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="126.3955" y="272.05" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">ttyACM0_FC</text>
+</g>
+<g class="node" data-id="RTR" data-label="mavlink_router" data-shape="rectangle">
+  <rect x="333.032" y="253.6" width="130.87" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="398.467" y="272.05" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">mavlink_router</text>
+</g>
+<g class="node" data-id="EXT" data-label="mavlink_extender" data-shape="rectangle">
+  <rect x="639.821" y="265.25" width="147.17200000000003" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="713.407" y="283.7" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">mavlink_extender</text>
+</g>
+<g class="node" data-id="VPN" data-label="vpn_client" data-shape="rectangle">
+  <rect x="333.032" y="188.7" width="102.712" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="384.388" y="207.14999999999998" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">vpn_client</text>
+</g>
+</svg>

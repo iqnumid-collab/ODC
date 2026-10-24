@@ -1,0 +1,29 @@
+# ODC-DEV-MAV Phases A–B: primary router only (LAN GCS sharing)
+# Install as /etc/odc-onboard/system.yaml on DUT. No VPN / RTSP / cellular.
+version: 2
+
+general:
+  log_level: info
+  socket: /run/odc-onboard/odc-onboard.sock
+
+components:
+  - id: mav_primary
+    type: mavlink.router
+    enabled: true
+    config:
+      tcp_server_port: 5760
+      dedup_period_sec: 5
+      report_stats: true
+      endpoints:
+        - type: uart
+          name: flight_controller
+          device: /dev/ttyACM0
+          baud: [115200, 1500000, 57600]
+        - type: udp
+          name: gcs
+          address: 0.0.0.0
+          port: 14550
+          mode: server
+
+links: []
+triggers: []

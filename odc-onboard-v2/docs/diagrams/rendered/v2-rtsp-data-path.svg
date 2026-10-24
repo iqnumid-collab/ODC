@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1032.8960000000002 470" width="1032.8960000000002" height="470" style="--bg:#1a1b26;--fg:#a9b1d6;--line:#3d59a1;--accent:#7aa2f7;--muted:#565f89;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="seq-arrow" markerWidth="8" markerHeight="5" refX="8" refY="2.5" orient="auto-start-reverse">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" />
+  </marker>
+  <marker id="seq-arrow-open" markerWidth="8" markerHeight="5" refX="8" refY="2.5" orient="auto-start-reverse">
+    <polyline points="0 0, 8 2.5, 0 5" fill="none" stroke="var(--_arrow)" stroke-width="1" />
+  </marker>
+</defs>
+<line class="lifeline" data-actor="CAM" x1="112.18299999999999" y1="70" x2="112.18299999999999" y2="440" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="VPN" x1="301.3585" y1="70" x2="301.3585" y2="440" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="RTSP" x1="457.18899999999996" y1="70" x2="457.18899999999996" y2="440" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="BR" x1="629.3215" y1="70" x2="629.3215" y2="440" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="MON" x1="817.7560000000001" y1="70" x2="817.7560000000001" y2="440" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="EB" x1="962.8960000000001" y1="70" x2="962.8960000000001" y2="440" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<g class="message" data-from="CAM" data-to="VPN" data-label="RTSP H.264 on tunnel subnet" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="112.18299999999999" y1="90" x2="301.3585" y2="90" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="206.77075" y="80" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">RTSP H.264 on tunnel subnet</text>
+</g>
+<g class="message" data-from="RTSP" data-to="BR" data-label="start with TransportBinding" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="457.18899999999996" y1="130" x2="629.3215" y2="130" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="543.2552499999999" y="120" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">start with TransportBinding</text>
+</g>
+<g class="message" data-from="BR" data-to="VPN" data-label="rtspsrc ingest from tunnel IP" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="629.3215" y1="170" x2="301.3585" y2="170" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="465.34000000000003" y="160" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">rtspsrc ingest from tunnel IP</text>
+</g>
+<g class="message" data-from="BR" data-to="BR" data-label="decode → x265enc → rtph265pay" data-line-style="solid" data-arrow-head="filled" data-self="true">
+  <polyline points="629.3215,210 659.3215,210 659.3215,230 629.3215,230" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="667.3215" y="220" font-size="11" text-anchor="start" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">decode → x265enc → rtph265pay</text>
+</g>
+<g class="message" data-from="BR" data-to="RTSP" data-label="GstRTSPServer output port 8555" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="629.3215" y1="280" x2="457.18899999999996" y2="280" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="543.2552499999999" y="270" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">GstRTSPServer output port 8555</text>
+</g>
+<g class="message" data-from="MON" data-to="RTSP" data-label="connect rtsp://0.0.0.0:8555/stream" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="817.7560000000001" y1="320" x2="457.18899999999996" y2="320" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="637.4725000000001" y="310" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">connect rtsp://0.0.0.0:8555/stream</text>
+</g>
+<g class="message" data-from="RTSP" data-to="EB" data-label="RtspCompressorStatusEvent running" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="457.18899999999996" y1="360" x2="962.8960000000001" y2="360" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="710.0425" y="350" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">RtspCompressorStatusEvent running</text>
+</g>
+<g class="message" data-from="RTSP" data-to="EB" data-label="metrics bandwidth fps" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="457.18899999999996" y1="400" x2="962.8960000000001" y2="400" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="710.0425" y="390" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">metrics bandwidth fps</text>
+</g>
+<g class="actor" data-id="CAM" data-label="Camera RTSP Source" data-type="participant">
+  <rect x="30" y="30" width="164.36599999999999" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="112.18299999999999" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">Camera RTSP Source</text>
+</g>
+<g class="actor" data-id="VPN" data-label="vpn_cloud tunnel" data-type="participant">
+  <rect x="234.36599999999999" y="30" width="133.985" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="301.3585" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">vpn_cloud tunnel</text>
+</g>
+<g class="actor" data-id="RTSP" data-label="rtsp_cloud" data-type="participant">
+  <rect x="408.35099999999994" y="30" width="97.676" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="457.18899999999996" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">rtsp_cloud</text>
+</g>
+<g class="actor" data-id="BR" data-label="RtspBridge GStreamer" data-type="participant">
+  <rect x="546.027" y="30" width="166.589" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="629.3215" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">RtspBridge GStreamer</text>
+</g>
+<g class="actor" data-id="MON" data-label="odc-rtsp-monitor" data-type="participant">
+  <rect x="752.6160000000001" y="30" width="130.28000000000003" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="817.7560000000001" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">odc-rtsp-monitor</text>
+</g>
+<g class="actor" data-id="EB" data-label="EB" data-type="participant">
+  <rect x="922.8960000000001" y="30" width="80" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="962.8960000000001" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">EB</text>
+</g>
+</svg>

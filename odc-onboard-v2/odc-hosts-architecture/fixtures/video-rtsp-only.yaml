@@ -1,0 +1,24 @@
+version: 2
+general:
+  log_level: info
+  socket: /run/odc-onboard/odc-onboard.sock
+
+components:
+  - id: rtsp_lab
+    type: rtsp.compressor
+    enabled: true
+    config:
+      input_host: 127.0.0.1
+      output_codec: h265
+      output_bitrate_kbps: 800
+      output_width: 1280
+      output_height: 720
+      output_framerate: 30
+      input_port: 8554
+      input_path: /stream
+      output_port: 8555
+      output_path: /stream
+      input_use_tcp: true
+
+links: []
+triggers: []

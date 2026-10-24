@@ -1,0 +1,28 @@
+flowchart TD
+    IPC["graph.apply{}"] --> APPLY["GraphRuntime::apply({})"]
+    APPLY --> VALIDATE{"validator::is_valid?"}
+
+    VALIDATE -->|"no"| FAIL["return false"]
+    VALIDATE -->|"yes"| FORCE{"force==true?"}
+    FORCE -->|"yes"| FULL_REBUILD["stop_all + rebuild"]
+    FORCE -->|"no"| RECONCILE["reconcile_locked()"]
+
+    RECONCILE --> COLLECT["Collect schema vs runtime IDs"]
+    COLLECT --> REMOVED{"removed from schema?"}
+    REMOVED -->|"yes"| REMOVE["remove_component()"]
+    REMOVED -->|"no"| ADDED{"new in schema?"}
+
+    ADDED -->|"yes"| BUILD["GraphBuilder::build() -> start()"]
+    ADDED -->|"no"| CHANGED{"config unchanged?"}
+
+    CHANGED -->|"yes"| SKIP["Leave running"]
+    CHANGED -->|"no"| RECONFIG["configure() new config"]
+
+    BUILD --> ACTIVE["Active connections survive"]
+    SKIP --> ACTIVE
+    RECONFIG --> ACTIVE
+    REMOVE --> ACTIVE
+
+    style SKIP fill:#6f6,stroke:#0f0
+    style ACTIVE fill:#6f6,stroke:#0f0
+    style FULL_REBUILD fill:#ff6,stroke:#f80

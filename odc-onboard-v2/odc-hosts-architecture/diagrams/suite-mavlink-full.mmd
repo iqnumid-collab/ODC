@@ -1,0 +1,24 @@
+flowchart LR
+  subgraph moltHost [molt_orchestrator]
+    Driver[SSH_driver]
+    GCS_LAN[GCS_LAN_TCP5760_UDP]
+    GCS_VPN[GCS_over_tunnel_UDP]
+  end
+
+  subgraph dut [odc_device_Pi]
+    FC[ttyACM0_FC]
+    RTR[mavlink_router]
+    EXT[mavlink_extender]
+    VPN[vpn_client]
+  end
+
+  HEX[hexa_five_tunnel]
+
+  Driver -->|apply_fixture_graph_cli| dut
+  FC -->|UART| RTR
+  RTR -->|LAN_GCS| GCS_LAN
+  VPN -->|WG_OVPN| HEX
+  VPN -->|transport_binding| EXT
+  RTR -->|router_ref| EXT
+  EXT -->|UDP_client_target_ip| HEX
+  GCS_VPN --> HEX

@@ -1,0 +1,32 @@
+flowchart LR
+    subgraph Cellular["cellular.qmi"]
+        C_OUT_WAN["out: wan"]
+        C_OUT_MET["out: metrics"]
+    end
+
+    subgraph VPN["vpn.wireguard / vpn.openvpn"]
+        V_IN_WAN["in: wan"]
+        V_OUT_TUN["out: tunnel"]
+        V_OUT_ST["out: state"]
+    end
+
+    subgraph MavRouter["mavlink.router"]
+        MR_OUT["out: router"]
+    end
+
+    subgraph MavExt["mavlink.extender"]
+        ME_IN_TR["in: transport"]
+        ME_IN_UP["in: upstream"]
+        ME_OUT["out: status"]
+    end
+
+    subgraph RtspComp["rtsp.compressor"]
+        R_IN["in: transport"]
+        R_OUT_ST["out: status"]
+        R_OUT_MET["out: metrics"]
+    end
+
+    C_OUT_WAN --> V_IN_WAN
+    V_OUT_TUN --> ME_IN_TR
+    V_OUT_TUN --> R_IN
+    MR_OUT --> ME_IN_UP

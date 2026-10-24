@@ -1,0 +1,16 @@
+sequenceDiagram
+  participant Drv as molt driver
+  participant Dut as odc-device-*
+  participant FC as Flight controller UART
+  participant Rtr as mavlink.router
+  participant Gcs as GCS client TCP/UDP
+
+  Note over Drv,Gcs: Phases A/B — see suite-mavlink-full for VPN extender path
+  Drv->>Dut: apply mav-router-only fixture
+  Drv->>Rtr: start mav_primary
+  Rtr->>FC: open /dev/ttyACM0
+  FC-->>Rtr: heartbeats / MAVLink frames
+  Drv->>Gcs: connect DUT:5760 or :14550
+  Gcs-->>Drv: messages received
+  Note over Dut: Phases A/B: no vpn / rtsp / cellular required
+  Drv->>Rtr: stop start + daemon restart cases

@@ -1,0 +1,14 @@
+flowchart TB
+  subgraph lab["Lab subnet 192.168.10.0/24"]
+    molt["odc-host: molt\n192.168.10.10\nbuild / orchestrate / odc-hook"]
+    server["odc-server: hexa-five\n192.168.10.16\ntunnel + registry"]
+    pi4["target: rpi-4b\nodc-device-rpi-4b\n192.168.10.11"]
+    pi5["target: rpi-5\nodc-device-rpi-5\n192.168.10.12"]
+  end
+
+  molt -->|"SSH deploy + tests"| server
+  molt -->|"SSH deploy + tests"| pi4
+  molt -->|"SSH deploy + tests"| pi5
+  pi4 -->|"WG / OpenVPN"| server
+  pi5 -->|"WG / OpenVPN"| server
+  molt -->|"odc-hook WSS mTLS :9443\nmonitored on molt"| server

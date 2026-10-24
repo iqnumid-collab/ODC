@@ -1,0 +1,30 @@
+stateDiagram-v2
+  [*] --> Idle
+  Idle --> DeviceOpening: START_or_DEVICE_DETECTED
+  DeviceOpening --> Initializing: DEVICE_OPENED
+  DeviceOpening --> Error: TIMEOUT
+  DeviceOpening --> Idle: DEVICE_REMOVED
+  Initializing --> Initializing: CLIENTS_READY_HW_INFO
+  Initializing --> SimAuth: MODEM_ONLINE
+  Initializing --> Error: TIMEOUT
+  Initializing --> Idle: DEVICE_REMOVED
+  SimAuth --> Registering: SIM_READY
+  SimAuth --> SimAuth: SIM_PIN_NEEDED
+  SimAuth --> Error: SIM_ERROR_or_TIMEOUT
+  SimAuth --> Idle: DEVICE_REMOVED
+  Registering --> DataConnecting: REGISTERED
+  Registering --> Error: TIMEOUT_or_REG_FAILED
+  Registering --> Idle: DEVICE_REMOVED
+  DataConnecting --> Connected: DATA_CONNECTED
+  DataConnecting --> Error: DATA_FAILED_or_TIMEOUT
+  DataConnecting --> Idle: DEVICE_REMOVED
+  Connected --> DataDisconnecting: DISCONNECT_REQ
+  Connected --> Error: BEARER_LOST_or_FATAL
+  Connected --> Idle: DEVICE_REMOVED
+  DataDisconnecting --> Registering: DATA_DISCONNECTED
+  DataDisconnecting --> Error: TIMEOUT
+  DataDisconnecting --> Idle: DEVICE_REMOVED
+  Error --> DeviceOpening: BACKOFF_retries_left_soft_reset
+  Error --> Idle: BACKOFF_max_retries
+  Error --> DeviceOpening: DEVICE_DETECTED
+  Error --> Idle: DEVICE_REMOVED

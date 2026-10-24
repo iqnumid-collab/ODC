@@ -1,0 +1,28 @@
+flowchart TB
+  subgraph driver [Driver_and_bridge_roles]
+    Molt["odc-host-molt\n192.168.10.10\nSSH + optional source/monitor"]
+  end
+
+  subgraph dutA [DUT_rpi_4b]
+    A_Src["video-source :8554"]
+    A_Cmp["rtsp.compressor :8555"]
+    A_Src --> A_Cmp
+  end
+
+  subgraph dutB [DUT_rpi_5]
+    B_Src["video-source :8554"]
+    B_Cmp["rtsp.compressor :8555"]
+    B_Src --> B_Cmp
+  end
+
+  Hexa["hexa-five\noptional remote monitor"]
+
+  Molt -->|"SSH control"| A_Cmp
+  Molt -->|"SSH control"| B_Cmp
+  Molt -->|"LAN RTSP ingest optional"| A_Cmp
+  Molt -->|"LAN RTSP consume"| A_Cmp
+  Molt -->|"LAN RTSP consume"| B_Cmp
+  A_Cmp -->|"LAN RTSP peer consume"| B_Cmp
+  B_Cmp -->|"LAN RTSP peer consume"| A_Cmp
+  Hexa -.->|"optional consume"| A_Cmp
+  Hexa -.->|"optional consume"| B_Cmp

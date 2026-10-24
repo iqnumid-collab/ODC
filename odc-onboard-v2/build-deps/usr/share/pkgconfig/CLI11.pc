@@ -1,0 +1,9 @@
+prefix=/usr
+exec_prefix=${prefix}
+includedir=${prefix}/include
+
+Name: CLI11
+Description: C++ command line parser
+Version: 2.1.2
+
+Cflags: -I${includedir}

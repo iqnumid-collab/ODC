@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "general": { "log_level": "debug" },
+  "vpn": {
+    "wireguard": {
+      "connections": [
+        { "id": "wg-peer1", "enabled": true, "config_path": "/home/molt/Documents/GitHub/opendronecore/odc-onboard/tests/vpn-configs/wg-client.conf",
+          "metadata": { "name": "WG Peer 1 (10.66.66.2)", "auto_start": false, "max_retries": 3,
+            "health_check": { "enabled": true, "interval_sec": 30, "ping_host": "10.66.66.1" } } },
+        { "id": "wg-peer2", "enabled": true, "config_path": "/home/molt/Documents/GitHub/opendronecore/odc-onboard/tests/vpn-configs/wg-client2.conf",
+          "metadata": { "name": "WG Peer 2 (10.66.66.3)", "auto_start": false, "max_retries": 3,
+            "health_check": { "enabled": true, "interval_sec": 30, "ping_host": "10.66.66.1" } } },
+        { "id": "wg-peer3", "enabled": true, "config_path": "/home/molt/Documents/GitHub/opendronecore/odc-onboard/tests/vpn-configs/wg-client3.conf",
+          "metadata": { "name": "WG Peer 3 (10.66.66.4)", "auto_start": false, "max_retries": 3,
+            "health_check": { "enabled": true, "interval_sec": 30, "ping_host": "10.66.66.1" } } }
+      ]
+    },
+    "openvpn": {
+      "connections": [
+        { "id": "ovpn-1", "enabled": true, "config_path": "/home/molt/Documents/GitHub/opendronecore/odc-onboard/tests/vpn-configs/odc-client.ovpn",
+          "metadata": { "name": "OpenVPN to hexa-five", "auto_start": false, "max_retries": 5,
+            "health_check": { "enabled": true, "interval_sec": 30, "ping_host": "192.168.255.1" } } }
+      ]
+    }
+  },
+  "mavlink": { "enabled": false },
+  "rtsp": { "enabled": true, "auto_start_on_vpn": true }
+}

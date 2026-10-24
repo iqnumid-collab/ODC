@@ -1,0 +1,38 @@
+sequenceDiagram
+    participant Test as Test Script
+    participant Src as odc-video-source
+    participant Daemon as odc-onboard Daemon
+    participant Mgr as RtspCompressorManager
+    participant Bridge as RtspBridge
+    participant Client as odc-rtsp-monitor
+
+    Note over Src: Serves mercedes.mp4 on loop
+    Test->>Src: ./odc-video-source --video mercedes.mp4 --port 19554
+    Src-->>Src: GStreamer: filesrc → parse → rtph264pay → RTSP server
+    Src-->>Test: Listening on rtsp://127.0.0.1:19554/source
+
+    Test->>Daemon: start daemon (rtsp: enabled, auto_start_on_vpn: true)
+
+    Note over Test: Trigger compressor — assign IP to loopback
+    Test->>Test: ip addr add 10.77.7.1/24 dev lo
+    Test->>Daemon: Netlink address event detected
+    Daemon->>Mgr: Auto-spawn compressor
+
+    Note over Bridge: Transcode pipeline starts
+    Mgr->>Bridge: bridge->start(input_uri=rtsp://127.0.0.1:19554/source)
+
+    Note over Bridge: GStreamer ingest: rtspsrc → decode → encode h265 → RTSP serve
+    Bridge-->>Daemon: output: rtsp://0.0.0.0:8554/stream
+
+    Test->>Client: ./odc-rtsp-monitor rtsp://127.0.0.1:8554/stream --tcp --duration 5
+    Client->>Bridge: RTSP DESCRIBE / SETUP / PLAY
+    Bridge-->>Client: RTP video stream (H.265 720p 800kbps)
+    Client->>Client: Pad probe measures bandwidth every 500ms
+    Client-->>Test: Avg Bandwidth: 750.3 kbps, Total Frames: 287
+
+    Test->>Daemon: CLI: rtsp stop compressor
+    Daemon->>Bridge: g_main_loop_quit + bridge->stop()
+    Bridge-->>Bridge: Tear down GStreamer pipeline
+
+    Test->>Src: kill video source
+    Test->>Daemon: kill daemon

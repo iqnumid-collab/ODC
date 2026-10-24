@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Isolated PM2 wrapper for HexaRtspCompressor services.
+# Uses a dedicated PM2_HOME so hexa processes never appear in
+# (or interfere with) any other PM2 instance on this machine.
+#
+# Usage — drop-in replacement for `pm2`:
+#   ./hexa-pm2 start ecosystem.config.js
+#   ./hexa-pm2 list
+#   ./hexa-pm2 logs hexa-bridge --lines 50
+#   ./hexa-pm2 monit
+#   ./hexa-pm2 stop all
+#   ./hexa-pm2 save
+#
+# Logs live in: ~/.hexa-pm2/logs/
+
+export PM2_HOME="${PM2_HOME:-$HOME/.hexa-pm2}"
+exec pm2 "$@"

@@ -1,0 +1,17 @@
+stateDiagram-v2
+    [*] --> Idle
+
+    Idle --> DeviceOpening: open /dev/cdc-wdm0
+    DeviceOpening --> Initializing
+    Initializing --> SimAuth: SIM present
+    SimAuth --> Registering
+    Registering --> DataConnecting
+    DataConnecting --> Connected: PDP context up
+    Connected --> DataDisconnecting: disconnect
+    DataDisconnecting --> Idle
+    Connected --> Error: modem fault
+    Error --> Idle: reset
+
+    Connected: emit QmiConnectionEvent
+    Connected: emit cellular.wan_ready
+    Connected: output wan port to VPN components

@@ -1,0 +1,14 @@
+build/
+build-*/
+deploy/output/
+deploy/export/
+*.o
+*.so
+*.a
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*~
+*.swp
+.DS_Store

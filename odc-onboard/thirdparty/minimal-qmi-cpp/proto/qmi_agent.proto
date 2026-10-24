@@ -1,0 +1,83 @@
+syntax = "proto3";
+package qmiagent;
+
+// ── Hardware info (published once on CONNECTED) ──────────────
+
+message ModemHwInfo {
+    string manufacturer = 1;
+    string model        = 2;
+    string revision     = 3;
+    string hw_revision  = 4;
+    string imei         = 5;
+    string imsi         = 6;
+    string iccid        = 7;
+}
+
+// ── State event (published on every state transition) ────────
+
+message QmiStateEvent {
+    string state        = 1;   // e.g. "CONNECTED", "ERROR"
+    string device_path  = 2;
+    string iface_name   = 3;
+    ModemHwInfo hw_info = 4;   // populated on CONNECTED, empty otherwise
+    string detail       = 5;   // optional human-readable detail
+    int64  timestamp_ms = 6;
+}
+
+// ── Telemetry (published periodically while CONNECTED) ───────
+
+message IpSettings {
+    string ipv4_addr = 1;
+    string gateway   = 2;
+    string dns1      = 3;
+    string dns2      = 4;
+    uint32 mtu       = 5;
+}
+
+message QmiTelemetry {
+    string device_path        = 1;
+    int32  operating_mode     = 2;
+    int32  link_layer_protocol= 3;
+    bool   qos_enabled        = 4;
+    int32  rssi_dbm           = 5;
+    int32  radio_interface    = 6;
+    int32  lte_rsrp           = 7;
+    float  lte_snr            = 8;
+    int32  registration_state = 9;
+    int32  ps_attach_state    = 10;
+    uint32 plmn_mcc           = 11;
+    uint32 plmn_mnc           = 12;
+    string operator_name      = 13;
+    int32  roaming            = 14;
+    int32  connection_status  = 15;
+    IpSettings ip_settings    = 16;
+    bool   internet_reachable = 17;
+    int32  ping_latency_ms    = 18;
+    int64  timestamp_ms       = 19;
+}
+
+// ── Commands (consumed from qmi-commands topic) ──────────────
+
+message QmiCommand {
+    enum Action {
+        ACTION_UNSPECIFIED = 0;
+        CONNECT            = 1;
+        DISCONNECT         = 2;
+        GET_STATUS         = 3;
+        GET_METRICS        = 4;
+    }
+    Action action         = 1;
+    string correlation_id = 2;
+    string apn            = 3;   // optional, for CONNECT
+    string pin            = 4;   // optional, for CONNECT
+}
+
+// ── Responses (published to qmi-responses topic) ─────────────
+
+message QmiResponse {
+    string correlation_id = 1;
+    bool   ok             = 2;
+    string state          = 3;   // current state string
+    string payload        = 4;   // JSON or human-readable detail
+    int64  timestamp_ms   = 5;
+}

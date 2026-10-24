@@ -1,0 +1,123 @@
+# odc-onboard-v2 example system configuration
+# See docs/ARCHITECTURE.md for full schema reference.
+
+version: 2
+
+general:
+  log_level: info
+  socket: /run/odc-onboard/odc-onboard.sock
+
+components:
+  - id: cellular0
+    type: cellular.qmi
+    enabled: true
+    config:
+      device: /dev/cdc-wdm0
+      iface: wwan0
+      auto_connect: true
+      # apn: "internet"
+      # ip_type: 46                    # 4 | 6 | 46 (dual-stack)
+      # profile_index: -1              # >=0 start by 3GPP profile
+      # ensure_profile: false          # create/modify profile from apn before start
+      # modem_autoconnect: false       # modem-side WDS autoconnect
+      # hard_reset_after_soft_fails: 2
+      # hard_reset_mode: dms_then_usb  # dms | usb | dms_then_usb
+      # fcc_unlock:
+      #   enabled: false
+      #   method: standard             # standard | foxconn | foxconn_v2
+      # pdns:                          # omit for single top-level session
+      #   - id: internet
+      #     apn: "internet"
+      #     ip_type: 4
+      #     iface: wwan0
+      #   - id: ims
+      #     profile_index: 2
+      #     iface: wwan0.1
+
+  - id: vpn_cloud
+    type: vpn.wireguard
+    enabled: true
+    config:
+      config_path: /etc/odc-onboard/vpn/cloud.conf
+      wan: cellular0
+
+  - id: mav_primary
+    type: mavlink.router
+    enabled: true
+    config:
+      tcp_server_port: 5760
+      dedup_period_sec: 5
+      endpoints:
+        - type: uart
+          name: flight_controller
+          device: /dev/ttyACM0
+          baud: [1500000, 115200]
+        - type: udp
+          name: gcs
+          address: 0.0.0.0
+          port: 14550
+          mode: server
+
+  - id: mav_ext_cloud
+    type: mavlink.extender
+    enabled: true
+    config:
+      udp_port: 14550
+      auto: true
+
+  - id: rtsp_cloud
+    type: rtsp.compressor
+    enabled: true
+    config:
+      output_codec: h265
+      output_bitrate_kbps: 800
+      output_width: 1280
+      output_height: 720
+      output_framerate: 30
+      input_port: 8554
+      input_path: /stream
+      output_port: 8555
+      output_path: /stream
+      input_use_tcp: true
+
+links:
+  - id: cloud_mavlink
+    from:
+      component: vpn_cloud
+      port: tunnel
+    to:
+      component: mav_ext_cloud
+      port: transport
+    bind:
+      fields: [connection_id, interface_name, target_ip]
+
+  - id: cloud_rtsp
+    from:
+      component: vpn_cloud
+      port: tunnel
+    to:
+      component: rtsp_cloud
+      port: transport
+    bind:
+      fields: [connection_id, interface_name, target_ip]
+
+  - id: router_to_ext_cloud
+    from:
+      component: mav_primary
+      port: router
+    to:
+      component: mav_ext_cloud
+      port: upstream
+    bind:
+      fields: [router_ref]
+
+triggers:
+  - id: cloud_services_on_connect
+    on: vpn.connected
+    source: vpn_cloud
+    activate: [cloud_mavlink, cloud_rtsp]
+
+  - id: cloud_services_on_disconnect
+    on: vpn.disconnected
+    source: vpn_cloud
+    deactivate: [cloud_mavlink, cloud_rtsp]

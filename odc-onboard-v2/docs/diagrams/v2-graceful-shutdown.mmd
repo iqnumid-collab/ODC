@@ -1,0 +1,27 @@
+sequenceDiagram
+    autonumber
+    participant SIG as SIGTERM
+    participant GR as GraphRuntime
+    participant RTSP as rtsp.compressor*
+    participant MAVE as mavlink.extender*
+    participant MAVR as mav_primary
+    participant VPN as vpn.*
+    participant CELL as cellular0
+    participant IPC as IpcServer
+
+    SIG->>GR: shutdown requested
+    GR->>IPC: stop accepting
+    loop each RTSP instance
+        GR->>RTSP: stop() — g_main_loop_quit
+    end
+    loop each MAVLink extender
+        GR->>MAVE: stop()
+    end
+    GR->>MAVR: stop()
+    loop each VPN
+        GR->>VPN: disconnect()
+    end
+    GR->>CELL: stop()
+    GR->>GR: destroy Circuit
+    GR->>IPC: remove socket file
+    GR-->>SIG: exit 0

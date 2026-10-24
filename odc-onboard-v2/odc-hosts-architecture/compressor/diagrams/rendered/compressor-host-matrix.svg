@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1691.0069999999998 364.84999999999997" width="1691.0069999999998" height="364.84999999999997" style="--bg:#1a1b26;--fg:#a9b1d6;--line:#3d59a1;--accent:#7aa2f7;--muted:#565f89;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<g class="subgraph" data-id="molt" data-label="molt">
+  <rect x="58" y="40" width="392.869" height="226.70000000000002" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="58" y="40" width="392.869" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="70" y="54" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">molt</text>
+</g>
+<g class="subgraph" data-id="eachDut" data-label="each_Pi">
+  <rect x="618.9490000000001" y="141.32500000000002" width="659.9179999999999" height="113.80000000000001" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="618.9490000000001" y="141.32500000000002" width="659.9179999999999" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="630.9490000000001" y="155.32500000000002" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">each_Pi</text>
+</g>
+<g class="subgraph" data-id="hexa" data-label="hexa_five">
+  <rect x="1442.195" y="135.77500000000003" width="208.81199999999998" height="96.9" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="1442.195" y="135.77500000000003" width="208.81199999999998" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="1454.195" y="149.77500000000003" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">hexa_five</text>
+</g>
+<polyline class="edge" data-from="molt" data-to="eachDut" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="SSH control" points="450.869,177.35000000000002 492.869,177.35000000000002 492.869,189 606.9490000000001,189 606.9490000000001,198.22500000000002 618.9490000000001,198.22500000000002" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="eachDut" data-to="eachDut" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="LAN RTSP peer" points="838.9216666666667,141.32500000000002 838.9216666666667,131.32500000000002 1058.8943333333334,131.32500000000002 1058.8943333333334,141.32500000000002" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="SrcOpt" data-to="eachDut" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="LAN RTSP" points="434.869,167.35000000000002 497.6210000000001,167.35000000000002 497.6210000000001,155.7 606.9490000000001,155.7 606.9490000000001,169.77500000000003 618.9490000000001,169.77500000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="eachDut" data-to="MonOpt" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="LAN RTSP" points="618.9490000000001,226.675 606.9490000000001,226.675 606.9490000000001,305.70000000000005 40,305.7 40,96.3 265.467,96.30000000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="eachDut" data-to="HexMon" data-style="dotted" data-arrow-start="false" data-arrow-end="true" data-label="LAN RTSP" points="1278.867,198.22500000000002 1458.195,198.22500000000002" fill="none" stroke="var(--_line)" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Orch" data-to="SrcOpt" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="217.467,167.35000000000002 241.46699999999998,167.35000000000002 241.46699999999998,167.35000000000002 265.467,167.35000000000002" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Orch" data-to="MonOpt" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="217.467,167.35000000000002 241.46699999999998,167.35000000000002 241.46699999999998,102.45 265.467,102.45" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Orch" data-to="Ev" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="217.467,167.35000000000002 241.46699999999998,167.35000000000002 241.46699999999998,232.25 265.467,232.25" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Tools" data-to="Daemon" data-style="solid" data-arrow-start="false" data-arrow-end="false" points="819.912,212.22500000000002 867.912,212.22500000000002" fill="none" stroke="var(--_line)" stroke-width="1" />
+<polyline class="edge" data-from="Daemon" data-to="Lan" data-style="solid" data-arrow-start="false" data-arrow-end="false" points="1079.551,212.22500000000002 1127.551,212.22500000000002" fill="none" stroke="var(--_line)" stroke-width="1" />
+<g class="edge-label" data-from="molt" data-to="eachDut" data-label="SSH control">
+  <rect x="500.86899999999997" y="173" width="74.08000000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="537.909" y="188.15" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">SSH control</text>
+</g>
+<g class="edge-label" data-from="eachDut" data-to="eachDut" data-label="LAN RTSP peer">
+  <rect x="902.067" y="104.02500000000002" width="93.68200000000002" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="948.908" y="119.17500000000003" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">LAN RTSP peer</text>
+</g>
+<g class="edge-label" data-from="SrcOpt" data-to="eachDut" data-label="LAN RTSP">
+  <rect x="505.6210000000001" y="139.7" width="69.328" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="540.2850000000001" y="154.85" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">LAN RTSP</text>
+</g>
+<g class="edge-label" data-from="eachDut" data-to="MonOpt" data-label="LAN RTSP">
+  <rect x="529.6210000000001" y="289.7" width="69.328" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="564.2850000000001" y="304.84999999999997" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">LAN RTSP</text>
+</g>
+<g class="edge-label" data-from="eachDut" data-to="HexMon" data-label="LAN RTSP">
+  <rect x="1322.867" y="182.22500000000002" width="69.328" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="1357.531" y="197.37500000000003" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">LAN RTSP</text>
+</g>
+<g class="node" data-id="Orch" data-label="Orchestrate suite" data-shape="rectangle">
+  <rect x="74" y="148.9" width="143.467" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="145.7335" y="167.35000000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Orchestrate suite</text>
+</g>
+<g class="node" data-id="SrcOpt" data-label="Optional source :8554" data-shape="rectangle">
+  <rect x="265.467" y="148.9" width="169.402" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="350.168" y="167.35000000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Optional source :8554</text>
+</g>
+<g class="node" data-id="MonOpt" data-label="Optional monitor" data-shape="rectangle">
+  <rect x="265.467" y="84" width="134.57500000000002" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="332.7545" y="102.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Optional monitor</text>
+</g>
+<g class="node" data-id="Ev" data-label="Archive evidence" data-shape="rectangle">
+  <rect x="265.467" y="213.8" width="146.43099999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="338.6825" y="232.25" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Archive evidence</text>
+</g>
+<g class="node" data-id="Tools" data-label="local source and monitor" data-shape="rectangle">
+  <rect x="634.9490000000001" y="193.77500000000003" width="184.96299999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="727.4305" y="212.22500000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">local source and monitor</text>
+</g>
+<g class="node" data-id="Daemon" data-label="odc-onboard-v2 compressor" data-shape="rectangle">
+  <rect x="867.912" y="193.77500000000003" width="211.639" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="973.7315000000001" y="212.22500000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">odc-onboard-v2 compressor</text>
+</g>
+<g class="node" data-id="Lan" data-label="eth0 192.168.10.x
+listen and ingest" data-shape="rectangle">
+  <rect x="1127.551" y="185.32500000000002" width="135.31599999999997" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1195.2089999999998" y="212.22500000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1195.2089999999998" dy="-3.9000000000000012">eth0 192.168.10.x</tspan><tspan x="1195.2089999999998" dy="16.900000000000002">listen and ingest</tspan></text>
+</g>
+<g class="node" data-id="HexMon" data-label="Optional remote monitor" data-shape="rectangle">
+  <rect x="1458.195" y="179.77500000000003" width="176.81199999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1546.6009999999999" y="198.22500000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Optional remote monitor</text>
+</g>
+</svg>

@@ -1,0 +1,31 @@
+[Unit]
+Description=ODC Onboard v2 connectivity daemon
+Documentation=file:///opt/odc/share/docs
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStartPre=/usr/bin/install -d -m 0755 /run/odc-onboard /var/log/odc-onboard
+ExecStart=/opt/odc/bin/odc-onboard-v2 --daemon --config /etc/odc-onboard/system.yaml
+ExecStopPost=/usr/bin/rm -f /run/odc-onboard/odc-onboard.sock /run/odc-onboard/odc-onboard.pid
+Restart=on-failure
+RestartSec=5
+
+RuntimeDirectory=odc-onboard
+RuntimeDirectoryMode=0755
+
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_RAW
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_RAW
+NoNewPrivileges=false
+ProtectSystem=false
+ProtectHome=false
+ReadWritePaths=/etc/odc-onboard /var/log/odc-onboard /run/odc-onboard /opt/odc
+PrivateTmp=false
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=odc-onboard-v2
+
+[Install]
+WantedBy=multi-user.target

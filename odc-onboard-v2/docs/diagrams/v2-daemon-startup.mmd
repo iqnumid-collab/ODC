@@ -1,0 +1,29 @@
+sequenceDiagram
+    autonumber
+    participant Main as main()
+    participant LC as AppLifecycle
+    participant YAML as system.yaml
+    participant GB as GraphBuilder
+    participant GV as GraphValidator
+    participant GR as GraphRuntime
+    participant CR as CircuitRegistry
+    participant CELL as cellular0
+    participant MAV as mav_primary
+    participant VPN as vpn_cloud
+    participant IPC as IpcServer
+
+    Main->>LC: startup --config system.yaml --daemon
+    LC->>YAML: load + parse
+    LC->>GB: build(schema)
+    GB->>GV: validate(schema)
+    GV-->>GB: OK
+    GB->>CR: create Circuit + components
+    CR->>GR: register runtime
+    GR->>CELL: start()
+    GR->>MAV: start()
+    CELL-->>GR: cellular.wan_ready
+    GR->>VPN: start() — WAN available
+    LC->>IPC: listen /run/odc-onboard/odc-onboard.sock
+    loop orchestrator tick
+        GR->>GR: Process() + event dispatch
+    end

@@ -1,0 +1,66 @@
+flowchart TB
+    subgraph Interfaces["User Interfaces"]
+        CLI["Interactive CLI\n(REPL Console)"]
+        IPC["JSON-RPC 2.0\nUnix Socket API"]
+        TUI["TUI Frontend\n(FTXUI)"]
+    end
+
+    subgraph Core["odc-onboard Core"]
+        Lifecycle["AppLifecycle\nStartup/Shutdown"]
+        EventBus["EventBus\nAsync Pub/Sub"]
+        LogControl["LogControl\n(spdlog)"]
+        ThreadPool["ThreadOrchestrator\nThread Pool"]
+    end
+
+    subgraph VPN["VPN Management"]
+        VpnMgr["VpnManager\nConnection CRUD"]
+        WG["WireGuard\nConnection"]
+        OVPN["OpenVPN\nConnection"]
+        VpnMonitor["VpnInterfaceMonitor\nNetlink RTNL"]
+        Netlink["NetlinkManager\nRoutes/Addresses"]
+    end
+
+    subgraph MAVLink["MAVLink Routing"]
+        MavRouter["MavRouter\nPrimary Router"]
+        MavExtMgr["MavExtenderManager\nAuto-Spawn Extenders"]
+        Extender1["Extender Thread\n(VPN Tunnel #1)"]
+        Extender2["Extender Thread\n(VPN Tunnel #2)"]
+    end
+
+    subgraph QMI["Cellular Modem"]
+        QmiCtrl["QmiModemController\nModem Control"]
+    end
+
+    subgraph External["External World"]
+        Drone["Flight Controller\n(MAVLink)"]
+        GCS["Ground Control Station"]
+        Modem["4G/5G Modem\n(QMI)"]
+        VPNPeer["VPN Peer\n(Cloud/Server)"]
+    end
+
+    CLI --> Lifecycle
+    IPC --> Lifecycle
+    TUI --> IPC
+    Lifecycle --> EventBus
+    Lifecycle --> ThreadPool
+    Lifecycle --> VpnMgr
+    Lifecycle --> VpnMonitor
+    Lifecycle --> MavRouter
+    Lifecycle --> MavExtMgr
+    Lifecycle --> QmiCtrl
+
+    VpnMgr --> WG & OVPN
+    VpnMonitor -- "Interface Events" --> EventBus
+    EventBus -- "Interface Up/IP Assigned" --> MavExtMgr
+
+    WG & OVPN -- "VPN Tunnel" --> VPNPeer
+    VpnMonitor -- "Netlink Watch" --> Netlink
+
+    MavExtMgr --> Extender1 & Extender2
+    Extender1 & Extender2 -- "UDP over VPN" --> MavRouter
+    MavRouter -- "Telemetry" --> Drone
+    MavRouter -- "Telemetry" --> GCS
+
+    QmiCtrl -- "QMI Protocol" --> Modem
+
+    EventBus --> LogControl

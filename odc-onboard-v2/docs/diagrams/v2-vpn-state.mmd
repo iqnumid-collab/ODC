@@ -1,0 +1,21 @@
+stateDiagram-v2
+    [*] --> Idle
+
+    Idle --> Connecting: start / auto
+    Connecting --> Connected: handshake OK
+    Connecting --> Error: failure
+    Connected --> Disconnecting: stop
+    Connected --> Reconnecting: health fail
+    Reconnecting --> Connecting
+    Disconnecting --> Disconnected
+    Disconnected --> Idle
+    Error --> Reconnecting: retry policy
+
+    Connected: emit vpn.connected trigger
+    Connected: emit tunnel TransportBinding
+    Connected --> IpReady: IPv4 assigned
+    IpReady: emit vpn.ip_ready
+    IpReady --> Connected: address removed
+
+    Disconnected: emit vpn.disconnected trigger
+    Error: emit vpn.disconnected trigger

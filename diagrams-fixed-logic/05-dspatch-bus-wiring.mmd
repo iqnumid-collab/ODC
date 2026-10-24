@@ -1,0 +1,29 @@
+flowchart LR
+    subgraph Source["Source Components"]
+        CELL["CellularWanComponent\noutputs: wan[0]"]
+        VPN["VpnTunnelComponent\ninputs: wan[0]\noutputs: tunnel[0], state[1]"]
+        ROUTER["MavRouterComponent\noutputs: router[0]"]
+    end
+
+    subgraph Target["Target Components"]
+        EXT["MavExtenderComponent\ninputs: transport[0], upstream[1]\noutputs: status[0]"]
+        RTSP["RtspCompressorComponent\ninputs: transport[0]\noutputs: status[0]"]
+    end
+
+    VPN -->|"tunnel[0] ConnectOutToIn"| EXT
+    ROUTER -->|"router[0] ConnectOutToIn"| EXT
+    VPN -->|"tunnel[0] ConnectOutToIn"| RTSP
+    CELL -->|"wan[0] ConnectOutToIn"| VPN
+
+    subgraph Process["Process_() per Tick"]
+        CELL_P["Push wan_ready_ to bus"]
+        VPN_P["Read wan input\nPush binding_ to tunnel\nPush state to state"]
+        ROUTER_P["Push RouterRef to bus"]
+        EXT_P["Read transport input\napply_binding()\nRead upstream input\napply_router()"]
+        RTSP_P["Read transport input\napply_binding()"]
+    end
+
+    VPN_P --> EXT_P
+    ROUTER_P --> EXT_P
+    VPN_P --> RTSP_P
+    CELL_P --> VPN_P

@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1146.8456666666666 1071.8809999999999" width="1146.8456666666666" height="1071.8809999999999" style="--bg:#1a1b26;--fg:#a9b1d6;--line:#3d59a1;--accent:#7aa2f7;--muted:#565f89;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<polyline class="edge" data-from="Disc" data-to="DSC" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="795.60425,76.9 795.60425,124.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="DSC" data-to="DMS" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="795.60425,161.8 795.60425,209.8" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="DMS" data-to="UIM" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="795.60425,246.70000000000002 795.60425,294.70000000000005" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="UIM" data-to="Gate" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="747.67355,331.6 747.67355,343.6 409.1376666666667,343.6 409.1376666666667,355.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Gate" data-to="SM_err" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="no" points="374.5575,528.5008333333333 374.5575,659.981 147.672,659.981 147.67199999999997,743.981" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Gate" data-to="NAS" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="yes" points="443.7178333333333,528.5008333333334 443.7178333333333,599.081 518.2126666666667,599.081 518.2126666666667,679.381" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="NAS" data-to="WDS" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="490.72,716.281 490.72,752.281 439.1051666666666,752.281 439.1051666666666,743.981" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="WDS" data-to="NET" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="402.3121666666666,780.881 402.3121666666666,813.1809999999999 257.452,813.1809999999999 257.452,816.8809999999999" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="NET" data-to="SM_ok" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="257.452,853.7809999999998 257.452,905.4809999999999" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="SM_err" data-to="Gaps" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="147.67199999999997,780.881 147.67199999999997,968.6809999999998 202.56199999999998,968.6809999999998 202.56199999999998,994.9809999999999" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="SM_ok" data-to="Gaps" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="257.452,942.3809999999999 257.452,968.6809999999998 202.56199999999998,968.6809999999998 202.56199999999998,994.9809999999999" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="UIM" data-to="F1" data-style="dotted" data-arrow-start="false" data-arrow-end="true" data-label="fixture" points="779.62735,331.6 779.62735,514.181 648.4591666666668,514.181 648.4591666666668,594.481" fill="none" stroke="var(--_line)" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="UIM" data-to="F2" data-style="dotted" data-arrow-start="false" data-arrow-end="true" data-label="fixture" points="811.58115,331.6 811.58115,643.381 840.3036666666667,643.381 840.3036666666667,743.981" fill="none" stroke="var(--_line)" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="UIM" data-to="F3" data-style="dotted" data-arrow-start="false" data-arrow-end="true" data-label="SKIP" points="843.53495,331.6 843.53495,343.6000000000001 1025.1086666666665,343.6000000000001 1025.1086666666665,423.9000000000001" fill="none" stroke="var(--_line)" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="NAS" data-to="F4" data-style="dotted" data-arrow-start="false" data-arrow-end="true" data-label="fixture" points="545.7053333333333,716.281 545.7053333333333,728.281 698.096,728.281 698.096,816.8809999999999" fill="none" stroke="var(--_line)" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="WDS" data-to="F5" data-style="dotted" data-arrow-start="false" data-arrow-end="true" data-label="fixture" points="439.1051666666666,780.881 439.1051666666666,837.1809999999999 440.775,837.1809999999999 440.775,905.4809999999999" fill="none" stroke="var(--_line)" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="WDS" data-to="F6" data-style="dotted" data-arrow-start="false" data-arrow-end="true" data-label="placeholder" points="475.8981666666666,780.881 475.8981666666666,813.1809999999999 576.674,813.1809999999999 576.674,905.4809999999999" fill="none" stroke="var(--_line)" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#arrowhead)" />
+<g class="edge-label" data-from="Gate" data-to="SM_err" data-label="no">
+  <rect x="132.67200000000003" y="666.981" width="29.53" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="147.437" y="682.131" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">no</text>
+</g>
+<g class="edge-label" data-from="Gate" data-to="NAS" data-label="yes">
+  <rect x="500.2126666666667" y="606.081" width="35.47" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="517.9476666666667" y="621.231" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">yes</text>
+</g>
+<g class="edge-label" data-from="UIM" data-to="F1" data-label="fixture">
+  <rect x="624.4591666666668" y="521.181" width="47.35" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="648.1341666666667" y="536.331" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">fixture</text>
+</g>
+<g class="edge-label" data-from="UIM" data-to="F2" data-label="fixture">
+  <rect x="816.3036666666667" y="650.381" width="47.35" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="839.9786666666666" y="665.531" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">fixture</text>
+</g>
+<g class="edge-label" data-from="UIM" data-to="F3" data-label="SKIP">
+  <rect x="1004.1086666666666" y="350.6000000000001" width="41.41" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="1024.8136666666667" y="365.75000000000006" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">SKIP</text>
+</g>
+<g class="edge-label" data-from="NAS" data-to="F4" data-label="fixture">
+  <rect x="674.096" y="735.281" width="47.35" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="697.771" y="750.4309999999999" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">fixture</text>
+</g>
+<g class="edge-label" data-from="WDS" data-to="F5" data-label="fixture">
+  <rect x="416.775" y="844.1809999999999" width="47.35" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="440.45" y="859.3309999999999" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">fixture</text>
+</g>
+<g class="edge-label" data-from="WDS" data-to="F6" data-label="placeholder">
+  <rect x="539.174" y="820.1809999999999" width="74.674" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="576.511" y="835.3309999999999" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">placeholder</text>
+</g>
+<g class="node" data-id="Disc" data-label="MODEM_DISCOVERY" data-shape="rectangle">
+  <rect x="709.42125" y="40" width="172.36599999999996" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="795.60425" y="58.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">MODEM_DISCOVERY</text>
+</g>
+<g class="node" data-id="DSC" data-label="QMI-DSC preflight" data-shape="rectangle">
+  <rect x="723.12975" y="124.9" width="144.949" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="795.60425" y="143.35000000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">QMI-DSC preflight</text>
+</g>
+<g class="node" data-id="DMS" data-label="QMI-DMS identity mode" data-shape="rectangle">
+  <rect x="708.30975" y="209.8" width="174.58899999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="795.60425" y="228.25" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">QMI-DMS identity mode</text>
+</g>
+<g class="node" data-id="UIM" data-label="QMI-UIM card states" data-shape="rectangle">
+  <rect x="715.71975" y="294.70000000000005" width="159.769" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="795.60425" y="313.15000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">QMI-UIM card states</text>
+</g>
+<g class="node" data-id="Gate" data-label="SIM ready and APN set?" data-shape="diamond">
+  <polygon points="409.1376666666667,355.6 512.8781666666666,459.3405 409.1376666666667,563.081 305.3971666666667,459.3405" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="409.1376666666667" y="459.3405" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">SIM ready and APN set?</text>
+</g>
+<g class="node" data-id="SM_err" data-label="QMI-SM Error backoff hotplug" data-shape="rectangle">
+  <rect x="40" y="743.981" width="215.34399999999994" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="147.67199999999997" y="762.431" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">QMI-SM Error backoff hotplug</text>
+</g>
+<g class="node" data-id="NAS" data-label="QMI-NAS register RF" data-shape="rectangle">
+  <rect x="435.73466666666667" y="679.381" width="164.95600000000002" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="518.2126666666667" y="697.831" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">QMI-NAS register RF</text>
+</g>
+<g class="node" data-id="WDS" data-label="QMI-WDS session" data-shape="rectangle">
+  <rect x="365.5191666666666" y="743.981" width="147.17200000000003" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="439.1051666666666" y="762.431" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">QMI-WDS session</text>
+</g>
+<g class="node" data-id="NET" data-label="QMI-NET iface ping" data-shape="rectangle">
+  <rect x="180.902" y="816.8809999999999" width="153.10000000000002" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="257.452" y="835.3309999999999" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">QMI-NET iface ping</text>
+</g>
+<g class="node" data-id="SM_ok" data-label="QMI-SM happy path restart" data-shape="rectangle">
+  <rect x="158.672" y="905.4809999999999" width="197.55999999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="257.452" y="923.9309999999999" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">QMI-SM happy path restart</text>
+</g>
+<g class="node" data-id="Gaps" data-label="COMPLIANCE_GAPS not FAIL" data-shape="rectangle">
+  <rect x="91.55550000000002" y="994.9809999999999" width="222.01299999999992" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="202.56199999999998" y="1013.4309999999999" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">COMPLIANCE_GAPS not FAIL</text>
+</g>
+<g class="node" data-id="F1" data-label="no_SIM runnable today" data-shape="rectangle">
+  <rect x="559.6826666666667" y="594.481" width="177.55299999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="648.4591666666666" y="612.931" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">no_SIM runnable today</text>
+</g>
+<g class="node" data-id="F2" data-label="plain_SIM planned" data-shape="rectangle">
+  <rect x="765.2356666666667" y="743.981" width="150.136" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="840.3036666666667" y="762.431" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">plain_SIM planned</text>
+</g>
+<g class="node" data-id="F3" data-label="PIN_SIM unavailable" data-shape="rectangle">
+  <rect x="943.3716666666667" y="423.9000000000001" width="163.474" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1025.1086666666667" y="442.3500000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">PIN_SIM unavailable</text>
+</g>
+<g class="node" data-id="F4" data-label="RF_attenuate" data-shape="rectangle">
+  <rect x="637.848" y="816.8809999999999" width="120.49600000000001" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="698.096" y="835.3309999999999" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">RF_attenuate</text>
+</g>
+<g class="node" data-id="F5" data-label="wrong_APN" data-shape="rectangle">
+  <rect x="384.23199999999997" y="905.4809999999999" width="113.086" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="440.775" y="923.9309999999999" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">wrong_APN</text>
+</g>
+<g class="node" data-id="F6" data-label="APN_TBD" data-shape="rectangle">
+  <rect x="525.318" y="905.4809999999999" width="102.71199999999999" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="576.674" y="923.9309999999999" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">APN_TBD</text>
+</g>
+</svg>

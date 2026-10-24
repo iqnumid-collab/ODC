@@ -1,0 +1,30 @@
+sequenceDiagram
+    participant CLI as IPC Client
+    participant GH as graph_handlers
+    participant GR as GraphRuntime
+    participant GV as GraphValidator
+
+    CLI->>GH: graph.links.add
+    GH->>GH: parse_link_spec(params)
+
+    alt dry_run == true
+        GH->>GR: validate()
+        GR->>GV: validate(candidate)
+        GV-->>GR: errors[]
+        GR-->>GH: errors[]
+        GH-->>CLI: success valid errors
+    else dry_run == false
+        GH->>GR: add_link(spec)
+        GR->>GR: candidate = schema + link
+        GR->>GV: is_valid(candidate)
+        alt valid
+            GV-->>GR: true
+            GR->>GR: commit + sync + persist
+            GR-->>GH: true
+            GH-->>CLI: success: true
+        else invalid
+            GV-->>GR: false
+            GR-->>GH: false
+            GH-->>CLI: success: false errors
+        end
+    end

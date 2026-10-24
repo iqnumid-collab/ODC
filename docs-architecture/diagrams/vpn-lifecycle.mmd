@@ -1,0 +1,23 @@
+stateDiagram-v2
+    [*] --> Idle: Connection Created
+    Idle --> Connecting: start() called
+    Connecting --> Connected: Tunnel Established
+    Connecting --> Error: Connection Failed
+    Error --> Idle: User Stop
+    Error --> Connecting: Auto-Retry
+    Connected --> Disconnecting: stop() called
+    Disconnecting --> Idle: Tunnel Torn Down
+    Connected --> Error: Health Check Failed
+    Connected --> Reconnecting: Connection Lost
+    Reconnecting --> Connecting: Retry Delay
+    Reconnecting --> Error: Max Retries
+
+    note right of Connecting
+        WireGuard: wg-quick interface setup
+        OpenVPN: TLS handshake + TUN create
+    end note
+
+    note right of Connected
+        Health check thread polls
+        interface every N seconds
+    end note

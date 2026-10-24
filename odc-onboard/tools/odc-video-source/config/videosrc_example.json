@@ -1,0 +1,15 @@
+{
+    "video_file": "mercedes.mp4",
+    "rtsp_address": "0.0.0.0",
+    "rtsp_port": 8554,
+    "mount_path": "/stream",
+    "loop": true,
+    "max_bandwidth_kbps": 2000,
+    "throttle_mode": "delay",
+    "codec": "copy",
+    "bitrate": 0,
+    "width": 0,
+    "height": 0,
+    "framerate": 0,
+    "preset": "ultrafast"
+}

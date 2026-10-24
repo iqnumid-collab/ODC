@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2596.1125 816" width="2596.1125" height="816" style="--bg:#1a1b26;--fg:#a9b1d6;--line:#3d59a1;--accent:#7aa2f7;--muted:#565f89;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 30%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="4.8" refX="8" refY="2.4" orient="auto">
+    <polygon points="0 0, 8 2.4, 0 4.8" fill="var(--_arrow)" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="4.8" refX="0" refY="2.4" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.4, 8 4.8" fill="var(--_arrow)" />
+  </marker>
+</defs>
+<rect x="40.00000000000023" y="40" width="589.5999999999999" height="268" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="40.00000000000023" y="40" width="589.5999999999999" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="52.00000000000023" y="54" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">&quot;User Interfaces&quot;</text>
+<rect x="41.78750000000025" y="352" width="591.3875" height="424" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="41.78750000000025" y="352" width="591.3875" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="53.78750000000025" y="366" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">&quot;odc-onboard Core&quot;</text>
+<rect x="653.1750000000004" y="508" width="781.4499999999998" height="268" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="653.1750000000004" y="508" width="781.4499999999998" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="665.1750000000004" y="522" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">&quot;VPN Management&quot;</text>
+<rect x="1454.6250000000002" y="508" width="755.2375000000002" height="268" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="1454.6250000000002" y="508" width="755.2375000000002" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="1466.6250000000002" y="522" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">&quot;MAVLink Routing&quot;</text>
+<rect x="2229.8625" y="508" width="326.25" height="112" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="2229.8625" y="508" width="326.25" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="2241.8625" y="522" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">&quot;Cellular Modem&quot;</text>
+<rect x="1206.5125000000003" y="40" width="959.0000000000001" height="112" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="1206.5125000000003" y="40" width="959.0000000000001" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="1218.5125000000003" y="54" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">&quot;External World&quot;</text>
+<polyline points="195.97500000000036,288 195.97500000000036,426 345.3500000000005,426" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="480.77500000000055,288 480.77500000000055,426 606.1500000000004,426" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="480.77500000000055,132 480.77500000000055,252" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="475.75000000000045,444 475.75000000000045,464 172.40000000000055,464 172.40000000000055,564" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="475.75000000000045,444 475.75000000000045,464 435.75000000000045,464 435.75000000000045,564" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="475.75000000000045,444 475.75000000000045,464 455.75000000000045,464 455.75000000000045,582 842.2750000000003,582" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="475.75000000000045,444 475.75000000000045,582 1130.3750000000002,582" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="475.75000000000045,444 475.75000000000045,464 528.0375000000004,464 528.0375000000004,582 1476.625,582" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="475.75000000000045,444 475.75000000000045,464 548.0375000000004,464 548.0375000000004,582 1747.125,582" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="475.75000000000045,444 475.75000000000045,464 568.0375000000004,464 568.0375000000004,582 2251.8625,582" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="961.9500000000003,600 961.9500000000003,620 775.1875000000005,620 775.1875000000005,720" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="961.9500000000003,600 961.9500000000003,620 988.4875000000004,620 988.4875000000004,720" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="1913.275,600 1913.275,620 1736.9125000000004,620 1736.9125000000004,720" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="1913.275,600 1913.275,620 2036.0125000000003,620 2036.0125000000003,720" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="172.40000000000055,600 172.40000000000055,720" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<rect x="62.00000000000034" y="252" width="267.95000000000005" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="353.95000000000056" y="252" width="253.65" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="382.5500000000005" y="96" width="196.45000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="345.3500000000005" y="408" width="260.8" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="67.02500000000053" y="564" width="210.75000000000003" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="77.75000000000054" y="720" width="189.3" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="301.77500000000043" y="564" width="267.95000000000005" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="842.2750000000003" y="564" width="239.35000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="676.9625000000004" y="720" width="196.45000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="897.4125000000004" y="720" width="182.15" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="1130.3750000000002" y="564" width="282.25" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="1103.5625000000005" y="720" width="275.1" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="1476.625" y="564" width="225.05" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="1747.125" y="564" width="332.3" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="1599.3625000000004" y="720" width="275.1" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="1898.4625000000003" y="720" width="275.1" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="2251.8625" y="564" width="282.25" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="1228.5125000000003" y="96" width="246.50000000000003" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="1499.0125000000005" y="96" width="203.60000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="1726.6125000000002" y="96" width="175" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="1925.6125000000004" y="96" width="217.9" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<text x="195.97500000000036" y="270" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">&quot;Interactive CLI\n(REPL Console)&quot;</text>
+<text x="480.77500000000055" y="270" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">&quot;JSON-RPC 2.0\nUnix Socket API&quot;</text>
+<text x="480.77500000000055" y="114" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">&quot;TUI Frontend\n(FTXUI)&quot;</text>
+<text x="475.75000000000045" y="426" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">&quot;AppLifecycle\nStartup/Shutdown&quot;</text>
+<text x="172.40000000000055" y="582" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">&quot;EventBus\nAsync Pub/Sub&quot;</text>
+<text x="172.40000000000055" y="738" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">&quot;LogControl\n(spdlog)&quot;</text>
+<text x="435.75000000000045" y="582" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">&quot;ThreadOrchestrator\nThread Pool&quot;</text>
+<text x="961.9500000000003" y="582" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">&quot;VpnManager\nConnection CRUD&quot;</text>
+<text x="775.1875000000005" y="738" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">&quot;WireGuard\nConnection&quot;</text>
+<text x="988.4875000000004" y="738" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">&quot;OpenVPN\nConnection&quot;</text>
+<text x="1271.5000000000002" y="582" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">&quot;VpnInterfaceMonitor\nNetlink RTNL&quot;</text>
+<text x="1241.1125000000004" y="738" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">&quot;NetlinkManager\nRoutes/Addresses&quot;</text>
+<text x="1589.15" y="582" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">&quot;MavRouter\nPrimary Router&quot;</text>
+<text x="1913.275" y="582" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">&quot;MavExtenderManager\nAuto-Spawn Extenders&quot;</text>
+<text x="1736.9125000000004" y="738" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">&quot;Extender Thread\n(VPN Tunnel #1)&quot;</text>
+<text x="2036.0125000000003" y="738" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">&quot;Extender Thread\n(VPN Tunnel #2)&quot;</text>
+<text x="2392.9875" y="582" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">&quot;QmiModemController\nModem Control&quot;</text>
+<text x="1351.7625000000003" y="114" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">&quot;Flight Controller\n(MAVLink)&quot;</text>
+<text x="1600.8125000000005" y="114" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">&quot;Ground Control Station&quot;</text>
+<text x="1814.1125000000002" y="114" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">&quot;4G/5G Modem\n(QMI)&quot;</text>
+<text x="2034.5625000000005" y="114" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">&quot;VPN Peer\n(Cloud/Server)&quot;</text>
+</svg>

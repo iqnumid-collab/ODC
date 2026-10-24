@@ -1,0 +1,19 @@
+[Unit]
+Description=odc-tunnel-manager — VPN server management daemon
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/odc-tunnel-manager --config /etc/odc-root/tunnel-manager.yaml --daemon
+Restart=on-failure
+RestartSec=5
+User=root
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_RAW
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_RAW
+RuntimeDirectory=odc-root
+RuntimeDirectoryMode=0755
+StateDirectory=odc-root
+
+[Install]
+WantedBy=multi-user.target

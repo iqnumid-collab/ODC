@@ -1,0 +1,40 @@
+# ── odc-hook Multi-Platform Build ─────────────────────────────────────────────
+#
+# Usage:
+#   docker compose build                    # Build all images
+#   docker compose run linux-builder        # Build Linux binary
+#   docker compose run windows-builder      # Build Windows binary
+#   docker compose run macos-builder        # Build macOS binary (needs SDK)
+#
+#   docker compose run --rm linux-builder   # Build + auto-remove container
+#
+# Environment:
+#   MACOS_SDK_TARBALL=path/to/sdk.tar.xz    # Set for macOS build
+
+services:
+  linux-builder:
+    build:
+      context: ..
+      dockerfile: deploy/linux/Dockerfile
+    image: odc-hook-linux-builder:latest
+    volumes:
+      - ./output/linux:/output
+
+  windows-builder:
+    build:
+      context: ..
+      dockerfile: deploy/windows/Dockerfile
+    image: odc-hook-windows-builder:latest
+    volumes:
+      - ./output/windows:/output
+
+  macos-builder:
+    build:
+      context: ..
+      dockerfile: deploy/macos/Dockerfile
+      args:
+        SDK_TARBALL: "${MACOS_SDK_TARBALL:-MacOSX14.0.sdk.tar.xz}"
+        MACOS_SDK_VERSION: "14.0"
+    image: odc-hook-macos-builder:latest
+    volumes:
+      - ./output/macos:/output

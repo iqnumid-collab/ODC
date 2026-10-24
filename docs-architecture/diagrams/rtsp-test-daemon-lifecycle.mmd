@@ -1,0 +1,55 @@
+stateDiagram-v2
+    [*] --> ConfigGen: generate_config()
+
+    state ConfigGen {
+        [*] --> EnabledAuto: enabled=true, auto=true
+        EnabledAuto --> EnabledManual: enabled=true, auto=false
+        EnabledManual --> Disabled: enabled=false
+        Disabled --> NoKey: no rtsp key in JSON
+        NoKey --> [*]
+    }
+
+    ConfigGen --> DaemonStart: start_test_daemon(config)
+
+    state DaemonStart {
+        [*] --> ForkDaemon: BINARY --daemon --socket SOCK &
+        ForkDaemon --> WaitForSocket: poll [ -S SOCKET ]
+        WaitForSocket --> Timeout: >10 retries
+        WaitForSocket --> Ready: socket appeared
+        Timeout --> [*]: FAIL
+        Ready --> [*]: PASS
+    }
+
+    DaemonStart --> RunTests: loop over test sections
+
+    state RunTests {
+        [*] --> CheckPriv: has_net_admin?
+        CheckPriv --> NonPrivTests: no → skip sections 6-12,15
+        CheckPriv --> FullTests: yes → run all 15 sections
+        NonPrivTests --> RunCLI: pipe commands via --cli
+        FullTests --> RunCLI: pipe commands + TUN lifecycle
+        RunCLI --> VerifyOutput: assert_contains, assert_exit_code
+        VerifyOutput --> [*]
+    }
+
+    RunTests --> DaemonStop: stop_test_daemon()
+
+    state DaemonStop {
+        [*] --> SigtermDaemon: kill DAEMON_PID
+        SigtermDaemon --> WaitPid: wait DAEMON_PID
+        WaitPid --> RemoveSocket: rm -f SOCKET_PATH
+        RemoveSocket --> [*]
+    }
+
+    DaemonStop --> Score: print_results()
+
+    state Score {
+        [*] --> CountPass: total PASS count
+        CountPass --> CountFail: total FAIL count
+        CountFail --> CountSkip: total SKIP count
+        CountSkip --> Print: print summary table
+        Print --> ExitCode: FAIL > 0 → exit 1 else 0
+        ExitCode --> [*]
+    }
+
+    Score --> [*]

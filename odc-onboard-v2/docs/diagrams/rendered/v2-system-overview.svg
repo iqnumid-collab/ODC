@@ -1,0 +1,232 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1737.9368750000003 1038.1" width="1737.9368750000003" height="1038.1" style="--bg:#1a1b26;--fg:#a9b1d6;--line:#3d59a1;--accent:#7aa2f7;--muted:#565f89;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<g class="subgraph" data-id="Config" data-label="YAML System Schema">
+  <rect x="1234.1818750000002" y="58" width="393.798" height="181.8" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="1234.1818750000002" y="58" width="393.798" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="1246.1818750000002" y="72" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">YAML System Schema</text>
+</g>
+<g class="subgraph" data-id="Runtime" data-label="Graph Runtime">
+  <rect x="920.64425" y="535.6" width="512.473" height="436.5" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="920.64425" y="535.6" width="512.473" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="932.64425" y="549.6" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Graph Runtime</text>
+</g>
+<g class="subgraph" data-id="IPC" data-label="Management Plane">
+  <rect x="923.628875" y="293.8" width="316.553" height="181.8" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="923.628875" y="293.8" width="316.553" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="935.628875" y="307.8" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Management Plane</text>
+</g>
+<g class="subgraph" data-id="Circuit" data-label="DSPatch Circuit — single global">
+  <rect x="161.8223333333333" y="283.20000000000005" width="609.7906666666668" height="403.29999999999995" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="161.8223333333333" y="283.20000000000005" width="609.7906666666668" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="173.8223333333333" y="297.20000000000005" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">DSPatch Circuit — single global</text>
+</g>
+<g class="subgraph" data-id="DataPlane" data-label="Data Plane — bytes">
+  <rect x="40" y="58.00000000000003" width="809.91" height="96.9" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="40" y="58.00000000000003" width="809.91" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="52" y="72.00000000000003" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Data Plane — bytes</text>
+</g>
+<polyline class="edge" data-from="SOCK" data-to="GR" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1068.0116249999999,459.6 1068.0116249999999,810.3000000000001 1159.0967500000002,810.3000000000001 1159.0967500000002,834.3000000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="YAML" data-to="GB" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1384.933375,138.9 1384.933375,162.9 1197.6847500000001,162.9 1197.6847500000001,579.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="PM" data-to="YAML" data-style="dotted" data-arrow-start="false" data-arrow-end="true" data-label="persist" points="1159.0967500000002,956.1 1159.0967499999997,990.1 1637.979875,990.1 1637.979875,40 1384.9333749999998,40 1384.9333749999998,102" fill="none" stroke="var(--_line)" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="FC" data-to="MAVR" data-style="solid" data-arrow-start="true" data-arrow-end="true" data-label="MAVLink" points="142.92399999999998,138.90000000000003 142.92399999999998,196.90000000000003 167.4763333333333,196.90000000000003 167.4763333333333,265.20000000000005 241.03433333333328,265.20000000000005 241.03433333333334,480.4" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" marker-start="url(#arrowhead-start)" />
+<polyline class="edge" data-from="GCS" data-to="MAVE1" data-style="solid" data-arrow-start="true" data-arrow-end="true" data-label="MAVLink via VPN" points="320.49033333333335,138.90000000000003 320.4903333333332,196.90000000000003 299.1095,196.90000000000003 299.1095,265.20000000000005 314.24633333333327,265.20000000000005 314.2463333333334,597.6 284.94575000000003,597.6 284.94575000000003,633.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" marker-start="url(#arrowhead-start)" />
+<polyline class="edge" data-from="GCS" data-to="MAVE2" data-style="solid" data-arrow-start="true" data-arrow-end="true" data-label="MAVLink via VPN" points="383.13266666666664,138.90000000000003 383.13266666666664,196.90000000000003 404.5135,196.90000000000003 404.5135,265.20000000000005 610.1663333333333,265.20000000000005 610.1663333333333,609.6 550.6875,609.6 550.6875,633.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" marker-start="url(#arrowhead-start)" />
+<polyline class="edge" data-from="CAM" data-to="RTSP" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="RTSP ingest" points="559.958,138.90000000000003 559.9580000000001,196.90000000000003 642.6431666666667,196.90000000000003 642.6431666666667,265.20000000000005 731.5723333333333,265.20000000000005 731.5723333333334,597.6 708.5316666666668,597.6 708.5316666666668,633.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="RTSP" data-to="MON" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="RTSP output" points="684.991,670.5 684.991,704.5 859.9099999999999,704.5 859.9099999999999,40 754.0255,40 754.0255,102.00000000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="YAML" data-to="COMP" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1384.933375,138.9 1384.933375,162.9 1321.4298750000003,162.9 1321.4298750000003,186.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="YAML" data-to="LINKS" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1384.933375,138.9 1384.933375,162.9 1448.4368750000003,162.9 1448.4368750000003,186.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="YAML" data-to="TRIG" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1384.933375,138.9 1384.933375,162.9 1563.5878750000004,162.9 1563.5878750000004,186.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="GB" data-to="GV" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1197.6847500000001,616.5 1197.6847500000001,664.5" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="GV" data-to="CR" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1197.6847500000001,701.4000000000001 1197.6847500000001,749.4000000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CR" data-to="GR" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1197.68475,786.3000000000001 1197.68475,810.3000000000001 1159.0967500000002,810.3000000000001 1159.0967500000002,834.3000000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="GR" data-to="LE" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1159.0967500000002,871.2 1159.0967500000002,895.2 991.7052500000001,895.2 991.7052500000001,919.2" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="GR" data-to="TE" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1159.0967500000002,871.2 1159.0967500000002,895.2 1344.2722500000002,895.2 1344.2722500000002,919.2" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="GR" data-to="PM" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1159.0967500000002,871.2 1159.0967500000002,895.2 1159.0967500000002,895.2 1159.0967500000002,919.2" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CLI" data-to="SOCK" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="989.873375,369.4 989.873375,396.05 1068.0116249999999,396.05 1068.0116249999999,422.70000000000005" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="RPC" data-to="SOCK" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1146.1498749999998,369.4 1146.1498749999998,396.05 1068.0116249999999,396.05 1068.0116249999999,422.70000000000005" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CELL" data-to="VPN1" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="wan" points="461.8799166666666,369.4 461.8799166666666,376.1 389.19933333333336,376.1 389.1993333333333,480.40000000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CELL" data-to="VPN2" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="wan" points="498.09324999999995,369.4 498.09324999999995,376.1 540.6593333333333,376.1 540.6593333333333,480.40000000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="VPN1" data-to="MAVE1" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="tunnel" points="367.88166666666666,517.3000000000001 367.88166666666666,529.3000000000001 364.11833333333334,529.3000000000001 364.11833333333334,609.6 320.62725,609.6 320.62725,633.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="VPN1" data-to="RTSP" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="tunnel" points="410.517,517.3000000000001 410.517,529.3000000000001 414.2803333333333,529.3000000000001 414.2803333333333,597.6 661.4503333333332,597.6 661.4503333333332,633.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="VPN2" data-to="MAVE2" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="tunnel" points="540.6593333333333,517.3000000000001 540.6593333333333,609.6 515.006,609.6 515.006,633.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="MAVR" data-to="MAVE1" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="router" points="219.96366666666663,517.3000000000001 219.96366666666663,529.3000000000001 215.35933333333332,529.3000000000001 215.35933333333332,597.6 249.26424999999998,597.6 249.26424999999998,633.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="MAVR" data-to="MAVE2" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="router" points="262.10499999999996,517.3000000000001 262.10499999999996,529.3000000000001 266.7093333333333,529.3000000000001 266.7093333333333,621.6 479.3245,621.6 479.3245,633.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="edge-label" data-from="PM" data-to="YAML" data-label="persist">
+  <rect x="1612.4798750000002" y="952.8000000000001" width="50.91400000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="1637.9368750000003" y="967.95" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">persist</text>
+</g>
+<g class="edge-label" data-from="FC" data-to="MAVR" data-label="MAVLink">
+  <rect x="135.9763333333333" y="203.90000000000003" width="62.20000000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="167.07633333333328" y="219.05000000000004" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">MAVLink</text>
+</g>
+<g class="edge-label" data-from="GCS" data-to="MAVE1" data-label="MAVLink via VPN">
+  <rect x="248.10950000000003" y="203.90000000000003" width="101.40400000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="298.8115" y="219.05000000000004" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">MAVLink via VPN</text>
+</g>
+<g class="edge-label" data-from="GCS" data-to="MAVE2" data-label="MAVLink via VPN">
+  <rect x="353.5135" y="203.90000000000003" width="101.40400000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="404.2155" y="219.05000000000004" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">MAVLink via VPN</text>
+</g>
+<g class="edge-label" data-from="CAM" data-to="RTSP" data-label="RTSP ingest">
+  <rect x="604.1431666666667" y="203.90000000000003" width="76.456" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="642.3711666666667" y="219.05000000000004" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">RTSP ingest</text>
+</g>
+<g class="edge-label" data-from="RTSP" data-to="MON" data-label="RTSP output">
+  <rect x="821.4099999999999" y="667.2" width="76.456" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="859.6379999999998" y="682.35" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">RTSP output</text>
+</g>
+<g class="edge-label" data-from="CELL" data-to="VPN1" data-label="wan">
+  <rect x="370.6993333333333" y="407.1000000000001" width="36.658" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="389.0283333333333" y="422.25000000000006" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">wan</text>
+</g>
+<g class="edge-label" data-from="CELL" data-to="VPN2" data-label="wan">
+  <rect x="522.1593333333334" y="407.1000000000001" width="36.658" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="540.4883333333333" y="422.25000000000006" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">wan</text>
+</g>
+<g class="edge-label" data-from="VPN1" data-to="MAVE1" data-label="tunnel">
+  <rect x="340.61833333333334" y="560.3000000000001" width="46.162000000000006" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="363.69933333333336" y="575.45" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">tunnel</text>
+</g>
+<g class="edge-label" data-from="VPN1" data-to="RTSP" data-label="tunnel">
+  <rect x="390.7803333333333" y="560.3000000000001" width="46.162000000000006" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="413.86133333333333" y="575.45" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">tunnel</text>
+</g>
+<g class="edge-label" data-from="VPN2" data-to="MAVE2" data-label="tunnel">
+  <rect x="517.1593333333334" y="560.3000000000001" width="46.162000000000006" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="540.2403333333334" y="575.45" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">tunnel</text>
+</g>
+<g class="edge-label" data-from="MAVR" data-to="MAVE1" data-label="router">
+  <rect x="191.35933333333332" y="560.3000000000001" width="47.349999999999994" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="215.0343333333333" y="575.45" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">router</text>
+</g>
+<g class="edge-label" data-from="MAVR" data-to="MAVE2" data-label="router">
+  <rect x="242.7093333333333" y="560.3000000000001" width="47.349999999999994" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="266.3843333333333" y="575.45" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">router</text>
+</g>
+<g class="node" data-id="YAML" data-label="system.yaml" data-shape="rectangle">
+  <rect x="1328.3903750000002" y="102" width="113.086" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1384.933375" y="120.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">system.yaml</text>
+</g>
+<g class="node" data-id="COMP" data-label="&quot;components[" data-shape="rectangle">
+  <rect x="1261.1818750000002" y="186.9" width="120.49599999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1321.4298750000003" y="205.35000000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">&quot;components[</text>
+</g>
+<g class="node" data-id="LINKS" data-label="&quot;links[" data-shape="rectangle">
+  <rect x="1409.6778750000003" y="186.9" width="77.518" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1448.4368750000003" y="205.35000000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">&quot;links[</text>
+</g>
+<g class="node" data-id="TRIG" data-label="&quot;triggers[" data-shape="rectangle">
+  <rect x="1515.1958750000003" y="186.9" width="96.78399999999999" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1563.5878750000004" y="205.35000000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">&quot;triggers[</text>
+</g>
+<g class="node" data-id="GB" data-label="GraphBuilder" data-shape="rectangle">
+  <rect x="1136.69575" y="579.6" width="121.978" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1197.6847500000001" y="598.0500000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">GraphBuilder</text>
+</g>
+<g class="node" data-id="GV" data-label="GraphValidator" data-shape="rectangle">
+  <rect x="1131.50875" y="664.5" width="132.352" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1197.68475" y="682.95" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">GraphValidator</text>
+</g>
+<g class="node" data-id="GR" data-label="GraphRuntime" data-shape="rectangle">
+  <rect x="1096.6257500000002" y="834.3000000000001" width="124.942" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1159.0967500000002" y="852.7500000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">GraphRuntime</text>
+</g>
+<g class="node" data-id="LE" data-label="LinkEngine" data-shape="rectangle">
+  <rect x="936.64425" y="919.2" width="110.122" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="991.7052500000001" y="937.6500000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">LinkEngine</text>
+</g>
+<g class="node" data-id="TE" data-label="TriggerEvaluator" data-shape="rectangle">
+  <rect x="1271.4272500000002" y="919.2" width="145.69" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1344.2722500000002" y="937.6500000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">TriggerEvaluator</text>
+</g>
+<g class="node" data-id="PM" data-label="PersistenceManager" data-shape="rectangle">
+  <rect x="1074.7662500000001" y="919.2" width="168.661" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1159.0967500000002" y="937.6500000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">PersistenceManager</text>
+</g>
+<g class="node" data-id="CR" data-label="CircuitRegistry" data-shape="rectangle">
+  <rect x="1132.24975" y="749.4000000000001" width="130.87000000000003" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1197.68475" y="767.8500000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">CircuitRegistry</text>
+</g>
+<g class="node" data-id="CLI" data-label="CLI REPL" data-shape="rectangle">
+  <rect x="939.628875" y="332.5" width="100.489" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="989.873375" y="350.95" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">CLI REPL</text>
+</g>
+<g class="node" data-id="RPC" data-label="JSON-RPC graph.*" data-shape="rectangle">
+  <rect x="1068.117875" y="332.5" width="156.06400000000002" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1146.1498749999998" y="350.95" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">JSON-RPC graph.*</text>
+</g>
+<g class="node" data-id="SOCK" data-label="Unix Socket" data-shape="rectangle">
+  <rect x="1011.839125" y="422.70000000000005" width="112.345" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1068.0116249999999" y="441.15000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Unix Socket</text>
+</g>
+<g class="node" data-id="CELL" data-label="cellular.qmi" data-shape="rectangle">
+  <rect x="425.6665833333333" y="332.5" width="108.64" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="479.9865833333333" y="350.95" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">cellular.qmi</text>
+</g>
+<g class="node" data-id="VPN1" data-label="vpn.wireguard" data-shape="rectangle">
+  <rect x="325.2463333333333" y="480.40000000000003" width="127.906" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="389.19933333333336" y="498.85" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">vpn.wireguard</text>
+</g>
+<g class="node" data-id="VPN2" data-label="vpn.openvpn" data-shape="rectangle">
+  <rect x="481.15233333333333" y="480.40000000000003" width="119.01400000000001" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="540.6593333333333" y="498.85" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">vpn.openvpn</text>
+</g>
+<g class="node" data-id="MAVR" data-label="mavlink.router" data-shape="rectangle">
+  <rect x="177.8223333333333" y="480.40000000000003" width="126.424" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="241.03433333333328" y="498.85" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">mavlink.router</text>
+</g>
+<g class="node" data-id="MAVE1" data-label="mavlink.extender" data-shape="rectangle">
+  <rect x="213.58274999999998" y="633.6" width="142.726" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="284.94575" y="652.0500000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">mavlink.extender</text>
+</g>
+<g class="node" data-id="MAVE2" data-label="mavlink.extender" data-shape="rectangle">
+  <rect x="443.643" y="633.6" width="142.726" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="515.006" y="652.0500000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">mavlink.extender</text>
+</g>
+<g class="node" data-id="RTSP" data-label="rtsp.compressor" data-shape="rectangle">
+  <rect x="614.3689999999999" y="633.6" width="141.244" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="684.9909999999999" y="652.0500000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">rtsp.compressor</text>
+</g>
+<g class="node" data-id="FC" data-label="Flight Controller UART" data-shape="rectangle">
+  <rect x="56" y="102.00000000000003" width="173.84799999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="142.92399999999998" y="120.45000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Flight Controller UART</text>
+</g>
+<g class="node" data-id="GCS" data-label="Ground Station UDP/TCP" data-shape="rectangle">
+  <rect x="257.848" y="102.00000000000003" width="187.92699999999996" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="351.8115" y="120.45000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Ground Station UDP/TCP</text>
+</g>
+<g class="node" data-id="CAM" data-label="Camera RTSP Source" data-shape="rectangle">
+  <rect x="473.775" y="102.00000000000003" width="172.36599999999999" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="559.958" y="120.45000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Camera RTSP Source</text>
+</g>
+<g class="node" data-id="MON" data-label="RTSP Monitor Client" data-shape="rectangle">
+  <rect x="674.141" y="102.00000000000003" width="159.769" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="754.0255" y="120.45000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">RTSP Monitor Client</text>
+</g>
+</svg>

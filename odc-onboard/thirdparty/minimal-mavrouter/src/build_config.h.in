@@ -1,0 +1,3 @@
+#pragma once
+
+#define DEFAULT_DEVICE_CONFIG_DIR "@DEFAULT_DEVICE_CONFIG_DIR@"

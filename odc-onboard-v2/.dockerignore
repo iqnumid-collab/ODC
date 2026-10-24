@@ -1,0 +1,8 @@
+build/
+build-v2/
+build-deps/
+**/build/
+.git/
+.cache/
+*.deb
+thirdparty/dspatch/docs/

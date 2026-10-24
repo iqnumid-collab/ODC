@@ -1,0 +1,30 @@
+{
+    "input_uri": "rtsp://192.168.144.25:8554/main.264",
+    "input_use_tcp": true,
+
+    "output_address": "0.0.0.0",
+    "output_port": 8552,
+    "output_path": "/lowres",
+
+    "output_codec": "h265",
+    "output_bitrate": 800,
+    "output_width": 1280,
+    "output_height": 720,
+    "output_framerate": 30,
+
+    "latency": 200,
+    "drop_on_latency": false,
+    "enable_queues": false,
+    "queue_max_buffers": 4,
+    "queue_max_time_ms": 0,
+    "queue_leaky": "downstream",
+    "speed_preset": "ultrafast",
+    "encoder_threads": 1,
+    "processing_threads": 1,
+    "sliced_threads": false,
+    "key_int_max": 60,
+    "passthrough_codec": "h264",
+    "use_hw_codec": true,
+    "output_username": "",
+    "output_password": ""
+}

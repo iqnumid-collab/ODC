@@ -1,0 +1,32 @@
+flowchart LR
+    subgraph Control["Control / Binding Plane"]
+        direction TB
+        C1["VpnStateChangeEvent"]
+        C2["TransportBinding"]
+        C3["GraphLinkActivated"]
+        C4["TriggerEvaluator"]
+        C1 --> C4
+        C4 --> C3
+        C3 --> C2
+    end
+
+    subgraph Graph["DSPatch Buses"]
+        direction TB
+        G1["tunnel port"]
+        G2["transport port"]
+        G3["upstream port"]
+        G1 --> G2
+    end
+
+    subgraph Data["Data Plane — not on DSPatch buses"]
+        direction TB
+        D1["MAVLink UDP/TCP frames"]
+        D2["RTSP/RTP media bytes"]
+        D3["VPN encrypted packets"]
+    end
+
+    C2 --> G2
+    G2 -. configures .-> D1
+    G2 -. configures .-> D2
+    CELL["cellular WAN"] --> D3
+    D3 --> VPN["VPN tunnel"]

@@ -1,0 +1,15 @@
+[Unit]
+Description=odc-hook — Cross-platform mTLS WebSocket event hook client
+After=network-online.target odc-registry-manager.service
+Wants=network-online.target odc-registry-manager.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/odc-hook --config /etc/odc-root/odc-hook.yaml --daemon
+Restart=on-failure
+RestartSec=10
+User=odc-root
+Group=odc-root
+
+[Install]
+WantedBy=multi-user.target

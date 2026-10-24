@@ -1,0 +1,18 @@
+sequenceDiagram
+    autonumber
+    participant FC as Flight Controller UART
+    participant MAVR as mav_primary
+    participant MAVE as mav_ext_cloud
+    participant TUN as VPN tunnel wg-cloud
+    participant GCS as Remote GCS UDP
+
+    Note over FC,GCS: Data plane — bytes do not pass through DSPatch
+
+    FC->>MAVR: MAVLink frames
+    MAVR->>MAVE: route to extender endpoint
+    MAVE->>TUN: UDP bind to tunnel IP
+    TUN->>GCS: encrypted MAVLink over VPN
+    GCS->>TUN: return traffic
+    TUN->>MAVE: inbound MAVLink
+    MAVE->>MAVR: inject to primary router
+    MAVR->>FC: forward to FC

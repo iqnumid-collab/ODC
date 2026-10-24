@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 895.8530000000001 575" width="895.8530000000001" height="575" style="--bg:#1a1b26;--fg:#a9b1d6;--line:#3d59a1;--accent:#7aa2f7;--muted:#565f89;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="seq-arrow" markerWidth="8" markerHeight="5" refX="8" refY="2.5" orient="auto-start-reverse">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" />
+  </marker>
+  <marker id="seq-arrow-open" markerWidth="8" markerHeight="5" refX="8" refY="2.5" orient="auto-start-reverse">
+    <polyline points="0 0, 8 2.5, 0 5" fill="none" stroke="var(--_arrow)" stroke-width="1" />
+  </marker>
+</defs>
+<line class="lifeline" data-actor="Drv" x1="77.7265" y1="70" x2="77.7265" y2="545" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="Dut" x1="229.85199999999998" y1="70" x2="229.85199999999998" y2="545" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="Wan" x1="408.283" y1="70" x2="408.283" y2="545" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="Vpn" x1="583.3795" y1="70" x2="583.3795" y2="545" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="Hub" x1="775.1485" y1="70" x2="775.1485" y2="545" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<g class="message" data-from="Drv" data-to="Dut" data-label="apply VPN fixture YAML" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="77.7265" y1="90" x2="229.85199999999998" y2="90" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="153.78924999999998" y="80" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">apply VPN fixture YAML</text>
+</g>
+<g class="message" data-from="Dut" data-to="Wan" data-label="assert upstream route/DNS" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="229.85199999999998" y1="130" x2="408.283" y2="130" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="319.0675" y="120" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">assert upstream route/DNS</text>
+</g>
+<g class="message" data-from="Drv" data-to="Dut" data-label="graph.components.start vpn_lab" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="77.7265" y1="170" x2="229.85199999999998" y2="170" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="153.78924999999998" y="160" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">graph.components.start vpn_lab</text>
+</g>
+<g class="message" data-from="Dut" data-to="Vpn" data-label="start peer config" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="229.85199999999998" y1="210" x2="583.3795" y2="210" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="406.61575" y="200" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">start peer config</text>
+</g>
+<g class="message" data-from="Vpn" data-to="Hub" data-label="handshake / TLS / WG keys" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="583.3795" y1="250" x2="775.1485" y2="250" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="679.264" y="240" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">handshake / TLS / WG keys</text>
+</g>
+<g class="message" data-from="Hub" data-to="Vpn" data-label="tunnel established" data-line-style="dashed" data-arrow-head="filled" data-self="false">
+  <line x1="775.1485" y1="290" x2="583.3795" y2="290" stroke="var(--_line)" stroke-width="1" stroke-dasharray="6 4" marker-end="url(#seq-arrow)" />
+  <text x="679.264" y="280" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">tunnel established</text>
+</g>
+<g class="message" data-from="Vpn" data-to="Dut" data-label="TransportBinding ip_ready" data-line-style="dashed" data-arrow-head="filled" data-self="false">
+  <line x1="583.3795" y1="330" x2="229.85199999999998" y2="330" stroke="var(--_line)" stroke-width="1" stroke-dasharray="6 4" marker-end="url(#seq-arrow)" />
+  <text x="406.61575" y="320" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">TransportBinding ip_ready</text>
+</g>
+<g class="message" data-from="Dut" data-to="Drv" data-label="vpn.status connected + iface IP" data-line-style="dashed" data-arrow-head="filled" data-self="false">
+  <line x1="229.85199999999998" y1="370" x2="77.7265" y2="370" stroke="var(--_line)" stroke-width="1" stroke-dasharray="6 4" marker-end="url(#seq-arrow)" />
+  <text x="153.78924999999998" y="360" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">vpn.status connected + iface IP</text>
+</g>
+<g class="message" data-from="Drv" data-to="Hub" data-label="peer list / handshake age" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="77.7265" y1="410" x2="775.1485" y2="410" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="426.4375" y="400" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">peer list / handshake age</text>
+</g>
+<g class="message" data-from="Drv" data-to="Dut" data-label="disconnect then reconnect" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="77.7265" y1="465" x2="229.85199999999998" y2="465" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="153.78924999999998" y="455" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">disconnect then reconnect</text>
+</g>
+<g class="message" data-from="Vpn" data-to="Dut" data-label="ip_lost then ip_ready" data-line-style="dashed" data-arrow-head="filled" data-self="false">
+  <line x1="583.3795" y1="505" x2="229.85199999999998" y2="505" stroke="var(--_line)" stroke-width="1" stroke-dasharray="6 4" marker-end="url(#seq-arrow)" />
+  <text x="406.61575" y="495" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">ip_lost then ip_ready</text>
+</g>
+<g class="note" data-position="over" data-actors="Drv,Hub">
+  <polygon points="342.92650000000003,418 503.9485,418 509.9485,424 509.9485,441 342.92650000000003,441" fill="var(--bg)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <polygon points="503.9485,418 509.9485,424 503.9485,424" fill="var(--_inner-stroke)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="426.4375" y="429.5" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">ping overlay IP both directions</text>
+</g>
+<g class="actor" data-id="Drv" data-label="molt driver" data-type="participant">
+  <rect x="30" y="30" width="95.453" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="77.7265" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">molt driver</text>
+</g>
+<g class="actor" data-id="Dut" data-label="odc-onboard-v2" data-type="participant">
+  <rect x="165.45299999999997" y="30" width="128.798" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="229.85199999999998" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">odc-onboard-v2</text>
+</g>
+<g class="actor" data-id="Wan" data-label="WAN eth0 or wwan0" data-type="participant">
+  <rect x="334.251" y="30" width="148.06400000000002" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="408.283" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">WAN eth0 or wwan0</text>
+</g>
+<g class="actor" data-id="Vpn" data-label="vpn component" data-type="participant">
+  <rect x="522.315" y="30" width="122.129" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="583.3795" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">vpn component</text>
+</g>
+<g class="actor" data-id="Hub" data-label="hexa-five tunnel-manager" data-type="participant">
+  <rect x="684.444" y="30" width="181.409" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="775.1485" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">hexa-five tunnel-manager</text>
+</g>
+</svg>

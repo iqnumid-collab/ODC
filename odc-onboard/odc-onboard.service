@@ -1,0 +1,31 @@
+[Unit]
+Description=ODC Onboard VPN Management Service
+Documentation=man:odc-onboard(8)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStartPre=/usr/bin/install -d -m 0755 /run/odc-onboard
+ExecStart=/usr/bin/odc-onboard --daemon --config /etc/odc-onboard/config.json
+ExecStopPost=/usr/bin/rm -f /run/odc-onboard/odc-onboard.sock /run/odc-onboard/odc-onboard.pid
+Restart=on-failure
+RestartSec=5
+
+RuntimeDirectory=odc-onboard
+RuntimeDirectoryMode=0755
+
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_RAW
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_RAW
+NoNewPrivileges=false
+ProtectSystem=false
+ProtectHome=false
+ReadWritePaths=/etc/odc-onboard /var/log/odc-onboard /run/odc-onboard
+PrivateTmp=false
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=odc-onboard
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,110 @@
+flowchart TB
+    Start([User runs test_rtsp_user_e2e.sh]) --> S1
+
+    subgraph S1["1. Config Creation (6 tests)"]
+        C1[Create cfg_full.json — enabled + auto]
+        C2[Create cfg_manual.json — auto=false]
+        C3[Create cfg_min.json — enabled only]
+        C4[Start daemon with rtsp config]
+        C5[rtsp help lists commands]
+        C6[help lists RTSP section]
+        C1 --> C2 --> C3 --> C4 --> C5 --> C6
+    end
+
+    S1 --> S2
+
+    subgraph S2["2. Hardware Detection (4 tests)"]
+        H1[HardwareInfo.h exists]
+        H2[detectHardware declared]
+        H3[arch field present]
+        H4[strategy field present]
+    end
+
+    S2 --> S3
+
+    subgraph S3["3. CLI Start/Stop (8 tests)"]
+        L1[rtsp status — empty]
+        L2[rtsp start mycam wg0 10.77.1.1]
+        L3[status shows mycam running]
+        L4[duplicate start — idempotent]
+        L5[rtsp stop mycam]
+        L6[status empty after stop]
+        L7[stop nonexistent — no crash]
+        L8[missing args — error shown]
+    end
+
+    S3 --> S4
+
+    subgraph S4["4. Auto-Spawn Config (6 tests)"]
+        A1[auto=true: TUN+IP → auto-spawn]
+        A2[auto=true: remove IP → auto-stop]
+        A3[auto=false: TUN+IP → no spawn]
+        A4[auto=false: manual start works]
+        A5[auto=false: manual stop works]
+        A6[cleanup TUN devices]
+    end
+
+    S4 --> S5
+
+    subgraph S5["5. E2E Video Pipeline (10 tests)"]
+        E1[Start video source on port 8554]
+        E2[Monitor can read source stream]
+        E3[Start daemon with rtsp config]
+        E4[rtsp start e2e-test lo 127.0.0.1]
+        E5[Wait 6s for compressor init]
+        E6[status shows running]
+        E7[Monitor compressed output]
+        E8[Bandwidth > 0 verified]
+        E9[rtsp stop e2e-test]
+        E10[Kill video source + daemon]
+    end
+
+    S5 --> S6
+
+    subgraph S6["6. RTSP Disabled (4 tests)"]
+        D1[Daemon without rtsp key]
+        D2[rtsp status → not configured]
+        D3[rtsp start → not configured]
+        D4[rtsp stop → not configured]
+    end
+
+    S6 --> S7
+
+    subgraph S7["7. Multiple Compressors (4 tests)"]
+        M1[Spawn 3 on 3 ifaces]
+        M2[Status shows all 3]
+        M3[Stop middle — 2 remain]
+        M4[Stop all — empty]
+    end
+
+    S7 --> S8
+
+    subgraph S8["8. Thread Safety (5 tests)"]
+        T1[Rapid start/stop 5 cycles]
+        T2[SIGTERM exits cleanly]
+        T3[Socket removed after kill]
+        T4[No orphaned threads]
+        T5[TUN cleanup]
+    end
+
+    S8 --> S9
+
+    subgraph S9["9. Build Verification (5 tests)"]
+        B1[ldd shows gstrtspserver]
+        B2[ldd shows gstreamer]
+        B3[Binary > 12MB]
+        B4[RtspBridge symbols present]
+        B5[--help shows --socket]
+    end
+
+    S9 --> S10
+
+    subgraph S10["10. CLI Help Consistency (5 tests)"]
+        V1[Standalone help lists RTSP]
+        V2[Standalone rtsp help matches]
+        V3[Daemon help lists RTSP]
+        V4[Daemon rtsp help matches]
+        V5[3 subcommands documented]
+    end
+
+    S10 --> End([print_results — 57 tests])

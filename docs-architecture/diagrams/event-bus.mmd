@@ -1,0 +1,33 @@
+flowchart LR
+    subgraph Producers["Event Producers"]
+        VpnConn["VPN Connection\n(State/Stats/Health)"]
+        VpnMon["VpnInterfaceMonitor\n(Interface Events)"]
+        MavRouter["MavRouter\n(Router Stats)"]
+        MavExt["MavExtenderManager\n(Extender Status)"]
+        SysMon["SystemMonitor\n(Metrics)"]
+        Qmi["QmiModemController\n(Telemetry)"]
+    end
+
+    subgraph Bus["EventBus"]
+        Dispatch["Async Dispatcher\n(ThreadOrchestrator)"]
+        Queue["Handler Registration"]
+    end
+
+    subgraph Consumers["Event Consumers"]
+        Log["LogActor\n(spdlog Output)"]
+        CliDisplay["CLI Display\n(Real-time Events)"]
+        Actors["CAF Actors\n(Command Handling)"]
+    end
+
+    VpnConn --> Dispatch
+    VpnMon --> Dispatch
+    MavRouter --> Dispatch
+    MavExt --> Dispatch
+    SysMon --> Dispatch
+    Qmi --> Dispatch
+
+    Dispatch --> Log
+    Dispatch --> CliDisplay
+    Dispatch --> Actors
+
+    Dispatch -.->|"Subscribe/Unsubscribe"| Queue

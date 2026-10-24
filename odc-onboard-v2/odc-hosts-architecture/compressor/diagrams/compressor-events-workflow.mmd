@@ -1,0 +1,25 @@
+sequenceDiagram
+  participant Molt as molt
+  participant Sub as IPC_subscribe
+  participant Cmp as rtsp_compressor
+  participant Src as video_source
+  participant Mon as rtsp_monitor
+
+  Molt->>Sub: subscribe rtsp.event rtsp.status
+  Molt->>Cmp: start compressor
+  Sub-->>Molt: Started
+  Molt->>Mon: open client
+  Sub-->>Molt: ClientConnected
+  Molt->>Mon: close client
+  Sub-->>Molt: ClientDisconnected
+  Molt->>Src: kill source
+  Sub-->>Molt: SourceLost
+  Molt->>Src: restart source
+  Sub-->>Molt: SourceRecovered
+  Note over Molt,Cmp: ABR fixture plus throttle
+  Sub-->>Molt: AbrStepDown then AbrStepUp
+  Note over Molt,Cmp: auth fixture
+  Sub-->>Molt: AuthChanged
+  Sub-->>Molt: Status metrics bitrate fps clients
+  Molt->>Cmp: stop
+  Sub-->>Molt: Stopped

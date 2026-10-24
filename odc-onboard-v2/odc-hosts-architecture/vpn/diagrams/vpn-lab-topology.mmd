@@ -1,0 +1,19 @@
+flowchart TB
+  subgraph LAN["Lab LAN 192.168.10.0/24"]
+    MOLT["molt .10<br/>driver / evidence<br/>optional odc-hook"]
+    HEXA["hexa-five .16<br/>odc-tunnel-manager<br/>WG :51820 / OVPN<br/>registry :9443"]
+    RPI4["rpi-4b .11<br/>odc-onboard-v2<br/>vpn client peer A"]
+    RPI5["rpi-5 .12<br/>odc-onboard-v2<br/>vpn client peer B"]
+  end
+
+  MOLT -->|SSH orchestrate| HEXA
+  MOLT -->|SSH + graph IPC| RPI4
+  MOLT -->|SSH + graph IPC| RPI5
+
+  RPI4 -->|"WG/OVPN peer-4b"| HEXA
+  RPI5 -->|"WG/OVPN peer-5"| HEXA
+
+  RPI4 -.->|WAN Variant B eth0| LAN
+  RPI5 -.->|WAN Variant B eth0| LAN
+  RPI4 -.->|WAN Variant A wwan0| CELL["Cellular WAN"]
+  RPI5 -.->|WAN Variant A wwan0| CELL

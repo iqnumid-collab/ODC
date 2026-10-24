@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1633.346 698" width="1633.346" height="698" style="--bg:#1a1b26;--fg:#a9b1d6;--line:#3d59a1;--accent:#7aa2f7;--muted:#565f89;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="seq-arrow" markerWidth="8" markerHeight="5" refX="8" refY="2.5" orient="auto-start-reverse">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" />
+  </marker>
+  <marker id="seq-arrow-open" markerWidth="8" markerHeight="5" refX="8" refY="2.5" orient="auto-start-reverse">
+    <polyline points="0 0, 8 2.5, 0 5" fill="none" stroke="var(--_arrow)" stroke-width="1" />
+  </marker>
+</defs>
+<g class="block" data-type="loop" data-label="orchestrator tick">
+  <rect x="759.664" y="558" width="136.942" height="60" rx="0" ry="0" fill="none" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="759.664" y="558" width="136.45000000000002" height="18" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="765.664" y="567" font-size="11" font-weight="600" fill="var(--_text-sec)" dy="3.8499999999999996">loop [orchestrator tick]</text>
+</g>
+<line class="lifeline" data-actor="Main" x1="70" y1="70" x2="70" y2="668" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="LC" x1="210" y1="70" x2="210" y2="668" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="YAML" x1="358.791" y1="70" x2="358.791" y2="668" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="GB" x1="508.323" y1="70" x2="508.323" y2="668" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="GV" x1="667.4879999999999" y1="70" x2="667.4879999999999" y2="668" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="GR" x1="828.135" y1="70" x2="828.135" y2="668" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="CR" x1="988.0409999999999" y1="70" x2="988.0409999999999" y2="668" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="CELL" x1="1132.386" y1="70" x2="1132.386" y2="668" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="MAV" x1="1272.386" y1="70" x2="1272.386" y2="668" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="VPN" x1="1415.99" y1="70" x2="1415.99" y2="668" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="IPC" x1="1555.99" y1="70" x2="1555.99" y2="668" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<g class="message" data-from="Main" data-to="LC" data-label="startup --config system.yaml --daemon" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="70" y1="90" x2="210" y2="90" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="140" y="80" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">startup --config system.yaml --daemon</text>
+</g>
+<g class="message" data-from="LC" data-to="YAML" data-label="load + parse" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="210" y1="130" x2="358.791" y2="130" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="284.39549999999997" y="120" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">load + parse</text>
+</g>
+<g class="message" data-from="LC" data-to="GB" data-label="build(schema)" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="210" y1="170" x2="508.323" y2="170" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="359.1615" y="160" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">build(schema)</text>
+</g>
+<g class="message" data-from="GB" data-to="GV" data-label="validate(schema)" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="508.323" y1="210" x2="667.4879999999999" y2="210" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="587.9055" y="200" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">validate(schema)</text>
+</g>
+<g class="message" data-from="GV" data-to="GB" data-label="OK" data-line-style="dashed" data-arrow-head="filled" data-self="false">
+  <line x1="667.4879999999999" y1="250" x2="508.323" y2="250" stroke="var(--_line)" stroke-width="1" stroke-dasharray="6 4" marker-end="url(#seq-arrow)" />
+  <text x="587.9055" y="240" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">OK</text>
+</g>
+<g class="message" data-from="GB" data-to="CR" data-label="create Circuit + components" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="508.323" y1="290" x2="988.0409999999999" y2="290" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="748.182" y="280" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">create Circuit + components</text>
+</g>
+<g class="message" data-from="CR" data-to="GR" data-label="register runtime" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="988.0409999999999" y1="330" x2="828.135" y2="330" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="908.088" y="320" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">register runtime</text>
+</g>
+<g class="message" data-from="GR" data-to="CELL" data-label="start()" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="828.135" y1="370" x2="1132.386" y2="370" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="980.2605" y="360" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">start()</text>
+</g>
+<g class="message" data-from="GR" data-to="MAV" data-label="start()" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="828.135" y1="410" x2="1272.386" y2="410" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="1050.2604999999999" y="400" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">start()</text>
+</g>
+<g class="message" data-from="CELL" data-to="GR" data-label="cellular.wan_ready" data-line-style="dashed" data-arrow-head="filled" data-self="false">
+  <line x1="1132.386" y1="450" x2="828.135" y2="450" stroke="var(--_line)" stroke-width="1" stroke-dasharray="6 4" marker-end="url(#seq-arrow)" />
+  <text x="980.2605" y="440" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">cellular.wan_ready</text>
+</g>
+<g class="message" data-from="GR" data-to="VPN" data-label="start() — WAN available" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="828.135" y1="490" x2="1415.99" y2="490" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="1122.0625" y="480" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">start() — WAN available</text>
+</g>
+<g class="message" data-from="LC" data-to="IPC" data-label="listen /run/odc-onboard/odc-onboard.sock" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="210" y1="530" x2="1555.99" y2="530" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="882.995" y="520" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">listen /run/odc-onboard/odc-onboard.sock</text>
+</g>
+<g class="message" data-from="GR" data-to="GR" data-label="Process() + event dispatch" data-line-style="solid" data-arrow-head="filled" data-self="true">
+  <polyline points="828.135,598 858.135,598 858.135,618 828.135,618" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="866.135" y="608" font-size="11" text-anchor="start" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">Process() + event dispatch</text>
+</g>
+<g class="actor" data-id="Main" data-label="main()" data-type="participant">
+  <rect x="30" y="30" width="80" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="70" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">main()</text>
+</g>
+<g class="actor" data-id="LC" data-label="AppLifecycle" data-type="participant">
+  <rect x="153.752" y="30" width="112.49600000000001" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="210" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">AppLifecycle</text>
+</g>
+<g class="actor" data-id="YAML" data-label="system.yaml" data-type="participant">
+  <rect x="306.248" y="30" width="105.086" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="358.791" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">system.yaml</text>
+</g>
+<g class="actor" data-id="GB" data-label="GraphBuilder" data-type="participant">
+  <rect x="451.334" y="30" width="113.978" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="508.323" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">GraphBuilder</text>
+</g>
+<g class="actor" data-id="GV" data-label="GraphValidator" data-type="participant">
+  <rect x="605.3119999999999" y="30" width="124.352" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="667.4879999999999" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">GraphValidator</text>
+</g>
+<g class="actor" data-id="GR" data-label="GraphRuntime" data-type="participant">
+  <rect x="769.664" y="30" width="116.942" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="828.135" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">GraphRuntime</text>
+</g>
+<g class="actor" data-id="CR" data-label="CircuitRegistry" data-type="participant">
+  <rect x="926.6059999999999" y="30" width="122.87000000000003" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="988.0409999999999" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">CircuitRegistry</text>
+</g>
+<g class="actor" data-id="CELL" data-label="cellular0" data-type="participant">
+  <rect x="1089.4759999999999" y="30" width="85.82" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="1132.386" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">cellular0</text>
+</g>
+<g class="actor" data-id="MAV" data-label="mav_primary" data-type="participant">
+  <rect x="1216.879" y="30" width="111.01400000000001" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="1272.386" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">mav_primary</text>
+</g>
+<g class="actor" data-id="VPN" data-label="vpn_cloud" data-type="participant">
+  <rect x="1367.893" y="30" width="96.194" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="1415.99" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">vpn_cloud</text>
+</g>
+<g class="actor" data-id="IPC" data-label="IpcServer" data-type="participant">
+  <rect x="1508.634" y="30" width="94.71199999999999" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="1555.99" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">IpcServer</text>
+</g>
+</svg>

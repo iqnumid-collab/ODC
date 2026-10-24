@@ -1,0 +1,15 @@
+flowchart TD
+    FILE["Config file path"] --> EXT{"extension?"}
+
+    EXT -->|".yaml .yml"| READ["Read first 5 non-comment lines"]
+    EXT -->|".json etc"| LEGACY["return LegacyJson"]
+
+    READ --> SCAN{"contains version:?"}
+    SCAN -->|"yes"| GRAPH["return GraphYaml"]
+    SCAN -->|"no"| LEGACY
+
+    GRAPH --> APP["graph_mode_ = true"]
+    LEGACY --> APP2["graph_mode_ = false"]
+
+    APP --> LOAD["load_graph_schema()"]
+    APP2 --> LOAD2["legacy managers"]

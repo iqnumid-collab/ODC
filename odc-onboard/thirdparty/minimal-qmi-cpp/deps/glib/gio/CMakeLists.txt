@@ -1,0 +1,137 @@
+# libgio-2.0 static library
+
+set(GIO_SOURCES
+  gaction.c gactiongroup.c gactiongroupexporter.c gactionmap.c gappinfo.c
+  gapplication.c gapplicationcommandline.c gapplicationimpl-dbus.c
+  gasynchelper.c gasyncinitable.c gasyncresult.c gbufferedinputstream.c
+  gbufferedoutputstream.c gbytesicon.c gcancellable.c gcharsetconverter.c
+  gcontenttype.c gcontenttype-fdo.c gcontextspecificgroup.c gconverter.c
+  gconverterinputstream.c gconverteroutputstream.c gcredentials.c
+  gdatagrambased.c gdatainputstream.c gdataoutputstream.c gdbusactiongroup.c
+  gdbusaddress.c gdbusauth.c gdbusauthmechanismanon.c gdbusauthmechanism.c
+  gdbusauthmechanismexternal.c gdbusauthmechanismsha1.c gdbusauthobserver.c
+  gdbusconnection.c gdbusdaemon.c gdbuserror.c gdbusinterface.c
+  gdbusinterfaceskeleton.c gdbusintrospection.c gdbusmenumodel.c
+  gdbusmessage.c gdbusmethodinvocation.c gdbusnameowning.c
+  gdbusnamewatching.c gdbusobject.c gdbusobjectmanager.c
+  gdbusobjectmanagerclient.c gdbusobjectmanagerserver.c gdbusobjectproxy.c
+  gdbusobjectskeleton.c gdbusprivate.c gdbusproxy.c gdbusserver.c
+  gdbusutils.c gdebugcontroller.c gdebugcontrollerdbus.c
+  gdelayedsettingsbackend.c gdesktopappinfo.c gdocumentportal.c gdrive.c
+  gdtlsclientconnection.c gdtlsconnection.c gdtlsserverconnection.c
+  gdummyfile.c gdummyproxyresolver.c gdummytlsbackend.c gemblem.c
+  gemblemedicon.c gfdonotificationbackend.c gfileattribute.c gfile.c
+  gfiledescriptorbased.c gfileenumerator.c gfileicon.c gfileinfo.c
+  gfileinputstream.c gfileiostream.c gfilemonitor.c gfilenamecompleter.c
+  gfileoutputstream.c gfilterinputstream.c gfilteroutputstream.c
+  ggtknotificationbackend.c ghttpproxy.c gicon.c ginetaddress.c
+  ginetaddressmask.c ginetsocketaddress.c ginitable.c ginputstream.c
+  gioerror.c giomodule.c giomodule-priv.c gioscheduler.c giostream.c giounix-private.c
+  gkeyfilesettingsbackend.c glistmodel.c gliststore.c gloadableicon.c
+  glocalfile.c glocalfileenumerator.c glocalfileinfo.c
+  glocalfileinputstream.c glocalfileiostream.c glocalfilemonitor.c
+  glocalfileoutputstream.c glocalvfs.c gmarshal-internal.c
+  gmemoryinputstream.c gmemorymonitorbase.c gmemorymonitor.c
+  gmemorymonitordbus.c gmemorymonitorpoll.c gmemorymonitorportal.c
+  gmemorymonitorpsi.c gmemoryoutputstream.c gmemorysettingsbackend.c
+  gmenu.c gmenuexporter.c gmenumodel.c gmount.c gmountoperation.c
+  gnativesocketaddress.c gnativevolumemonitor.c gnetworkaddress.c
+  gnetworking.c gnetworkmonitorbase.c gnetworkmonitor.c
+  gnetworkmonitornetlink.c gnetworkmonitornm.c gnetworkmonitorportal.c
+  gnetworkservice.c gnotificationbackend.c gnotification.c
+  gnullsettingsbackend.c gopenuriportal.c goutputstream.c gpermission.c
+  gpollableinputstream.c gpollableoutputstream.c gpollableutils.c
+  gpollfilemonitor.c gportalnotificationbackend.c gportalsupport.c
+  gpowerprofilemonitor.c gpowerprofilemonitordbus.c
+  gpowerprofilemonitorportal.c gpropertyaction.c gproxyaddress.c
+  gproxyaddressenumerator.c gproxy.c gproxyresolver.c gproxyresolverportal.c
+  gremoteactiongroup.c gresolver.c gresource.c gresourcefile.c gsandbox.c
+  gseekable.c gsettingsbackend.c gsettings.c gsettings-mapping.c
+  gsettingsschema.c gsimpleaction.c gsimpleactiongroup.c
+  gsimpleasyncresult.c gsimpleiostream.c gsimplepermission.c
+  gsimpleproxyresolver.c gsocketaddress.c gsocketaddressenumerator.c
+  gsocket.c gsocketclient.c gsocketconnectable.c gsocketconnection.c
+  gsocketcontrolmessage.c gsocketinputstream.c gsocketlistener.c
+  gsocketoutputstream.c gsocketservice.c gsocks4aproxy.c gsocks4proxy.c
+  gsocks5proxy.c gsrvtarget.c gsubprocess.c gsubprocesslauncher.c gtask.c
+  gtcpconnection.c gtcpwrapperconnection.c gtestdbus.c gthemedicon.c
+  gthreadedresolver.c gthreadedsocketservice.c gtlsbackend.c
+  gtlscertificate.c gtlsclientconnection.c gtlsconnection.c gtlsdatabase.c
+  gtlsfiledatabase.c gtlsinteraction.c gtlspassword.c gtlsserverconnection.c
+  gtrashportal.c gunionvolumemonitor.c gunixconnection.c
+  gunixcredentialsmessage.c gunixfdlist.c gunixfdmessage.c gunixinputstream.c
+  gunixmount.c gunixmounts.c gunixoutputstream.c gunixsocketaddress.c
+  gunixvolume.c gunixvolumemonitor.c gvfs.c gvolume.c gvolumemonitor.c
+  gzlibcompressor.c gzlibdecompressor.c strinfo.c thumbnail-verify.c
+  gdbus-daemon-generated.c xdp-dbus.c
+)
+list(TRANSFORM GIO_SOURCES PREPEND "${CMAKE_CURRENT_SOURCE_DIR}/")
+
+# Inotify backend
+file(GLOB INOTIFY_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/inotify/*.c")
+
+# xdgmime
+file(GLOB XDGMIME_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/xdgmime/*.c")
+
+# gvdb
+set(GVDB_SOURCES
+  ${CMAKE_CURRENT_SOURCE_DIR}/../subprojects/gvdb/gvdb/gvdb-reader.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/../subprojects/gvdb/gvdb/gvdb-builder.c
+)
+
+# sysprof-capture (embedded in gio by meson, same as glib)
+set(SYSPROF_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../subprojects/sysprof-capture)
+file(GLOB SYSPROF_SOURCES "${SYSPROF_DIR}/*.c")
+
+# gioenumtypes - use pre-generated files (generated by glib-mkenums from meson build)
+# The files are already in the source tree as gioenumtypes.c and gioenumtypes.h
+# Copy them to the build dir so includes work
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/gioenumtypes.h ${DEPS_BUILD}/gio/gioenumtypes.h COPYONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/gioenumtypes.c ${DEPS_BUILD}/gio/gioenumtypes.c COPYONLY)
+
+add_library(gio-2.0 STATIC
+  ${GIO_SOURCES}
+  ${INOTIFY_SOURCES}
+  ${XDGMIME_SOURCES}
+  ${GVDB_SOURCES}
+  ${SYSPROF_SOURCES}
+  ${CMAKE_CURRENT_SOURCE_DIR}/gioenumtypes.c
+)
+add_dependencies(gio-2.0 gio-visibility)
+
+target_include_directories(gio-2.0
+  PUBLIC
+    ${DEPS_BUILD}/gio
+    ${CMAKE_CURRENT_SOURCE_DIR}/..
+    ${CMAKE_CURRENT_SOURCE_DIR}
+  PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/inotify
+    ${CMAKE_CURRENT_SOURCE_DIR}/xdgmime
+    ${CMAKE_CURRENT_SOURCE_DIR}/../subprojects/gvdb
+    ${CMAKE_CURRENT_SOURCE_DIR}/../subprojects/sysprof-capture
+    ${CMAKE_CURRENT_SOURCE_DIR}/gdbus-2.0/codegen
+)
+
+target_compile_definitions(gio-2.0 PRIVATE
+  GIO_COMPILATION
+  GIO_MODULE_DIR=""
+  G_LOG_DOMAIN="GLib-GIO"
+  _GNU_SOURCE
+  GLIB_LOCALE_DIR=""
+  GIO_LAUNCH_DESKTOP=""
+  LOCALSTATEDIR="/var"
+  _PATH_RESCONF="/etc/resolv.conf"
+  XDG_PREFIX=_gio_xdg
+)
+
+target_link_libraries(gio-2.0
+  PUBLIC gobject-2.0 gmodule-2.0 PkgConfig::ZLIB
+  PRIVATE ${RESOLV_LIBRARY}
+)
+
+if(MOUNT_FOUND)
+  target_link_libraries(gio-2.0 PRIVATE PkgConfig::MOUNT)
+endif()
+if(SELINUX_FOUND)
+  target_link_libraries(gio-2.0 PRIVATE PkgConfig::SELINUX)
+endif()

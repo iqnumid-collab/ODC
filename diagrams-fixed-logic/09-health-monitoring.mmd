@@ -1,0 +1,31 @@
+sequenceDiagram
+    participant VC as VpnConnection
+    participant VT as VpnTunnelComponent
+    participant EB as EventBus
+    participant GR as GraphRuntime
+    participant TE as TriggerEvaluator
+    participant LE as LinkEngine
+    participant DS as DownstreamService
+
+    VC->>EB: publish(VpnHealthCheckEvent failures:1)
+    EB->>VT: on_event()
+    VT->>VT: failures = 1
+
+    Note over VC,DS: failures accumulate
+
+    VC->>EB: publish(VpnHealthCheckEvent failures:3)
+    EB->>VT: on_event()
+    VT->>VT: failures = 3
+
+    EB->>GR: on_event()
+    GR->>GR: failures >= 3
+    GR->>TE: on_vpn_disconnected()
+
+    TE->>DS: stop_link_targets()
+    TE->>LE: deactivate_link()
+    LE->>DS: DisconnectInput(0)
+    Note over DS: Service stopped
+
+    VC->>EB: publish(VpnHealthCheckEvent failures:0)
+    EB->>VT: on_event()
+    VT->>VT: failures = 0

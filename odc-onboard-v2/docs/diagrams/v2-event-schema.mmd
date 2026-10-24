@@ -1,0 +1,79 @@
+classDiagram
+    direction TB
+
+    class EventBus {
+        +publish(Event)
+        +subscribe(handler)
+        +unsubscribe(id)
+    }
+
+    class Event {
+        <<variant>>
+    }
+
+    class GraphEvent {
+        <<v2 namespace>>
+    }
+
+    class SystemEvents {
+        LogEvent
+        SetLogLevelEvent
+        MetricsSnapshotEvent
+        SystemStatusEvent
+        ShutdownEvent
+    }
+
+    class VpnEvents {
+        VpnStateChangeEvent
+        VpnStatsEvent
+        VpnHealthCheckEvent
+        VpnInterfaceEvent
+    }
+
+    class MavlinkEvents {
+        MavRouterStatusEvent
+        MavEndpointStatusEvent
+        MavRoutingStatsEvent
+        MavLogStatusEvent
+        MavExtenderStatusEvent
+    }
+
+    class CellularEvents {
+        QmiStateChangeEvent
+        QmiConnectionEvent
+        QmiTelemetryEvent
+        QmiHwInfoEvent
+    }
+
+    class RtspEvents {
+        RtspCompressorStatusEvent
+        RtspCompressorEvent
+    }
+
+    class GraphEvents_v2 {
+        GraphComponentStateEvent
+        GraphLinkActivatedEvent
+        GraphLinkDeactivatedEvent
+        GraphTriggerFiredEvent
+        TransportBindingEvent
+        GraphMutationEvent
+    }
+
+    EventBus --> Event
+    Event <|-- SystemEvents
+    Event <|-- VpnEvents
+    Event <|-- MavlinkEvents
+    Event <|-- CellularEvents
+    Event <|-- RtspEvents
+    Event <|-- GraphEvents_v2
+
+    class TransportBinding {
+        +string connection_id
+        +string interface_name
+        +string target_ip
+        +int prefix_len
+        +VpnState vpn_state
+        +bool ip_ready
+    }
+
+    TransportBindingEvent --> TransportBinding

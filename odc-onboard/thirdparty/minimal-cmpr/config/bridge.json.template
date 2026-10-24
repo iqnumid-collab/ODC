@@ -1,0 +1,30 @@
+{
+    "_comment": "Edit this file before starting the service. See: /opt/hexa/README",
+
+    "input_uri": "",
+    "input_use_tcp": true,
+
+    "output_address": "0.0.0.0",
+    "output_port": 8552,
+    "output_path": "/stream",
+
+    "output_codec": "h265",
+    "output_bitrate": 800,
+    "output_width": 1280,
+    "output_height": 720,
+    "output_framerate": 30,
+
+    "use_hw_codec": true,
+    "speed_preset": "ultrafast",
+
+    "output_username": "",
+    "output_password": "",
+
+    "abr_enabled": false,
+    "abr_min_bitrate": 200,
+    "abr_max_bitrate": 0,
+    "abr_loss_threshold_down": 5.0,
+    "abr_loss_threshold_up": 1.0,
+    "abr_stable_seconds": 10,
+    "abr_interval_seconds": 3
+}

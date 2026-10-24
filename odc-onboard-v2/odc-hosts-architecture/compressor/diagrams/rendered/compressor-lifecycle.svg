@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820.1967500000002 798.9" width="820.1967500000002" height="798.9" style="--bg:#1a1b26;--fg:#a9b1d6;--line:#3d59a1;--accent:#7aa2f7;--muted:#565f89;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<polyline class="edge" data-from="_start" data-to="Idle" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="733.7143333333335,262.40000000000003 733.7143333333335,298.40000000000003 724.3888333333335,298.40000000000003 724.3888333333335,310.40000000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Idle" data-to="SourceUp" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="start video-source" points="698.2646666666668,347.3 698.2646666666668,359.30000000000007 609.8797500000002,359.30000000000007 609.8797500000002,439.6000000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="SourceUp" data-to="Starting" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="graph components start" points="609.8797500000002,476.50000000000006 609.8797500000002,556.8000000000001 369.00716666666676,556.8000000000001 369.00716666666676,568.8000000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Starting" data-to="Running" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="pipeline OK Started event" points="339.7098333333334,568.8000000000001 339.7098333333334,556.8000000000001 103.5,556.8000000000001 103.5,335.30000000000007 326.6796666666668,335.30000000000007 326.6796666666668,76.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Starting" data-to="Error" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="port conflict or ingest fail" points="354.35850000000005,605.7 354.3585000000001,710 404.3271666666667,710 404.3271666666667,722" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Error" data-to="Idle" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="clear port stop" points="429.67250000000007,722 429.67250000000007,710 720.5137500000002,710 720.5137500000002,665.7 719.1640000000002,665.7 719.1640000000002,347.3" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Running" data-to="Running" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="ClientConnected ClientDisconnected" points="315.32266666666675,52.300000000000004 305.32266666666675,52.300000000000004 305.32266666666675,64.60000000000001 315.32266666666675,64.60000000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Running" data-to="Reconnecting" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="SourceLost" points="338.03666666666675,76.9 338.03666666666675,347.30000000000007 151.8266666666666,347.30000000000007 151.8266666666666,427.6000000000001 178.587,427.6000000000001 178.587,439.6000000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Reconnecting" data-to="Running" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="SourceRecovered" points="219.74033333333335,439.6000000000001 219.74033333333335,427.6000000000001 246.5006666666668,427.6000000000001 246.5006666666668,359.30000000000007 349.3936666666667,359.30000000000007 349.3936666666667,76.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Running" data-to="AbrActive" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="ABR step down or up" points="360.75066666666675,76.9 360.75066666666675,471.90000000000015 393.8180000000001,471.90000000000015 393.8180000000001,483.90000000000015" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="AbrActive" data-to="Running" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="bitrate stable" points="427.56133333333344,483.90000000000015 427.56133333333344,471.90000000000015 460.62866666666673,471.90000000000015 460.62866666666673,403.6000000000001 372.1076666666668,403.6000000000001 372.1076666666668,76.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Running" data-to="Stopped" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="graph components stop" points="383.46466666666674,76.9 383.46466666666674,100.9 567.2863333333335,100.9 567.2863333333335,181.2" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Stopped" data-to="Idle" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="teardown" points="567.2863333333335,218.10000000000002 567.2863333333335,298.40000000000003 693.0398333333335,298.40000000000003 693.0398333333335,310.40000000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Running" data-to="Idle" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="daemon restart then re-arm" points="394.8216666666667,76.9 394.8216666666667,88.9 708.7143333333335,88.9 708.7143333333335,310.40000000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="edge-label" data-from="Idle" data-to="SourceUp" data-label="start video-source">
+  <rect x="557.3797500000002" y="366.30000000000007" width="104.37400000000002" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="609.5667500000002" y="381.45000000000005" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">start video-source</text>
+</g>
+<g class="edge-label" data-from="SourceUp" data-to="Starting" data-label="graph components start">
+  <rect x="545.3797500000002" y="519.5000000000001" width="128.13400000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="609.4467500000002" y="534.6500000000001" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">graph components start</text>
+</g>
+<g class="edge-label" data-from="Starting" data-to="Running" data-label="pipeline OK Started event">
+  <rect x="36" y="519.5000000000001" width="134.66800000000003" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="103.33400000000002" y="534.6500000000001" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">pipeline OK Started event</text>
+</g>
+<g class="edge-label" data-from="Starting" data-to="Error" data-label="port conflict or ingest fail">
+  <rect x="289.3585000000001" y="648.7" width="129.322" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="354.0195000000001" y="663.85" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">port conflict or ingest fail</text>
+</g>
+<g class="edge-label" data-from="Error" data-to="Idle" data-label="clear port stop">
+  <rect x="677.5137500000002" y="672.7" width="85.36600000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="720.1967500000002" y="687.85" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">clear port stop</text>
+</g>
+<g class="edge-label" data-from="Running" data-to="Running" data-label="ClientConnected ClientDisconnected">
+  <rect x="119.19466666666678" y="43.300000000000004" width="188.12800000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="213.25866666666678" y="58.45" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">ClientConnected ClientDisconnected</text>
+</g>
+<g class="edge-label" data-from="Running" data-to="Reconnecting" data-label="SourceLost">
+  <rect x="114.32666666666658" y="366.30000000000007" width="74.674" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="151.6636666666666" y="381.45000000000005" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">SourceLost</text>
+</g>
+<g class="edge-label" data-from="Reconnecting" data-to="Running" data-label="SourceRecovered">
+  <rect x="193.0006666666668" y="366.30000000000007" width="106.75000000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="246.3756666666668" y="381.45000000000005" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">SourceRecovered</text>
+</g>
+<g class="edge-label" data-from="Running" data-to="AbrActive" data-label="ABR step down or up">
+  <rect x="303.75066666666675" y="410.60000000000014" width="113.87800000000004" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="360.68966666666677" y="425.7500000000001" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">ABR step down or up</text>
+</g>
+<g class="edge-label" data-from="AbrActive" data-to="Running" data-label="bitrate stable">
+  <rect x="421.62866666666673" y="410.60000000000014" width="77.644" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="460.45066666666673" y="425.7500000000001" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">bitrate stable</text>
+</g>
+<g class="edge-label" data-from="Running" data-to="Stopped" data-label="graph components stop">
+  <rect x="503.7863333333334" y="107.9" width="126.946" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="567.2593333333334" y="123.05000000000001" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">graph components stop</text>
+</g>
+<g class="edge-label" data-from="Stopped" data-to="Idle" data-label="teardown">
+  <rect x="536.2863333333335" y="261.1" width="61.606" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="567.0893333333335" y="276.25" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">teardown</text>
+</g>
+<g class="edge-label" data-from="Running" data-to="Idle" data-label="daemon restart then re-arm">
+  <rect x="636.7143333333335" y="161.10000000000002" width="143.57800000000003" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="708.5033333333334" y="176.25000000000003" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">daemon restart then re-arm</text>
+</g>
+<g class="node" data-id="_start" data-label="" data-shape="state-start">
+  <circle cx="733.7143333333335" cy="248.40000000000003" r="12" fill="var(--_text)" stroke="none" />
+</g>
+<g class="node" data-id="Idle" data-label="Idle" data-shape="rounded">
+  <rect x="677.3653333333335" y="310.40000000000003" width="62.69799999999999" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="708.7143333333336" y="328.85" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Idle</text>
+</g>
+<g class="node" data-id="SourceUp" data-label="SourceUp" data-shape="rounded">
+  <rect x="558.5237500000002" y="439.6000000000001" width="102.71199999999999" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="609.8797500000002" y="458.05000000000007" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">SourceUp</text>
+</g>
+<g class="node" data-id="Starting" data-label="Starting" data-shape="rounded">
+  <rect x="310.4125000000001" y="568.8000000000001" width="87.892" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="354.35850000000005" y="587.2500000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Starting</text>
+</g>
+<g class="node" data-id="Running" data-label="Running" data-shape="rounded">
+  <rect x="315.32266666666675" y="40" width="90.856" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="360.75066666666675" y="58.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Running</text>
+</g>
+<g class="node" data-id="Error" data-label="Error" data-shape="rounded">
+  <rect x="378.9818333333334" y="722" width="76.036" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="416.9998333333334" y="740.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Error</text>
+</g>
+<g class="node" data-id="Reconnecting" data-label="Reconnecting" data-shape="rounded">
+  <rect x="137.43366666666668" y="439.6000000000001" width="123.46" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="199.16366666666667" y="458.05000000000007" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Reconnecting</text>
+</g>
+<g class="node" data-id="AbrActive" data-label="AbrActive" data-shape="rounded">
+  <rect x="360.07466666666676" y="483.90000000000015" width="101.22999999999999" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="410.68966666666677" y="502.35000000000014" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">AbrActive</text>
+</g>
+<g class="node" data-id="Stopped" data-label="Stopped" data-shape="rounded">
+  <rect x="521.8583333333335" y="181.2" width="90.856" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="567.2863333333335" y="199.64999999999998" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Stopped</text>
+</g>
+</svg>

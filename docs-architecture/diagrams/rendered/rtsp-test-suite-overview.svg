@@ -1,0 +1,280 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 413.40000000000003 10724" width="413.40000000000003" height="10724" style="--bg:#1a1b26;--fg:#a9b1d6;--line:#3d59a1;--accent:#7aa2f7;--muted:#565f89;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 30%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="4.8" refX="8" refY="2.4" orient="auto">
+    <polygon points="0 0, 8 2.4, 0 4.8" fill="var(--_arrow)" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="4.8" refX="0" refY="2.4" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.4, 8 4.8" fill="var(--_arrow)" />
+  </marker>
+</defs>
+<rect x="68.6" y="140" width="276.2000000000001" height="580" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="68.6" y="140" width="276.2000000000001" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="80.6" y="154" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">&quot;1. Source Code Verification&quot;</text>
+<rect x="82.9" y="764" width="247.59999999999997" height="424" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="82.9" y="764" width="247.59999999999997" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="94.9" y="778" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">&quot;2. CLI Help &amp; Parsing&quot;</text>
+<rect x="72.17500000000001" y="1232" width="269.05" height="580" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="72.17500000000001" y="1232" width="269.05" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="84.17500000000001" y="1246" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">&quot;3. Hardware Detection&quot;</text>
+<rect x="68.6" y="1856" width="276.2000000000001" height="580" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="68.6" y="1856" width="276.2000000000001" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="80.6" y="1870" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">&quot;4. Config Generation&quot;</text>
+<rect x="68.6" y="2480" width="276.2000000000001" height="580" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="68.6" y="2480" width="276.2000000000001" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="80.6" y="2494" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">&quot;5. Daemon — Disabled&quot;</text>
+<rect x="68.6" y="3104" width="276.2000000000001" height="892" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="68.6" y="3104" width="276.2000000000001" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="80.6" y="3118" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">&quot;6. Daemon — Enabled + Auto-Spawn&quot;</text>
+<rect x="54.30000000000001" y="4040" width="304.8" height="736" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="54.30000000000001" y="4040" width="304.8" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="66.30000000000001" y="4054" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">&quot;7. Manual CLI Operations&quot;</text>
+<rect x="75.75000000000003" y="4820" width="261.8999999999999" height="580" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="75.75000000000003" y="4820" width="261.8999999999999" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="87.75000000000003" y="4834" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">&quot;8. IPC Methods&quot;</text>
+<rect x="50.724999999999994" y="5444" width="311.9500000000001" height="1048" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="50.724999999999994" y="5444" width="311.9500000000001" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="62.724999999999994" y="5458" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">&quot;9. Auto-Spawn Lifecycle&quot;</text>
+<rect x="79.32499999999999" y="6536" width="254.75000000000006" height="580" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="79.32499999999999" y="6536" width="254.75000000000006" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="91.32499999999999" y="6550" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">&quot;10. Auto-Spawn Disabled&quot;</text>
+<rect x="68.6" y="7160" width="276.2000000000001" height="736" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="68.6" y="7160" width="276.2000000000001" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="80.6" y="7174" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">&quot;11. Multiple Compressors&quot;</text>
+<rect x="86.47500000000002" y="7940" width="240.45" height="580" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="86.47500000000002" y="7940" width="240.45" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="98.47500000000002" y="7954" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">&quot;12. Graceful Shutdown&quot;</text>
+<rect x="40" y="8564" width="333.40000000000003" height="892" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="40" y="8564" width="333.40000000000003" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="52" y="8578" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">&quot;13. End-to-End Video Pipeline&quot;</text>
+<rect x="68.6" y="9500" width="276.2000000000001" height="580" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="68.6" y="9500" width="276.2000000000001" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="80.6" y="9514" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">&quot;14. Build Verification&quot;</text>
+<rect x="79.32499999999999" y="10124" width="254.75000000000006" height="424" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="79.32499999999999" y="10124" width="254.75000000000006" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="91.32499999999999" y="10138" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">&quot;15. Thread Safety&quot;</text>
+<polyline points="206.70000000000002,76 206.70000000000002,196" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,232 206.70000000000002,352" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,388 206.70000000000002,508" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,544 206.70000000000002,664" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,700 206.70000000000002,820" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,856 206.70000000000002,976" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,1012 206.70000000000002,1132" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,1168 206.70000000000002,1288" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,1324 206.70000000000002,1444" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,1480 206.70000000000002,1600" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,1636 206.70000000000002,1756" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,1792 206.70000000000002,1912" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,1948 206.70000000000002,2068" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,2104 206.70000000000002,2224" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,2260 206.70000000000002,2380" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,2416 206.70000000000002,2536" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,2572 206.70000000000002,2692" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,2728 206.70000000000002,2848" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,2884 206.70000000000002,3004" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,3040 206.70000000000002,3160" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,3196 206.70000000000002,3316" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,3352 206.70000000000002,3472" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,3508 206.70000000000002,3628" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,3664 206.70000000000002,3784" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,3820 206.70000000000002,3940" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,3976 206.70000000000002,4096" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,4132 206.70000000000002,4252" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,4288 206.70000000000002,4408" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,4444 206.70000000000002,4564" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,4600 206.70000000000002,4720" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,4756 206.70000000000002,4876" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,4912 206.70000000000002,5032" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,5068 206.70000000000002,5188" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,5224 206.70000000000002,5344" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,5380 206.70000000000002,5500" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,5536 206.70000000000002,5656" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,5692 206.70000000000002,5812" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,5848 206.70000000000002,5968" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,6004 206.70000000000002,6124" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,6160 206.70000000000002,6280" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,6316 206.70000000000002,6436" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,6472 206.70000000000002,6592" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,6628 206.70000000000002,6748" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,6784 206.70000000000002,6904" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,6940 206.70000000000002,7060" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,7096 206.70000000000002,7216" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,7252 206.70000000000002,7372" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,7408 206.70000000000002,7528" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,7564 206.70000000000002,7684" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,7720 206.70000000000002,7840" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,7876 206.70000000000002,7996" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,8032 206.70000000000002,8152" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,8188 206.70000000000002,8308" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,8344 206.70000000000002,8464" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,8500 206.70000000000002,8620" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,8656 206.70000000000002,8776" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,8812 206.70000000000002,8932" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,8968 206.70000000000002,9088" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,9124 206.70000000000002,9244" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,9280 206.70000000000002,9400" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,9436 206.70000000000002,9556" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,9592 206.70000000000002,9712" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,9748 206.70000000000002,9868" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,9904 206.70000000000002,10024" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,10060 206.70000000000002,10180" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,10216 206.70000000000002,10336" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,10372 206.70000000000002,10492" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="206.70000000000002,10528 206.70000000000002,10648" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<rect x="133.5" y="40" width="146.4" height="36" rx="18" ry="18" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="115.62500000000001" y="10648" width="182.15" height="36" rx="18" ry="18" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="122.775" y="196" width="167.85000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="108.47500000000001" y="352" width="196.45000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="90.60000000000001" y="508" width="232.20000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="126.35000000000001" y="664" width="160.70000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="104.9" y="820" width="203.60000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="115.62500000000001" y="976" width="182.15" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="104.9" y="1132" width="203.60000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="115.62500000000001" y="1288" width="182.15" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="94.17500000000001" y="1444" width="225.05" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="108.47500000000001" y="1600" width="196.45000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="119.20000000000002" y="1756" width="175" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="90.60000000000001" y="1912" width="232.20000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="104.9" y="2068" width="203.60000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="94.17500000000001" y="2224" width="225.05" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="90.60000000000001" y="2380" width="232.20000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="108.47500000000001" y="2536" width="196.45000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="90.60000000000001" y="2692" width="232.20000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="115.62500000000001" y="2848" width="182.15" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="122.775" y="3004" width="167.85000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="112.05000000000001" y="3160" width="189.3" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="90.60000000000001" y="3316" width="232.20000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="108.47500000000001" y="3472" width="196.45000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="115.62500000000001" y="3628" width="182.15" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="101.325" y="3784" width="210.75000000000003" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="101.325" y="3940" width="210.75000000000003" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="101.325" y="4096" width="210.75000000000003" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="97.75000000000001" y="4252" width="217.9" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="83.45" y="4408" width="246.50000000000003" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="101.325" y="4564" width="210.75000000000003" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="76.30000000000001" y="4720" width="260.8" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="97.75000000000001" y="4876" width="217.9" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="104.9" y="5032" width="203.60000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="126.35000000000001" y="5188" width="160.70000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="129.925" y="5344" width="153.55" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="101.325" y="5500" width="210.75000000000003" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="79.87500000000001" y="5656" width="253.65" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="101.325" y="5812" width="210.75000000000003" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="76.30000000000001" y="5968" width="260.8" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="94.17500000000001" y="6124" width="225.05" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="76.30000000000001" y="6280" width="260.8" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="72.725" y="6436" width="267.95000000000005" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="108.47500000000001" y="6592" width="196.45000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="108.47500000000001" y="6748" width="196.45000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="104.9" y="6904" width="203.60000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="101.325" y="7060" width="210.75000000000003" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="90.60000000000001" y="7216" width="232.20000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="101.325" y="7372" width="210.75000000000003" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="122.775" y="7528" width="167.85000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="129.925" y="7684" width="153.55" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="108.47500000000001" y="7840" width="196.45000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="108.47500000000001" y="7996" width="196.45000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="140.65" y="8152" width="132.10000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="140.65" y="8308" width="132.10000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="122.775" y="8464" width="167.85000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="62" y="8620" width="289.40000000000003" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="87.025" y="8776" width="239.35000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="69.15" y="8932" width="275.1" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="65.57500000000002" y="9088" width="282.25" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="119.20000000000002" y="9244" width="175" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="83.45" y="9400" width="246.50000000000003" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="90.60000000000001" y="9556" width="232.20000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="104.9" y="9712" width="203.60000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="108.47500000000001" y="9868" width="196.45000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="94.17500000000001" y="10024" width="225.05" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="101.325" y="10180" width="210.75000000000003" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="115.62500000000001" y="10336" width="182.15" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="112.05000000000001" y="10492" width="189.3" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<text x="206.7" y="58" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Start Test Suite</text>
+<text x="206.70000000000002" y="10666" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Print Results Summary</text>
+<text x="206.70000000000002" y="214" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Check headers exist</text>
+<text x="206.70000000000002" y="370" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Check events in variant</text>
+<text x="206.70000000000002" y="526" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Check IPC methods registered</text>
+<text x="206.70000000000002" y="682" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Check CLI commands</text>
+<text x="206.70000000000002" y="838" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">rtsp help lists commands</text>
+<text x="206.70000000000002" y="994" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">rtsp start/stop usage</text>
+<text x="206.70000000000002" y="1150" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Missing args shows error</text>
+<text x="206.70000000000002" y="1306" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">detectHardware output</text>
+<text x="206.70000000000002" y="1462" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Verify arch / GStreamer ver</text>
+<text x="206.70000000000002" y="1618" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Verify CPU / RAM fields</text>
+<text x="206.70000000000002" y="1774" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Verify strategy enum</text>
+<text x="206.70000000000002" y="1930" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Generate enabled+auto config</text>
+<text x="206.70000000000002" y="2086" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Generate disabled config</text>
+<text x="206.70000000000002" y="2242" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Generate manual-only config</text>
+<text x="206.70000000000002" y="2398" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Default config (no rtsp key)</text>
+<text x="206.70000000000002" y="2554" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Start daemon rtsp:false</text>
+<text x="206.70000000000002" y="2710" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">rtsp status → not configured</text>
+<text x="206.70000000000002" y="2866" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">rtsp start → rejected</text>
+<text x="206.70000000000002" y="3022" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Stop daemon cleanly</text>
+<text x="206.70000000000002" y="3178" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Start daemon rtsp:true</text>
+<text x="206.70000000000002" y="3334" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Create TUN iface + assign IP</text>
+<text x="206.70000000000002" y="3490" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Sleep 4s wait for spawn</text>
+<text x="206.70000000000002" y="3646" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">rtsp status → running</text>
+<text x="206.70000000000002" y="3802" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Remove IP → auto-teardown</text>
+<text x="206.70000000000002" y="3958" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Cleanup TUN + stop daemon</text>
+<text x="206.70000000000002" y="4114" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">rtsp start conn1 iface ip</text>
+<text x="206.70000000000002" y="4270" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">rtsp status → conn1 listed</text>
+<text x="206.70000000000002" y="4426" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">rtsp start conn1 again → no-op</text>
+<text x="206.70000000000002" y="4582" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">rtsp stop conn1 → stopped</text>
+<text x="206.70000000000002" y="4738" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">rtsp stop nonexistent → no crash</text>
+<text x="206.70000000000002" y="4894" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Verify 3 methods in source</text>
+<text x="206.70000000000002" y="5050" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">rtsp.status via CLI JSON</text>
+<text x="206.70000000000002" y="5206" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">rtsp.start via CLI</text>
+<text x="206.70000000000002" y="5362" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">rtsp.stop via CLI</text>
+<text x="206.70000000000002" y="5518" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">AddressAdded IPv4 → spawn</text>
+<text x="206.70000000000002" y="5674" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">2nd AddressAdded → no duplicate</text>
+<text x="206.70000000000002" y="5830" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">AddressRemoved → teardown</text>
+<text x="206.70000000000002" y="5986" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">AddressAdded empty IP → no spawn</text>
+<text x="206.70000000000002" y="6142" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">InterfaceUp only → no spawn</text>
+<text x="206.70000000000002" y="6298" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">InterfaceCreated only → no spawn</text>
+<text x="206.70000000000002" y="6454" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">VpnState::Disconnected → teardown</text>
+<text x="206.70000000000002" y="6610" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">auto_start_on_vpn=false</text>
+<text x="206.70000000000002" y="6766" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">AddressAdded → NO spawn</text>
+<text x="206.70000000000002" y="6922" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Manual start still works</text>
+<text x="206.70000000000002" y="7078" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">AddressRemoved → teardown</text>
+<text x="206.70000000000002" y="7234" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Create 3 TUN ifaces with IPs</text>
+<text x="206.70000000000002" y="7390" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">rtsp status → 3 instances</text>
+<text x="206.70000000000002" y="7546" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Teardown middle one</text>
+<text x="206.70000000000002" y="7702" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">2 remain, A and C</text>
+<text x="206.70000000000002" y="7858" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Teardown all → 0 remain</text>
+<text x="206.70000000000002" y="8014" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Spawn compressor on TUN</text>
+<text x="206.70000000000002" y="8170" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">SIGTERM daemon</text>
+<text x="206.70000000000002" y="8326" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Socket removed</text>
+<text x="206.70000000000002" y="8482" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">TUN device survives</text>
+<text x="206.70000000000002" y="8638" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Start odc-video-source on port 19554</text>
+<text x="206.70000000000002" y="8794" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Start daemon with rtsp config</text>
+<text x="206.70000000000002" y="8950" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Trigger compressor via loopback IP</text>
+<text x="206.70000000000002" y="9106" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">odc-rtsp-monitor connects to output</text>
+<text x="206.70000000000002" y="9262" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Verify bandwidth &gt; 0</text>
+<text x="206.70000000000002" y="9418" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Stop compressor + video source</text>
+<text x="206.70000000000002" y="9574" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">ldd: libgstrtspserver linked</text>
+<text x="206.70000000000002" y="9730" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">ldd: libgstreamer linked</text>
+<text x="206.70000000000002" y="9886" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Binary &gt; 12MB with cmpr</text>
+<text x="206.70000000000002" y="10042" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Symbols: RtspBridge present</text>
+<text x="206.70000000000002" y="10198" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Rapid start/stop 5 cycles</text>
+<text x="206.70000000000002" y="10354" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">3 simultaneous spawns</text>
+<text x="206.70000000000002" y="10510" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Cleanup all interfaces</text>
+</svg>

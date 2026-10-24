@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "general": {
+    "log_level": "debug",
+    "device_config_dir": "/etc/odc-onboard/devices"
+  },
+  "vpn": {
+    "wireguard": {
+      "connections": [
+        {
+          "id": "test-wg",
+          "enabled": true,
+          "config_path": "/home/molt/Documents/GitHub/opendronecore/odc-onboard/tests/vpn-configs/wg-client.conf",
+          "metadata": {
+            "name": "WireGuard to hexa-five",
+            "auto_start": false,
+            "max_retries": 3,
+            "health_check": {
+              "enabled": true,
+              "interval_sec": 30,
+              "ping_host": "10.66.66.1"
+            }
+          }
+        }
+      ]
+    },
+    "openvpn": {
+      "connections": [
+        {
+          "id": "test-ovpn",
+          "enabled": true,
+          "config_path": "/home/molt/Documents/GitHub/opendronecore/odc-onboard/tests/vpn-configs/odc-client.ovpn",
+          "metadata": {
+            "name": "OpenVPN to hexa-five",
+            "auto_start": false,
+            "max_retries": 5,
+            "health_check": {
+              "enabled": true,
+              "interval_sec": 30,
+              "ping_host": "192.168.255.1"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "mavlink": {
+    "enabled": true,
+    "tcp_server_port": 5760,
+    "dedup_period_sec": 5,
+    "sniffer_sysid": 0,
+    "report_stats": true,
+    "extender_auto": {
+      "enabled": true,
+      "udp_port": 14580,
+      "vpn_types": ["wireguard", "openvpn"]
+    },
+    "endpoints": []
+  },
+  "rtsp": {
+    "enabled": true,
+    "auto_start_on_vpn": true
+  }
+}

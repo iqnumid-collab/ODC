@@ -1,0 +1,92 @@
+# Build artifacts
+build/
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+compile_commands.json
+*.cmake
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Binary
+*.o
+*.a
+*.so
+*.so.*
+
+# Logs
+*.log
+caf.log
+
+# Generated config files
+config.h
+git_version.h
+build_config.h
+*.mp4
+
+# Credentials
+git-creds.txt
+
+# Build directories / generated output
+build-v2/
+dist/
+
+# CMake package-manager download cache (CPM) - fetched by CMake, not external
+.cache/
+odc-root/Testing/
+
+# Test run logs & artifacts
+logs/
+
+# Secrets: VPN keys, client configs, certs (never commit)
+*.key
+*.ovpn
+*.crt
+*.csr
+*.conf
+
+# Keep externally-collected dependencies (staged manually, not via CMake)
+!odc-onboard-v2/build-deps/**
+!odc-onboard-v2/thirdparty/**
+!odc-root/thirdparty/**
+# Re-allow cmake config files inside kept external dep dirs
+!odc-onboard-v2/build-deps/**/*.cmake
+!odc-onboard-v2/thirdparty/**/*.cmake
+
+# ...but still exclude build output / compiled artifacts even inside kept dep dirs
+**/build/
+**/CMakeFiles/
+**/CMakeCache.txt
+*.o
+*.o.d
+*.obj
+
+# Large binary artifacts / sample media (do not commit to GitHub)
+*.mp4
+**/dev/src-pipeline/mediamtx
+odc-root/deploy/output/
+mediamtx
+# CI workflows excluded from initial push (token lacks 'workflow' scope)
+.github/workflows/
+
+# VPN client configs with embedded keys/certs (NEVER commit) - explicit, overrides deps negation
+**/configs/*.ovpn
+**/vpn-configs/*.ovpn
+**/*.ovpn
+
+# Host-specific configs & lab/deploy scripts (contain IPs, creds, SSH targets) - NEVER commit
+host-configs/
+scripts/lab-*
+*.env
+!**/*.env.example

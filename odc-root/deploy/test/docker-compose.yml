@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  odc-test:
+    build:
+      context: ../..
+      dockerfile: deploy/test/Dockerfile
+    container_name: odc-root-test
+    hostname: odc-root-test
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    devices:
+      - /dev/net/tun
+    sysctls:
+      - net.ipv4.ip_forward=1
+      - net.ipv6.conf.all.forwarding=1
+    volumes:
+      - ./output:/output
+      - type: tmpfs
+        target: /run
+        tmpfs:
+          size: 64M
+
+  odc-test-wine:
+    build:
+      context: ../..
+      dockerfile: deploy/test/wine/Dockerfile
+    container_name: odc-root-test-wine
+    hostname: odc-root-test-wine
+    depends_on:
+      - odc-test
+    network_mode: "service:odc-test"
+    environment:
+      - REGISTRY_HOST=127.0.0.1
+      - REGISTRY_PORT=9443
+      - WINEDEBUG=-all
+    volumes:
+      - ./output:/output
+      - ./certs:/certs:ro

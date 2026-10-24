@@ -1,0 +1,4 @@
+#pragma once
+
+#define GIT_VERSION "@GIT_VERSION_RAW@"
+

@@ -1,0 +1,24 @@
+flowchart TD
+    IPC["graph.apply{}"] --> APPLY["GraphRuntime::apply({})"]
+    APPLY --> VALIDATE{"validator::is_valid?"}
+    VALIDATE -->|"no"| FAIL["return false"]
+    VALIDATE -->|"yes"| STOP["stop_components_ordered()"]
+
+    STOP --> KILL_RTSP["Kill RTSP compressors"]
+    KILL_RTSP --> KILL_EXT["Kill MAVLink extenders"]
+    KILL_EXT --> KILL_ROUTER["Kill MAVLink router"]
+    KILL_ROUTER --> KILL_VPN["Kill ALL VPN connections"]
+    KILL_VPN --> KILL_CELL["Kill cellular WAN"]
+
+    KILL_CELL --> BUILD["build_runtime_locked()"]
+    BUILD --> RECREATE["Rebuild all from schema"]
+    RECREATE --> RESTART["Restart all components"]
+
+    RESTART --> DOWNTIME["Live traffic interrupted"]
+
+    style DOWNTIME fill:#f66,stroke:#f00
+    style KILL_RTSP fill:#faa,stroke:#f00
+    style KILL_EXT fill:#faa,stroke:#f00
+    style KILL_ROUTER fill:#faa,stroke:#f00
+    style KILL_VPN fill:#faa,stroke:#f00
+    style KILL_CELL fill:#faa,stroke:#f00

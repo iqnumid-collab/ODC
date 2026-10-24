@@ -1,0 +1,12 @@
+logLevel: info
+
+rtspAddress: :8554
+
+paths:
+  mercede:
+    runOnDemand: >-
+      ffmpeg -re -stream_loop -1 -i /home/fyou/Videos/jetson-cmpr/dev/src-pipeline/mercedes.mp4
+      -c copy -rtsp_transport tcp -f rtsp
+      rtsp://0.0.0.0:$RTSP_PORT/$MTX_PATH
+    runOnDemandRestart: yes
+    runOnDemandCloseAfter: 15s

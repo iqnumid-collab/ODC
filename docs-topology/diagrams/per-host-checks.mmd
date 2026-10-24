@@ -1,0 +1,18 @@
+flowchart TB
+  start([Preflight from molt]) --> pingAll{Ping .11 .12 .16}
+  pingAll -->|fail| netFail[Fix lab network]
+  pingAll -->|ok| chkMolt[Docker + repo OK]
+  chkMolt --> chkHook{odc-hook\nconnected?}
+  chkHook -->|no| fixHook[Fix mTLS / unit / certs]
+  chkHook -->|yes| chkSrv[hexa-five:\nunits + :9443 + CLI]
+  chkSrv --> chkPi4[rpi-4b:\nunit + IPC + YAML]
+  chkPi4 --> chkPi5[rpi-5:\nunit + IPC + YAML]
+  chkPi5 --> vpn{VPN peers up?}
+  vpn -->|no| fixVpn[Check creds / tunnel]
+  vpn -->|yes| evt{Hook counters\nincreased?}
+  evt -->|no| fixEvt[Check registry publish]
+  evt -->|yes| media{RTSP E2E?}
+  media -->|skip| green([Lab ready])
+  media -->|run| frames{Frames > 0?}
+  frames -->|no| fixMedia[Check GStreamer ports]
+  frames -->|yes| green

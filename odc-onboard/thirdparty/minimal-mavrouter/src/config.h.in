@@ -1,0 +1,7 @@
+#pragma once
+
+#cmakedefine01 HAVE_WADDRESS_OF_PACKED_MEMBER
+#cmakedefine01 HAVE_DECL_AIO_INIT
+
+#define VERSION "@PROJECT_VERSION@"
+#define PACKAGE "@PROJECT_NAME@"

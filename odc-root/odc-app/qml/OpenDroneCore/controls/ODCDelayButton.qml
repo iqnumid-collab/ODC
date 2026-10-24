@@ -1,0 +1,108 @@
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+
+import OpenDroneCore
+
+DelayButton {
+    id:             control
+    hoverEnabled:   !ScreenTools.isMobile
+    topPadding:     _verticalPadding
+    bottomPadding:  _verticalPadding
+    leftPadding:    _horizontalPadding
+    rightPadding:   _horizontalPadding
+    focusPolicy:    Qt.ClickFocus
+    font.family:    ScreenTools.normalFontFamily
+    delay:          defaultDelay
+
+    property bool   showBorder:     odcPalette.globalTheme === ODCPalette.Light
+    property real   backRadius:     ScreenTools.defaultBorderRadius
+    property real   heightFactor:   0.5
+    property real   fontWeight:     Font.Normal // default for qml Text
+    property real   pointSize:      ScreenTools.defaultFontPointSize
+    property int    defaultDelay:   500
+
+    property alias wrapMode:            text.wrapMode
+    property alias horizontalAlignment: text.horizontalAlignment
+    property alias backgroundColor:     backRect.color
+    property alias textColor:           text.color
+
+    property bool   _showHighlight:     enabled && pressed
+    property int    _horizontalPadding: ScreenTools.defaultFontPixelWidth * 2
+    property int    _verticalPadding:   Math.round(ScreenTools.defaultFontPixelHeight * heightFactor)
+    property bool   _showHelp:          false
+    property bool   _activated:         false
+
+    ODCPalette { id: odcPalette; colorGroupEnabled: enabled }
+
+    Timer {
+        id:         helpTimeout
+        interval:   3000
+        repeat:     false
+        onTriggered: control._showHelp = false
+    }
+
+    onActivated: {
+        _activated = true
+        _showHelp = false
+    }
+    onPressed: {
+        _activated = false
+    }
+    onReleased: {
+        _showHelp = !_activated
+        _activated = false
+        if (_showHelp) {
+            helpTimeout.start()
+        } else {
+            helpTimeout.stop()
+        }
+    }
+
+    background: Rectangle {
+        id:             backRect
+        radius:         backRadius
+        implicitWidth:  Math.max(control._showHelp ? helpText.contentWidth : 0, ScreenTools.implicitButtonWidth)
+        implicitHeight: ScreenTools.implicitButtonHeight
+        border.width:   showBorder ? 1 : 0
+        border.color:   odcPalette.buttonBorder
+        color:          control._showHighlight ? odcPalette.buttonHighlight : odcPalette.button
+
+        ODCColoredImage {
+            anchors.topMargin:      _sliderIndicatorMargin
+            anchors.bottomMargin:   _sliderIndicatorMargin
+            anchors.leftMargin:     control.pressed ? (parent.width - width) * control.progress : 0
+            anchors.left:           parent.left
+            anchors.top:            parent.top
+            anchors.bottom:         parent.bottom
+            width:                  height
+            source:                 "qrc:/res/chevron-double-right.svg"
+            sourceSize.height:      parent.height
+            fillMode:               Image.PreserveAspectFit
+            color:                  control._showHighlight ? odcPalette.buttonHighlightText : odcPalette.buttonText
+            opacity:                control._showHighlight ? 0.75 : 0.2
+
+            property real _sliderIndicatorMargin: ScreenTools.defaultFontPixelWidth * 0.5
+        }
+
+        ODCLabel {
+            id:                         helpText
+            text:                       qsTr("Hold to Confirm")
+            anchors.bottom:             parent.bottom
+            anchors.horizontalCenter:   parent.horizontalCenter
+            font.pointSize:             ScreenTools.smallFontPointSize
+            color:                      control._showHighlight ? odcPalette.buttonHighlightText : odcPalette.buttonText
+            visible:                    control._showHelp
+        }
+    }
+
+    contentItem: ODCLabel {
+        id:                     text
+        horizontalAlignment:    Text.AlignHCenter
+        text:                   control.text
+        font.pointSize:         control.pointSize
+        font.family:            control.font.family
+        font.weight:            control.fontWeight
+        color:                  control._showHighlight ? odcPalette.buttonHighlightText : odcPalette.buttonText
+    }
+}

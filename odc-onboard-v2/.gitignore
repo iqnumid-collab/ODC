@@ -1,0 +1,8 @@
+# Local overrides for real hardware integration tests
+tests/helpers/real_hardware.env
+
+# Persistent test state (optional lab install path)
+/var/lib/odc-test/
+
+# Runtime logs from isolated test runs
+/tmp/odc-real-hw-*

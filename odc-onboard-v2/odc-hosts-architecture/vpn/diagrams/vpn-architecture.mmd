@@ -1,0 +1,26 @@
+flowchart LR
+  subgraph DUT["odc-device DUT"]
+    YAML["system.yaml<br/>vpn.wireguard / vpn.openvpn"]
+    GRAPH["GraphRuntime"]
+    COMP["VpnComponent"]
+    BIND["TransportBinding<br/>ip_ready / lost"]
+    IFACE["tun / wg iface"]
+    YAML --> GRAPH --> COMP
+    COMP --> IFACE
+    COMP --> BIND
+  end
+
+  subgraph HUB["hexa-five hub"]
+    TM["odc-tunnel-manager"]
+    WG["WireGuard server"]
+    OV["OpenVPN server"]
+    REG["odc-registry<br/>optional"]
+    TM --> WG
+    TM --> OV
+    REG -.-> TM
+  end
+
+  BIND -->|events| BUS["EventBus / IPC"]
+  COMP -->|"UDP 51820 or OVPN"| TM
+  IFACE -->|"encrypted tunnel"| WG
+  IFACE -->|"encrypted tunnel"| OV

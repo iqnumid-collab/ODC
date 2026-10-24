@@ -1,0 +1,36 @@
+sequenceDiagram
+    participant VPN as VPN Connection
+    participant Kernel as Linux Kernel
+    participant Monitor as VpnInterfaceMonitor
+    participant EventBus as EventBus
+    participant Mgr as MavExtenderManager
+    participant Ext as Extender Thread
+    participant Router as MavRouter (Primary)
+
+    VPN->>Kernel: Create TUN interface (e.g. wg-1)
+    Kernel-->>Monitor: Netlink RTNL: interface created
+    Monitor->>EventBus: Publish InterfaceCreated event
+    Kernel-->>Monitor: Netlink RTNL: interface UP
+    Monitor->>EventBus: Publish InterfaceUp event
+
+    VPN->>Kernel: Assign IP 10.0.0.2/24 to wg-1
+    Kernel-->>Monitor: Netlink RTNL: address added
+    Monitor->>EventBus: Publish AddressAdded (10.0.0.2)
+
+    EventBus->>Mgr: VpnInterfaceEvent received
+    Mgr->>Ext: Spawn extender thread
+    Note over Ext: UDP client to router at 10.0.0.1:14580
+
+    Ext->>Router: Connect UDP to 10.0.0.1:14580
+    Router-->>Ext: MAVLink heartbeat exchange
+    Mgr->>EventBus: Publish ExtenderStarted
+
+    Note over Ext,Router: Extender relays telemetry
+    Note over Ext,Router: between FC and GCS over VPN
+
+    VPN->>Kernel: Remove TUN interface (disconnect)
+    Kernel-->>Monitor: Netlink RTNL: address removed
+    Monitor->>EventBus: Publish AddressRemoved
+    EventBus->>Mgr: VpnInterfaceEvent received
+    Mgr->>Ext: Stop and teardown extender
+    Mgr->>EventBus: Publish ExtenderStopped

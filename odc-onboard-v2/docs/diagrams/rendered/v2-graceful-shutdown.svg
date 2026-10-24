@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1235.084 634" width="1235.084" height="634" style="--bg:#1a1b26;--fg:#a9b1d6;--line:#3d59a1;--accent:#7aa2f7;--muted:#565f89;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="seq-arrow" markerWidth="8" markerHeight="5" refX="8" refY="2.5" orient="auto-start-reverse">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" />
+  </marker>
+  <marker id="seq-arrow-open" markerWidth="8" markerHeight="5" refX="8" refY="2.5" orient="auto-start-reverse">
+    <polyline points="0 0, 8 2.5, 0 5" fill="none" stroke="var(--_arrow)" stroke-width="1" />
+  </marker>
+</defs>
+<g class="block" data-type="loop" data-label="each RTSP instance">
+  <rect x="152.48899999999998" y="158" width="317.596" height="60" rx="0" ry="0" fill="none" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="152.48899999999998" y="158" width="155.58999999999997" height="18" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="158.48899999999998" y="167" font-size="11" font-weight="600" fill="var(--_text-sec)" dy="3.8499999999999996">loop [each RTSP instance]</text>
+</g>
+<g class="block" data-type="loop" data-label="each MAVLink extender">
+  <rect x="152.48899999999998" y="226" width="499.732" height="60" rx="0" ry="0" fill="none" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="152.48899999999998" y="226" width="176.04999999999995" height="18" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="158.48899999999998" y="235" font-size="11" font-weight="600" fill="var(--_text-sec)" dy="3.8499999999999996">loop [each MAVLink extender]</text>
+</g>
+<g class="block" data-type="loop" data-label="each VPN">
+  <rect x="152.48899999999998" y="334" width="775.239" height="60" rx="0" ry="0" fill="none" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="152.48899999999998" y="334" width="100.80999999999999" height="18" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="158.48899999999998" y="343" font-size="11" font-weight="600" fill="var(--_text-sec)" dy="3.8499999999999996">loop [each VPN]</text>
+</g>
+<line class="lifeline" data-actor="SIG" x1="76.2445" y1="70" x2="76.2445" y2="604" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="GR" x1="220.95999999999998" y1="70" x2="220.95999999999998" y2="604" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="RTSP" x1="389.758" y1="70" x2="389.758" y2="604" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="MAVE" x1="571.153" y1="70" x2="571.153" y2="604" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="MAVR" x1="737.7280000000001" y1="70" x2="737.7280000000001" y2="604" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="VPN" x1="877.7280000000001" y1="70" x2="877.7280000000001" y2="604" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="CELL" x1="1017.7280000000001" y1="70" x2="1017.7280000000001" y2="604" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="IPC" x1="1157.728" y1="70" x2="1157.728" y2="604" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<g class="message" data-from="SIG" data-to="GR" data-label="shutdown requested" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="76.2445" y1="90" x2="220.95999999999998" y2="90" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="148.60225" y="80" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">shutdown requested</text>
+</g>
+<g class="message" data-from="GR" data-to="IPC" data-label="stop accepting" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="220.95999999999998" y1="130" x2="1157.728" y2="130" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="689.344" y="120" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">stop accepting</text>
+</g>
+<g class="message" data-from="GR" data-to="RTSP" data-label="stop() — g_main_loop_quit" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="220.95999999999998" y1="198" x2="389.758" y2="198" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="305.359" y="188" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">stop() — g_main_loop_quit</text>
+</g>
+<g class="message" data-from="GR" data-to="MAVE" data-label="stop()" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="220.95999999999998" y1="266" x2="571.153" y2="266" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="396.0565" y="256" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">stop()</text>
+</g>
+<g class="message" data-from="GR" data-to="MAVR" data-label="stop()" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="220.95999999999998" y1="306" x2="737.7280000000001" y2="306" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="479.34400000000005" y="296" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">stop()</text>
+</g>
+<g class="message" data-from="GR" data-to="VPN" data-label="disconnect()" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="220.95999999999998" y1="374" x2="877.7280000000001" y2="374" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="549.344" y="364" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">disconnect()</text>
+</g>
+<g class="message" data-from="GR" data-to="CELL" data-label="stop()" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="220.95999999999998" y1="414" x2="1017.7280000000001" y2="414" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="619.344" y="404" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">stop()</text>
+</g>
+<g class="message" data-from="GR" data-to="GR" data-label="destroy Circuit" data-line-style="solid" data-arrow-head="filled" data-self="true">
+  <polyline points="220.95999999999998,454 250.95999999999998,454 250.95999999999998,474 220.95999999999998,474" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="258.96" y="464" font-size="11" text-anchor="start" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">destroy Circuit</text>
+</g>
+<g class="message" data-from="GR" data-to="IPC" data-label="remove socket file" data-line-style="solid" data-arrow-head="filled" data-self="false">
+  <line x1="220.95999999999998" y1="524" x2="1157.728" y2="524" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <text x="689.344" y="514" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">remove socket file</text>
+</g>
+<g class="message" data-from="GR" data-to="SIG" data-label="exit 0" data-line-style="dashed" data-arrow-head="filled" data-self="false">
+  <line x1="220.95999999999998" y1="564" x2="76.2445" y2="564" stroke="var(--_line)" stroke-width="1" stroke-dasharray="6 4" marker-end="url(#seq-arrow)" />
+  <text x="148.60225" y="554" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">exit 0</text>
+</g>
+<g class="actor" data-id="SIG" data-label="SIGTERM" data-type="participant">
+  <rect x="30" y="30" width="92.489" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="76.2445" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">SIGTERM</text>
+</g>
+<g class="actor" data-id="GR" data-label="GraphRuntime" data-type="participant">
+  <rect x="162.48899999999998" y="30" width="116.942" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="220.95999999999998" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">GraphRuntime</text>
+</g>
+<g class="actor" data-id="RTSP" data-label="rtsp.compressor*" data-type="participant">
+  <rect x="319.431" y="30" width="140.654" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="389.758" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">rtsp.compressor*</text>
+</g>
+<g class="actor" data-id="MAVE" data-label="mavlink.extender*" data-type="participant">
+  <rect x="500.08500000000004" y="30" width="142.136" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="571.153" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">mavlink.extender*</text>
+</g>
+<g class="actor" data-id="MAVR" data-label="mav_primary" data-type="participant">
+  <rect x="682.221" y="30" width="111.01400000000001" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="737.7280000000001" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">mav_primary</text>
+</g>
+<g class="actor" data-id="VPN" data-label="vpn.*" data-type="participant">
+  <rect x="837.7280000000001" y="30" width="80" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="877.7280000000001" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">vpn.*</text>
+</g>
+<g class="actor" data-id="CELL" data-label="cellular0" data-type="participant">
+  <rect x="974.8180000000001" y="30" width="85.82" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="1017.7280000000001" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">cellular0</text>
+</g>
+<g class="actor" data-id="IPC" data-label="IpcServer" data-type="participant">
+  <rect x="1110.372" y="30" width="94.71199999999999" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="1157.728" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">IpcServer</text>
+</g>
+</svg>

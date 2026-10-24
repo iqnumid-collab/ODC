@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1234 836" width="1234" height="836" style="--bg:#1a1b26;--fg:#a9b1d6;--line:#3d59a1;--accent:#7aa2f7;--muted:#565f89;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  .mono { font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', ui-monospace, monospace; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="cls-inherit" markerWidth="12" markerHeight="10" refX="12" refY="5" orient="auto-start-reverse">
+    <polygon points="0 0, 12 5, 0 10" fill="var(--bg)" stroke="var(--_arrow)" stroke-width="1.5" />
+  </marker>
+  <marker id="cls-composition" markerWidth="12" markerHeight="10" refX="0" refY="5" orient="auto-start-reverse">
+    <polygon points="6 0, 12 5, 6 10, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="1" />
+  </marker>
+  <marker id="cls-aggregation" markerWidth="12" markerHeight="10" refX="0" refY="5" orient="auto-start-reverse">
+    <polygon points="6 0, 12 5, 6 10, 0 5" fill="var(--bg)" stroke="var(--_arrow)" stroke-width="1.5" />
+  </marker>
+  <marker id="cls-arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto-start-reverse">
+    <polyline points="0 0, 8 3, 0 6" fill="none" stroke="var(--_arrow)" stroke-width="1.5" />
+  </marker>
+</defs>
+<polyline class="class-relationship" data-from="EventBus" data-to="Event" data-type="association" data-marker-at="to" points="163.45714285714286,444 163.45714285714286,504" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#cls-arrow)" />
+<polyline class="class-relationship" data-from="Event" data-to="SystemEvents" data-type="inheritance" data-marker-at="from" points="189.17142857142858,568 189.17142857142858,588 938.5999999999999,588 938.5999999999999,628" fill="none" stroke="var(--_line)" stroke-width="1" marker-start="url(#cls-inherit)" />
+<polyline class="class-relationship" data-from="Event" data-to="VpnEvents" data-type="inheritance" data-marker-at="from" points="206.3142857142857,568 206.3142857142857,578 1123.3,578 1123.3,628" fill="none" stroke="var(--_line)" stroke-width="1" marker-start="url(#cls-inherit)" />
+<polyline class="class-relationship" data-from="Event" data-to="MavlinkEvents" data-type="inheritance" data-marker-at="from" points="120.6,568 120.6,628" fill="none" stroke="var(--_line)" stroke-width="1" marker-start="url(#cls-inherit)" />
+<polyline class="class-relationship" data-from="Event" data-to="CellularEvents" data-type="inheritance" data-marker-at="from" points="137.74285714285713,568 137.74285714285713,618 311.9,618 311.9,628" fill="none" stroke="var(--_line)" stroke-width="1" marker-start="url(#cls-inherit)" />
+<polyline class="class-relationship" data-from="Event" data-to="RtspEvents" data-type="inheritance" data-marker-at="from" points="154.8857142857143,568 154.8857142857143,608 513.0999999999999,608 513.0999999999999,628" fill="none" stroke="var(--_line)" stroke-width="1" marker-start="url(#cls-inherit)" />
+<polyline class="class-relationship" data-from="Event" data-to="GraphEvents_v2" data-type="inheritance" data-marker-at="from" points="172.0285714285714,568 172.0285714285714,598 734.0999999999999,598 734.0999999999999,628" fill="none" stroke="var(--_line)" stroke-width="1" marker-start="url(#cls-inherit)" />
+<polyline class="class-relationship" data-from="TransportBindingEvent" data-to="TransportBinding" data-type="association" data-marker-at="to" points="275.4,88 275.4,148" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#cls-arrow)" />
+<g class="class-node" data-id="EventBus" data-label="EventBus">
+  <rect x="89.45714285714286" y="336" width="148" height="108" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="89.45714285714286" y="336" width="148" height="32" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="163.45714285714286" y="352" text-anchor="middle" font-size="13" font-weight="700" fill="var(--_text)" dy="4.55">EventBus</text>
+  <line x1="89.45714285714286" y1="368" x2="237.45714285714286" y2="368" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <line x1="89.45714285714286" y1="376" x2="237.45714285714286" y2="376" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="97.45714285714286" y="390" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-faint)">+ </tspan><tspan fill="var(--_text-sec)">publish(Event)</tspan></text>
+  <text x="97.45714285714286" y="410" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-faint)">+ </tspan><tspan fill="var(--_text-sec)">subscribe(handler)</tspan></text>
+  <text x="97.45714285714286" y="430" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-faint)">+ </tspan><tspan fill="var(--_text-sec)">unsubscribe(id)</tspan></text>
+</g>
+<g class="class-node" data-id="Event" data-label="Event" data-annotation="variant">
+  <rect x="103.45714285714286" y="504" width="120" height="64" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="103.45714285714286" y="504" width="120" height="48" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="163.45714285714286" y="516" text-anchor="middle" dy="0.35em" font-size="10" font-weight="500" font-style="italic" fill="var(--_text-muted)">&lt;&lt;variant&gt;&gt;</text>
+  <text x="163.45714285714286" y="534" text-anchor="middle" font-size="13" font-weight="700" fill="var(--_text)" dy="4.55">Event</text>
+  <line x1="103.45714285714286" y1="552" x2="223.45714285714286" y2="552" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <line x1="103.45714285714286" y1="560" x2="223.45714285714286" y2="560" stroke="var(--_node-stroke)" stroke-width="0.75" />
+</g>
+<g class="class-node" data-id="GraphEvent" data-label="GraphEvent">
+  <rect x="40" y="40" width="128.2" height="68" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="40" y="40" width="128.2" height="32" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="104.1" y="56" text-anchor="middle" font-size="13" font-weight="700" fill="var(--_text)" dy="4.55">GraphEvent</text>
+  <line x1="40" y1="72" x2="168.2" y2="72" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="48" y="86" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">namespace&gt;&gt;</tspan><tspan fill="var(--_text-faint)">: </tspan><tspan fill="var(--_text-muted)">&lt;&lt;v2</tspan></text>
+  <line x1="40" y1="100" x2="168.2" y2="100" stroke="var(--_node-stroke)" stroke-width="0.75" />
+</g>
+<g class="class-node" data-id="SystemEvents" data-label="SystemEvents">
+  <rect x="864.5999999999999" y="628" width="148" height="148" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="864.5999999999999" y="628" width="148" height="32" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="938.5999999999999" y="644" text-anchor="middle" font-size="13" font-weight="700" fill="var(--_text)" dy="4.55">SystemEvents</text>
+  <line x1="864.5999999999999" y1="660" x2="1012.5999999999999" y2="660" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="872.5999999999999" y="674" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">LogEvent</tspan></text>
+  <text x="872.5999999999999" y="694" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">SetLogLevelEvent</tspan></text>
+  <text x="872.5999999999999" y="714" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">MetricsSnapshotEvent</tspan></text>
+  <text x="872.5999999999999" y="734" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">SystemStatusEvent</tspan></text>
+  <text x="872.5999999999999" y="754" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">ShutdownEvent</tspan></text>
+  <line x1="864.5999999999999" y1="768" x2="1012.5999999999999" y2="768" stroke="var(--_node-stroke)" stroke-width="0.75" />
+</g>
+<g class="class-node" data-id="VpnEvents" data-label="VpnEvents">
+  <rect x="1052.6" y="628" width="141.39999999999998" height="128" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="1052.6" y="628" width="141.39999999999998" height="32" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="1123.3" y="644" text-anchor="middle" font-size="13" font-weight="700" fill="var(--_text)" dy="4.55">VpnEvents</text>
+  <line x1="1052.6" y1="660" x2="1194" y2="660" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1060.6" y="674" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">VpnStateChangeEvent</tspan></text>
+  <text x="1060.6" y="694" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">VpnStatsEvent</tspan></text>
+  <text x="1060.6" y="714" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">VpnHealthCheckEvent</tspan></text>
+  <text x="1060.6" y="734" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">VpnInterfaceEvent</tspan></text>
+  <line x1="1052.6" y1="748" x2="1194" y2="748" stroke="var(--_node-stroke)" stroke-width="0.75" />
+</g>
+<g class="class-node" data-id="MavlinkEvents" data-label="MavlinkEvents">
+  <rect x="40" y="628" width="161.2" height="148" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="40" y="628" width="161.2" height="32" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="120.6" y="644" text-anchor="middle" font-size="13" font-weight="700" fill="var(--_text)" dy="4.55">MavlinkEvents</text>
+  <line x1="40" y1="660" x2="201.2" y2="660" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="48" y="674" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">MavRouterStatusEvent</tspan></text>
+  <text x="48" y="694" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">MavEndpointStatusEvent</tspan></text>
+  <text x="48" y="714" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">MavRoutingStatsEvent</tspan></text>
+  <text x="48" y="734" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">MavLogStatusEvent</tspan></text>
+  <text x="48" y="754" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">MavExtenderStatusEvent</tspan></text>
+  <line x1="40" y1="768" x2="201.2" y2="768" stroke="var(--_node-stroke)" stroke-width="0.75" />
+</g>
+<g class="class-node" data-id="CellularEvents" data-label="CellularEvents">
+  <rect x="241.2" y="628" width="141.39999999999998" height="128" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="241.2" y="628" width="141.39999999999998" height="32" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="311.9" y="644" text-anchor="middle" font-size="13" font-weight="700" fill="var(--_text)" dy="4.55">CellularEvents</text>
+  <line x1="241.2" y1="660" x2="382.59999999999997" y2="660" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="249.2" y="674" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">QmiStateChangeEvent</tspan></text>
+  <text x="249.2" y="694" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">QmiConnectionEvent</tspan></text>
+  <text x="249.2" y="714" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">QmiTelemetryEvent</tspan></text>
+  <text x="249.2" y="734" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">QmiHwInfoEvent</tspan></text>
+  <line x1="241.2" y1="748" x2="382.59999999999997" y2="748" stroke="var(--_node-stroke)" stroke-width="0.75" />
+</g>
+<g class="class-node" data-id="RtspEvents" data-label="RtspEvents">
+  <rect x="422.59999999999997" y="628" width="181" height="88" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="422.59999999999997" y="628" width="181" height="32" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="513.0999999999999" y="644" text-anchor="middle" font-size="13" font-weight="700" fill="var(--_text)" dy="4.55">RtspEvents</text>
+  <line x1="422.59999999999997" y1="660" x2="603.5999999999999" y2="660" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="430.59999999999997" y="674" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">RtspCompressorStatusEvent</tspan></text>
+  <text x="430.59999999999997" y="694" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">RtspCompressorEvent</tspan></text>
+  <line x1="422.59999999999997" y1="708" x2="603.5999999999999" y2="708" stroke="var(--_node-stroke)" stroke-width="0.75" />
+</g>
+<g class="class-node" data-id="GraphEvents_v2" data-label="GraphEvents_v2">
+  <rect x="643.5999999999999" y="628" width="181" height="168" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="643.5999999999999" y="628" width="181" height="32" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="734.0999999999999" y="644" text-anchor="middle" font-size="13" font-weight="700" fill="var(--_text)" dy="4.55">GraphEvents_v2</text>
+  <line x1="643.5999999999999" y1="660" x2="824.5999999999999" y2="660" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="651.5999999999999" y="674" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">GraphComponentStateEvent</tspan></text>
+  <text x="651.5999999999999" y="694" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">GraphLinkActivatedEvent</tspan></text>
+  <text x="651.5999999999999" y="714" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">GraphLinkDeactivatedEvent</tspan></text>
+  <text x="651.5999999999999" y="734" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">GraphTriggerFiredEvent</tspan></text>
+  <text x="651.5999999999999" y="754" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">TransportBindingEvent</tspan></text>
+  <text x="651.5999999999999" y="774" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-sec)">GraphMutationEvent</tspan></text>
+  <line x1="643.5999999999999" y1="788" x2="824.5999999999999" y2="788" stroke="var(--_node-stroke)" stroke-width="0.75" />
+</g>
+<g class="class-node" data-id="TransportBinding" data-label="TransportBinding">
+  <rect x="188.2" y="148" width="174.4" height="168" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="188.2" y="148" width="174.4" height="32" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="275.4" y="164" text-anchor="middle" font-size="13" font-weight="700" fill="var(--_text)" dy="4.55">TransportBinding</text>
+  <line x1="188.2" y1="180" x2="362.6" y2="180" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="196.2" y="194" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-faint)">+ </tspan><tspan fill="var(--_text-sec)">connection_id</tspan><tspan fill="var(--_text-faint)">: </tspan><tspan fill="var(--_text-muted)">string</tspan></text>
+  <text x="196.2" y="214" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-faint)">+ </tspan><tspan fill="var(--_text-sec)">interface_name</tspan><tspan fill="var(--_text-faint)">: </tspan><tspan fill="var(--_text-muted)">string</tspan></text>
+  <text x="196.2" y="234" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-faint)">+ </tspan><tspan fill="var(--_text-sec)">target_ip</tspan><tspan fill="var(--_text-faint)">: </tspan><tspan fill="var(--_text-muted)">string</tspan></text>
+  <text x="196.2" y="254" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-faint)">+ </tspan><tspan fill="var(--_text-sec)">prefix_len</tspan><tspan fill="var(--_text-faint)">: </tspan><tspan fill="var(--_text-muted)">int</tspan></text>
+  <text x="196.2" y="274" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-faint)">+ </tspan><tspan fill="var(--_text-sec)">vpn_state</tspan><tspan fill="var(--_text-faint)">: </tspan><tspan fill="var(--_text-muted)">VpnState</tspan></text>
+  <text x="196.2" y="294" class="mono" dy="0.35em" font-size="11" font-weight="400"><tspan fill="var(--_text-faint)">+ </tspan><tspan fill="var(--_text-sec)">ip_ready</tspan><tspan fill="var(--_text-faint)">: </tspan><tspan fill="var(--_text-muted)">bool</tspan></text>
+  <line x1="188.2" y1="308" x2="362.6" y2="308" stroke="var(--_node-stroke)" stroke-width="0.75" />
+</g>
+<g class="class-node" data-id="TransportBindingEvent" data-label="TransportBindingEvent">
+  <rect x="196.77100000000002" y="40" width="157.25799999999995" height="48" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="196.77100000000002" y="40" width="157.25799999999995" height="32" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="275.4" y="56" text-anchor="middle" font-size="13" font-weight="700" fill="var(--_text)" dy="4.55">TransportBindingEvent</text>
+  <line x1="196.77100000000002" y1="72" x2="354.029" y2="72" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <line x1="196.77100000000002" y1="80" x2="354.029" y2="80" stroke="var(--_node-stroke)" stroke-width="0.75" />
+</g>
+
+
+
+
+
+
+
+
+</svg>

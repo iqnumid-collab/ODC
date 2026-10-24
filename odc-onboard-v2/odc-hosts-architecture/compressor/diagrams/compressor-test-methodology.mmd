@@ -1,0 +1,22 @@
+flowchart TD
+  Start["Case start"] --> Pre{"Prereqs present?"}
+  Pre -->|No| Skip["SKIP\ntools media GStreamer or LAN peer"]
+  Pre -->|Yes| Kind{"Case class?"}
+  Kind -->|Local| ActL["Stimulus on DUT"]
+  Kind -->|Bridge| ActB["Stimulus across hosts\nsource compressor monitor roles"]
+  ActL --> Obs["Observe monitor journal status events"]
+  ActB --> ObsB["Observe on consumer host plus DUT"]
+  Obs --> Ok{"Matches expect?"}
+  ObsB --> Ok
+  Ok -->|Yes| Pass["PASS"]
+  Ok -->|No| Fail["FAIL"]
+
+  subgraph mandatory [Mandatory_sets]
+    M1["Local PRE OPS EVT"]
+    M2["Bridge XBR-01..05"]
+  end
+
+  Pass --> Aggregate["Host plus bridge summary"]
+  Fail --> Aggregate
+  Skip --> Aggregate
+  Aggregate --> Matrix["rpi-4b rpi-5 independent\nthen cross-host XBR"]

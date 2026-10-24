@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 955.5954166666667 844.9" width="955.5954166666667" height="844.9" style="--bg:#1a1b26;--fg:#a9b1d6;--line:#3d59a1;--accent:#7aa2f7;--muted:#565f89;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<g class="subgraph" data-id="driver" data-label="Driver_and_bridge_roles">
+  <rect x="516.1174583333334" y="40" width="250.30799999999996" height="130.7" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="516.1174583333334" y="40" width="250.30799999999996" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="528.1174583333334" y="54" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Driver_and_bridge_roles</text>
+</g>
+<g class="subgraph" data-id="dutA" data-label="DUT_rpi_4b">
+  <rect x="145.6776666666667" y="597.1" width="291.9465" height="181.8" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="145.6776666666667" y="597.1" width="291.9465" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="157.6776666666667" y="611.1" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">DUT_rpi_4b</text>
+</g>
+<g class="subgraph" data-id="dutB" data-label="DUT_rpi_5">
+  <rect x="446.523" y="299" width="286.10125" height="181.8" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="446.523" y="299" width="286.10125" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="458.523" y="313" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">DUT_rpi_5</text>
+</g>
+<polyline class="edge" data-from="Molt" data-to="A_Cmp" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="SSH control" points="568.5021250000001,154.7 568.5021250000001,257 253.81466666666665,257 253.81466666666665,269 243.711,269 243.711,579.1 338.74166666666673,579.1 338.74166666666673,690 321.0121666666667,690 321.0121666666667,726" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Molt" data-to="B_Cmp" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="SSH control" points="641.2714583333334,154.7 641.2714583333334,212.7 659.86325,212.7 659.86325,281 649.7595833333334,281 649.7595833333335,403.9 628.5887500000001,403.9 628.5887500000001,427.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Molt" data-to="A_Cmp" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="LAN RTSP ingest optional" points="604.8867916666667,154.7 604.8867916666667,269 363.8946666666667,269 363.8946666666667,269 353.79100000000005,269 353.79100000000005,579.1 363.8946666666667,579.1 363.8946666666667,690 346.1651666666667,690 346.1651666666667,726" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Molt" data-to="A_Cmp" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="LAN RTSP consume" points="714.0407916666667,154.7 714.0407916666667,200.7 855.6564166666667,200.7 855.6564166666667,579.1 408.5476666666667,579.1 408.5476666666667,690 396.4711666666667,690 396.4711666666667,726" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Molt" data-to="B_Cmp" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="LAN RTSP consume" points="677.656125,154.7 677.656125,212.7 775.1108333333334,212.7 775.1108333333334,269 670.9321666666667,269 670.9321666666667,391.9 657.9339166666667,391.9 657.9339166666667,427.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="A_Cmp" data-to="B_Cmp" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="LAN RTSP peer consume" points="333.5886666666667,762.9000000000001 333.58866666666665,796.9 812.72075,796.9 812.72075,796.9 770.8207499999999,796.9 770.8207499999999,281 692.10475,281 692.1047500000002,391.9 687.2790833333333,391.9 687.2790833333333,427.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="B_Cmp" data-to="A_Cmp" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="LAN RTSP peer consume" points="628.5887500000001,464.8 628.58875,567.1 389.0476666666667,567.1 389.04766666666677,690 371.31816666666674,690 371.31816666666674,726" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Hexa" data-to="A_Cmp" data-style="dotted" data-arrow-start="false" data-arrow-end="true" data-label="optional consume" points="98.44333333333338,200.7 98.44333333333338,579.1 161.6776666666667,579.1 161.6776666666667,702 270.7061666666667,702 270.7061666666667,726" fill="none" stroke="var(--_line)" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Hexa" data-to="B_Cmp" data-style="dotted" data-arrow-start="false" data-arrow-end="true" data-label="optional consume" points="156.88666666666666,200.7 156.88666666666666,281 628.587,281 628.5870000000001,391.9 599.2435833333334,391.9 599.2435833333334,427.9" fill="none" stroke="var(--_line)" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="A_Src" data-to="A_Cmp" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="250.70966666666672,678 250.70966666666672,690 295.85916666666674,690 295.85916666666674,726" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="B_Src" data-to="B_Cmp" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="540.5550000000001,379.9 540.5550000000001,391.9 569.8984166666667,391.9 569.8984166666667,427.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="edge-label" data-from="Molt" data-to="A_Cmp" data-label="SSH control">
+  <rect x="206.211" y="517.8" width="74.08000000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="243.25100000000003" y="532.9499999999999" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">SSH control</text>
+</g>
+<g class="edge-label" data-from="Molt" data-to="B_Cmp" data-label="SSH control">
+  <rect x="622.36325" y="219.7" width="74.08000000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="659.40325" y="234.85" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">SSH control</text>
+</g>
+<g class="edge-label" data-from="Molt" data-to="A_Cmp" data-label="LAN RTSP ingest optional">
+  <rect x="284.29100000000005" y="517.8" width="138.23199999999997" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="353.40700000000004" y="532.9499999999999" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">LAN RTSP ingest optional</text>
+</g>
+<g class="edge-label" data-from="Molt" data-to="A_Cmp" data-label="LAN RTSP consume">
+  <rect x="798.6564166666667" y="509.5" width="113.878" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="855.5954166666667" y="524.65" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">LAN RTSP consume</text>
+</g>
+<g class="edge-label" data-from="Molt" data-to="B_Cmp" data-label="LAN RTSP consume">
+  <rect x="718.1108333333334" y="219.7" width="113.878" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="775.0498333333334" y="234.85" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">LAN RTSP consume</text>
+</g>
+<g class="edge-label" data-from="A_Cmp" data-to="B_Cmp" data-label="LAN RTSP peer consume">
+  <rect x="701.3207499999999" y="541.8" width="138.23200000000003" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="770.4367499999998" y="556.9499999999999" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">LAN RTSP peer consume</text>
+</g>
+<g class="edge-label" data-from="B_Cmp" data-to="A_Cmp" data-label="LAN RTSP peer consume">
+  <rect x="559.08875" y="529.8" width="138.23200000000003" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="628.20475" y="544.9499999999999" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">LAN RTSP peer consume</text>
+</g>
+<g class="edge-label" data-from="Hexa" data-to="A_Cmp" data-label="optional consume">
+  <rect x="48.44333333333339" y="517.8" width="99.028" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="97.9573333333334" y="532.9499999999999" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">optional consume</text>
+</g>
+<g class="edge-label" data-from="Hexa" data-to="B_Cmp" data-label="optional consume">
+  <rect x="106.88666666666666" y="243.69999999999996" width="99.028" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="156.40066666666667" y="258.84999999999997" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">optional consume</text>
+</g>
+<g class="node" data-id="Hexa" data-label="hexa-five
+optional remote monitor" data-shape="rectangle">
+  <rect x="40" y="146.89999999999998" width="175.32999999999998" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="127.66499999999999" y="173.79999999999998" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="127.66499999999999" dy="-3.9000000000000012">hexa-five</tspan><tspan x="127.66499999999999" dy="16.900000000000002">optional remote monitor</tspan></text>
+</g>
+<g class="node" data-id="Molt" data-label="odc-host-molt
+192.168.10.10
+SSH + optional source/monitor" data-shape="rectangle">
+  <rect x="532.1174583333334" y="84" width="218.30799999999996" height="70.7" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="641.2714583333334" y="119.35" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="641.2714583333334" dy="-12.350000000000001">odc-host-molt</tspan><tspan x="641.2714583333334" dy="16.900000000000002">192.168.10.10</tspan><tspan x="641.2714583333334" dy="16.900000000000002">SSH + optional source/monitor</tspan></text>
+</g>
+<g class="node" data-id="A_Src" data-label="video-source :8554" data-shape="rectangle">
+  <rect x="172.6776666666667" y="641.1" width="156.06400000000002" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="250.70966666666672" y="659.5500000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">video-source :8554</text>
+</g>
+<g class="node" data-id="A_Cmp" data-label="rtsp.compressor :8555" data-shape="rectangle">
+  <rect x="245.55316666666675" y="726" width="176.07099999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="333.58866666666677" y="744.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">rtsp.compressor :8555</text>
+</g>
+<g class="node" data-id="B_Src" data-label="video-source :8554" data-shape="rectangle">
+  <rect x="462.523" y="343" width="156.06400000000002" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="540.5550000000001" y="361.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">video-source :8554</text>
+</g>
+<g class="node" data-id="B_Cmp" data-label="rtsp.compressor :8555" data-shape="rectangle">
+  <rect x="540.55325" y="427.9" width="176.07099999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="628.58875" y="446.34999999999997" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">rtsp.compressor :8555</text>
+</g>
+</svg>

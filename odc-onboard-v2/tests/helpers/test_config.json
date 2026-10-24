@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "general": {
+    "log_level": "debug",
+    "device_config_dir": "/etc/odc-onboard/devices"
+  },
+  "vpn": {
+    "wireguard": {
+      "connections": [
+        {
+          "id": "test-wg",
+          "enabled": true,
+          "config_path": "/etc/odc-onboard/vpn/dev.conf",
+          "metadata": {
+            "name": "Test WireGuard",
+            "auto_start": false,
+            "max_retries": 3,
+            "health_check": {
+              "enabled": true,
+              "interval_sec": 30,
+              "ping_host": "10.66.66.1"
+            }
+          }
+        }
+      ]
+    },
+    "openvpn": {
+      "connections": [
+        {
+          "id": "test-ovpn",
+          "enabled": true,
+          "config_path": "/etc/odc-onboard/vpn/dev.ovpn",
+          "metadata": {
+            "name": "Test OpenVPN",
+            "auto_start": false,
+            "max_retries": 5,
+            "health_check": {
+              "enabled": true,
+              "interval_sec": 30,
+              "ping_host": "10.66.66.1"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "mavlink": {
+    "enabled": true,
+    "tcp_server_port": 5760,
+    "dedup_period_sec": 5,
+    "sniffer_sysid": 0,
+    "report_stats": true,
+    "endpoints": [
+      {
+        "type": "uart",
+        "name": "flight_controller",
+        "device": "/dev/ttyACM0",
+        "baud": [1500000, 115200, 57600],
+        "flow_control": false
+      },
+      {
+        "type": "udp",
+        "name": "udp_server",
+        "address": "0.0.0.0",
+        "port": 14550,
+        "mode": "server"
+      }
+    ],
+    "logging": {
+      "enabled": true,
+      "log_dir": "/var/log/odc-onboard/mavlink",
+      "mode": "always",
+      "dialect": "auto",
+      "min_free_space_kb": 1000,
+      "max_log_files": 10,
+      "telemetry": false
+    }
+  }
+}

@@ -1,0 +1,50 @@
+version: 1
+
+general:
+  log_level: info
+  pid_file: /run/odc-root/tunnel-manager.pid
+  poll_interval_sec: 5
+  # Advertise this host in issued client profiles (WG endpoint / OVPN remote).
+  public_endpoint: 192.168.10.16
+
+ipc:
+  socket_path: /run/odc-root/odc-ipc.sock
+  tunnel_ipc_socket_path: /run/odc-root/tunnel-ipc.sock
+  reconnect_interval_sec: 5
+
+database:
+  path: /var/lib/odc-root/odc-root.db
+
+ca:
+  cert_path: /etc/odc-root/ca/ca.crt
+  key_path: /etc/odc-root/ca/ca.key
+  key_bits: 2048
+  validity_days: 365
+
+servers:
+  - id: wg-main
+    type: wireguard
+    enabled: true
+    config:
+      interface_name: wg-root
+      listen_port: 51820
+      private_key_path: /etc/odc-root/wg/server.key
+      subnet: 10.0.0.0/24
+      mtu: 1420
+      keepalive_sec: 25
+
+  - id: ovpn-main
+    type: openvpn
+    enabled: true
+    config:
+      listen_port: 1194
+      protocol: udp
+      subnet: 10.8.0.0/24
+      cipher: AES-256-GCM
+      ca_cert_path: /etc/odc-root/ca/ca.crt
+      server_cert_path: /etc/odc-root/ovpn/server.crt
+      server_key_path: /etc/odc-root/ovpn/server.key
+      dh_params_path: /etc/odc-root/ovpn/dh.pem
+      tls_auth_key_path: /etc/odc-root/ovpn/ta.key
+      push_routes: []
+      dns_servers: []

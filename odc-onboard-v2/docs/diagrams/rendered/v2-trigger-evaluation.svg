@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1439.8531666666663 843.6129999999999" width="1439.8531666666663" height="843.6129999999999" style="--bg:#1a1b26;--fg:#a9b1d6;--line:#3d59a1;--accent:#7aa2f7;--muted:#565f89;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<polyline class="edge" data-from="START" data-to="MAP" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="680.6346666666666,76.9 680.6346666666666,124.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="MAP" data-to="T1" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="vpn.connected" points="651.9824999999998,268.16083333333324 651.9824999999998,332.813 414.6901666666665,332.813 414.69016666666664,413.11300000000006" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="MAP" data-to="T2" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="vpn.disconnected" points="623.3303333333333,239.50866666666676 623.3303333333333,320.813 168.04949999999997,320.813 168.04949999999997,413.11300000000006" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="MAP" data-to="T3" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="vpn.ip_ready" points="680.6346666666666,296.813 680.6346666666666,413.11300000000006" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="MAP" data-to="T4" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="cellular.wan_ready" points="709.2868333333333,268.16083333333324 709.2868333333333,320.813 973.2551666666665,320.813 973.2551666666664,413.11300000000006" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="MAP" data-to="T5" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="component.manual_start" points="737.939,239.50866666666664 737.939,308.813 1271.8036666666665,308.813 1271.8036666666665,413.11300000000006" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="T1" data-to="ACT" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="414.69016666666664,450.01300000000003 414.6901666666665,498.01300000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="T2" data-to="DEACT" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="168.04949999999997,450.01300000000003 168.04949999999997,498.01300000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="T3" data-to="BIND" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="680.6346666666666,450.01300000000003 680.6346666666666,498.01300000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="T4" data-to="VPNSTART" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="973.2551666666664,450.01300000000003 973.2551666666665,498.01300000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="T5" data-to="FORCE" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1271.8036666666665,450.01300000000003 1271.8036666666665,498.01300000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="ACT" data-to="LE" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="414.6901666666666,534.913 414.6901666666666,564.913 547.6624166666666,564.913 547.6624166666666,594.913" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="DEACT" data-to="STOP" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="168.04949999999997,534.913 168.04949999999985,594.913" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="BIND" data-to="LE" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="680.6346666666666,534.913 680.6346666666666,564.913 547.6624166666666,564.913 547.6624166666666,594.913" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="LE" data-to="PUB" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="547.6624166666666,631.813 547.6624166666666,679.813" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="STOP" data-to="PUB2" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="168.04949999999985,631.813 168.04949999999997,679.813" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="PUB" data-to="EB" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="547.6624166666666,716.713 547.6624166666666,734.713 409.31791666666663,734.713 409.31791666666663,752.713" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="PUB2" data-to="EB" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="168.04949999999997,716.713 168.04949999999997,734.713 409.31791666666663,734.713 409.31791666666663,752.713" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="edge-label" data-from="MAP" data-to="T1" data-label="vpn.connected">
+  <rect x="370.6901666666665" y="339.813" width="87.74200000000002" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="414.5611666666665" y="354.96299999999997" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">vpn.connected</text>
+</g>
+<g class="edge-label" data-from="MAP" data-to="T2" data-label="vpn.disconnected">
+  <rect x="117.04949999999998" y="363.813" width="101.99800000000002" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="168.0485" y="378.96299999999997" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">vpn.disconnected</text>
+</g>
+<g class="edge-label" data-from="MAP" data-to="T3" data-label="vpn.ip_ready">
+  <rect x="640.1346666666666" y="339.813" width="80.614" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="680.4416666666666" y="354.96299999999997" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">vpn.ip_ready</text>
+</g>
+<g class="edge-label" data-from="MAP" data-to="T4" data-label="cellular.wan_ready">
+  <rect x="918.2551666666665" y="327.813" width="109.12600000000003" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="972.8181666666665" y="342.96299999999997" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">cellular.wan_ready</text>
+</g>
+<g class="edge-label" data-from="MAP" data-to="T5" data-label="component.manual_start">
+  <rect x="1205.8036666666665" y="315.813" width="131.698" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="1271.6526666666664" y="330.96299999999997" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">component.manual_start</text>
+</g>
+<g class="node" data-id="START" data-label="Component emits state change" data-shape="stadium">
+  <rect x="572.5921666666666" y="40" width="216.085" height="36.900000000000006" rx="18.450000000000003" ry="18.450000000000003" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="680.6346666666666" y="58.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Component emits state change</text>
+</g>
+<g class="node" data-id="MAP" data-label="Map to trigger.on?" data-shape="diamond">
+  <polygon points="680.6346666666666,124.9 766.5911666666666,210.8565 680.6346666666666,296.813 594.6781666666666,210.8565" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="680.6346666666666" y="210.8565" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Map to trigger.on?</text>
+</g>
+<g class="node" data-id="T1" data-label="Find triggers where source matches" data-shape="rectangle">
+  <rect x="287.75216666666665" y="413.11300000000006" width="253.87599999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="414.69016666666664" y="431.56300000000005" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Find triggers where source matches</text>
+</g>
+<g class="node" data-id="T2" data-label="Find deactivate triggers" data-shape="rectangle">
+  <rect x="77.42049999999995" y="413.11300000000006" width="181.258" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="168.04949999999997" y="431.56300000000005" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Find deactivate triggers</text>
+</g>
+<g class="node" data-id="T3" data-label="Optional second-stage triggers" data-shape="rectangle">
+  <rect x="569.6281666666666" y="413.11300000000006" width="222.013" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="680.6346666666666" y="431.56300000000005" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Optional second-stage triggers</text>
+</g>
+<g class="node" data-id="T4" data-label="Unblock VPN components waiting for WAN" data-shape="rectangle">
+  <rect x="830.7561666666664" y="413.11300000000006" width="284.99799999999993" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="973.2551666666664" y="431.56300000000005" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Unblock VPN components waiting for WAN</text>
+</g>
+<g class="node" data-id="T5" data-label="Operator override — skip trigger gate" data-shape="rectangle">
+  <rect x="1143.7541666666664" y="413.11300000000006" width="256.09899999999993" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1271.8036666666662" y="431.56300000000005" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Operator override — skip trigger gate</text>
+</g>
+<g class="node" data-id="ACT" data-label="activate link ids" data-shape="rectangle">
+  <rect x="349.2551666666666" y="498.01300000000003" width="130.87" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="414.6901666666666" y="516.4630000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">activate link ids</text>
+</g>
+<g class="node" data-id="DEACT" data-label="deactivate link ids" data-shape="rectangle">
+  <rect x="95.20449999999994" y="498.01300000000003" width="145.69000000000003" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="168.04949999999997" y="516.4630000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">deactivate link ids</text>
+</g>
+<g class="node" data-id="BIND" data-label="LinkEngine propagate with full IP" data-shape="rectangle">
+  <rect x="565.5526666666666" y="498.01300000000003" width="230.1639999999999" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="680.6346666666666" y="516.4630000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">LinkEngine propagate with full IP</text>
+</g>
+<g class="node" data-id="VPNSTART" data-label="Start VPN components with wan dependency" data-shape="rectangle">
+  <rect x="823.7166666666665" y="498.01300000000003" width="299.077" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="973.2551666666665" y="516.4630000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Start VPN components with wan dependency</text>
+</g>
+<g class="node" data-id="FORCE" data-label="Force start target component" data-shape="rectangle">
+  <rect x="1166.7251666666664" y="498.01300000000003" width="210.15699999999995" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1271.8036666666665" y="516.4630000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Force start target component</text>
+</g>
+<g class="node" data-id="LE" data-label="LinkEngine.propagate" data-shape="rectangle">
+  <rect x="460.7384166666666" y="594.913" width="173.84799999999996" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="547.6624166666666" y="613.363" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">LinkEngine.propagate</text>
+</g>
+<g class="node" data-id="STOP" data-label="Stop target components" data-shape="rectangle">
+  <rect x="78.90249999999992" y="594.913" width="178.29399999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="168.0494999999999" y="613.363" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Stop target components</text>
+</g>
+<g class="node" data-id="PUB" data-label="Publish GraphLinkActivatedEvent" data-shape="rectangle">
+  <rect x="427.02291666666656" y="679.813" width="241.27899999999994" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="547.6624166666666" y="698.263" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Publish GraphLinkActivatedEvent</text>
+</g>
+<g class="node" data-id="PUB2" data-label="Publish GraphLinkDeactivatedEvent" data-shape="rectangle">
+  <rect x="40" y="679.813" width="256.09899999999993" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="168.04949999999997" y="698.263" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Publish GraphLinkDeactivatedEvent</text>
+</g>
+<g class="node" data-id="EB" data-label="EventBus" data-shape="cylinder">
+  <rect x="359.4439166666666" y="759.713" width="99.748" height="36.900000000000006" fill="var(--_node-fill)" stroke="none" />
+  <line x1="359.4439166666666" y1="759.713" x2="359.4439166666666" y2="796.6129999999999" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <line x1="459.1919166666666" y1="759.713" x2="459.1919166666666" y2="796.6129999999999" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <ellipse cx="409.31791666666663" cy="796.6129999999999" rx="49.874" ry="7" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <ellipse cx="409.31791666666663" cy="759.713" rx="49.874" ry="7" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="409.31791666666663" y="778.163" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">EventBus</text>
+</g>
+</svg>

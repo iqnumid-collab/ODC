@@ -1,0 +1,21 @@
+flowchart TB
+  subgraph a [rpi_4b]
+    ASrc["source :8554"]
+    ACmp["compressor :8555"]
+    ASrc --> ACmp
+  end
+
+  subgraph b [rpi_5]
+    BSrc["source :8554"]
+    BCmp["compressor :8555"]
+    BSrc --> BCmp
+  end
+
+  AMon["monitor on rpi-5\npulls 192.168.10.11:8555"]
+  BMon["monitor on rpi-4b\npulls 192.168.10.12:8555"]
+  MoltMon["monitor on molt\npulls both DUT outputs"]
+
+  ACmp --> AMon
+  BCmp --> BMon
+  ACmp --> MoltMon
+  BCmp --> MoltMon

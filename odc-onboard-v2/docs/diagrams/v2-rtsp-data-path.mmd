@@ -1,0 +1,18 @@
+sequenceDiagram
+    autonumber
+    participant CAM as Camera RTSP Source
+    participant VPN as vpn_cloud tunnel
+    participant RTSP as rtsp_cloud
+    participant BR as RtspBridge GStreamer
+    participant MON as odc-rtsp-monitor
+
+    Note over CAM,MON: Binding sets input_uri = rtsp://tunnel_ip:8554/stream
+
+    CAM->>VPN: RTSP H.264 on tunnel subnet
+    RTSP->>BR: start with TransportBinding
+    BR->>VPN: rtspsrc ingest from tunnel IP
+    BR->>BR: decode → x265enc → rtph265pay
+    BR->>RTSP: GstRTSPServer output port 8555
+    MON->>RTSP: connect rtsp://0.0.0.0:8555/stream
+    RTSP->>EB: RtspCompressorStatusEvent running
+    RTSP->>EB: metrics bandwidth fps

@@ -1,0 +1,35 @@
+flowchart TB
+    subgraph Boot["Startup Sequence"]
+        step1["1. Parse CLI args\n(--config, --daemon, --cli)"]
+        step2["2. Check CAP_NET_ADMIN\nprivileges"]
+        step3["3. Load JSON config\nfrom file"]
+        step4["4. Spawn CAF actors\n(vpn_manager, system_monitor)"]
+        step5["5. Create EventBus + ThreadPool"]
+        step6["6. Start subsystems"]
+    end
+
+    subgraph Subsystems["Running Subsystems"]
+        sn1["VpnManager\nAuto-connects configured VPNs"]
+        sn2["VpnInterfaceMonitor\nWatches netlink for TUN events"]
+        sn3["MavRouter\nStarts telemetry routing"]
+        sn4["MavExtenderManager\nListens for VPN interface events"]
+        sn5["QmiModemController\nManages cellular modem"]
+        sn6["IPCServer\nUnix socket for remote clients"]
+        sn7["CLI REPL\nInteractive console (if --cli)"]
+    end
+
+    subgraph Shutdown["Graceful Shutdown"]
+        sd1["1. Stop accepting new connections"]
+        sd2["2. Drain MAVLink extenders"]
+        sd3["3. Disconnect all VPNs"]
+        sd4["4. Stop QMI modem"]
+        sd5["5. Tear down actors"]
+        sd6["6. Exit"]
+    end
+
+    step1 --> step2 --> step3 --> step4 --> step5 --> step6
+    step6 --> sn1 & sn2 & sn3 & sn4 & sn5 & sn6
+    step6 --> sn7
+
+    sn1 & sn2 & sn3 & sn4 & sn5 & sn6 & sn7 -.->|"SIGTERM / SIGINT"| sd1
+    sd1 --> sd2 --> sd3 --> sd4 --> sd5 --> sd6

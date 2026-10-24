@@ -1,0 +1,45 @@
+flowchart LR
+    subgraph Entries["Entry Points"]
+        CLI["CLI Piping\nprintf 'cmd\\nexit' | BINARY --cli"]
+        IPC["IPC Methods\nrtsp.status / start / stop"]
+        Events["EventBus\nVpnInterfaceEvent / VpnStateChange"]
+    end
+
+    subgraph Manager["RtspCompressorManager"]
+        Start["start() → subscribes EventBus"]
+        AutoSpawn["on_vpn_interface_event\nAddressAdded + IPv4 → spawn"]
+        ManualStart["start_compressor(id, iface, ip)\nManual override"]
+        Teardown["teardown_compressor(id)\ng_main_loop_quit + join"]
+        List["list_compressors()\nSnapshot of active instances"]
+    end
+
+    subgraph Bridge["Per-Compressor Thread"]
+        Thread["std::thread"]
+        GLib["GMainLoop run"]
+        RtspB["RtspBridge\nstart(config)"]
+        Stop["bridge->stop()"]
+    end
+
+    subgraph Verify["Test Assertions"]
+        AssertCLI["assert_contains 'running: yes'"]
+        AssertStatus["assert_contains 'No compressor'"]
+        AssertNoCrash["assert_exit_code 0"]
+        AssertRunning["assert_contains '3 compressors'"]
+    end
+
+    CLI --> List --> AssertCLI
+    CLI --> ManualStart --> AutoSpawn --> Thread
+    CLI --> Teardown --> Stop --> AssertStatus
+
+    Events -->|VpnInterfaceEvent| AutoSpawn
+    Events -->|VpnStateChangeEvent(Disconnected/Error)| Teardown
+
+    AutoSpawn --> Thread
+    Thread --> GLib
+    GLib --> RtspB
+
+    IPC --> ManualStart
+    IPC --> Teardown
+    IPC --> List
+
+    AssertCLI --> AssertRunning --> AssertNoCrash

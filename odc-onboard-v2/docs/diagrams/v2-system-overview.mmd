@@ -1,0 +1,69 @@
+flowchart TB
+    subgraph Config["YAML System Schema"]
+        YAML["system.yaml"]
+        COMP["components[]"]
+        LINKS["links[]"]
+        TRIG["triggers[]"]
+        YAML --> COMP
+        YAML --> LINKS
+        YAML --> TRIG
+    end
+
+    subgraph Runtime["Graph Runtime"]
+        GB["GraphBuilder"]
+        GV["GraphValidator"]
+        GR["GraphRuntime"]
+        LE["LinkEngine"]
+        TE["TriggerEvaluator"]
+        PM["PersistenceManager"]
+        CR["CircuitRegistry"]
+    end
+
+    subgraph IPC["Management Plane"]
+        CLI["CLI REPL"]
+        RPC["JSON-RPC graph.*"]
+        SOCK["Unix Socket"]
+        CLI --> SOCK
+        RPC --> SOCK
+        SOCK --> GR
+    end
+
+    subgraph Circuit["DSPatch Circuit — single global"]
+        CELL["cellular.qmi"]
+        VPN1["vpn.wireguard"]
+        VPN2["vpn.openvpn"]
+        MAVR["mavlink.router"]
+        MAVE1["mavlink.extender"]
+        MAVE2["mavlink.extender"]
+        RTSP["rtsp.compressor"]
+    end
+
+    subgraph DataPlane["Data Plane — bytes"]
+        FC["Flight Controller UART"]
+        GCS["Ground Station UDP/TCP"]
+        CAM["Camera RTSP Source"]
+        MON["RTSP Monitor Client"]
+    end
+
+    YAML --> GB
+    GB --> GV
+    GV --> CR
+    CR --> GR
+    GR --> LE
+    GR --> TE
+    GR --> PM
+    PM -. persist .-> YAML
+
+    CELL -->|wan| VPN1
+    CELL -->|wan| VPN2
+    VPN1 -->|tunnel| MAVE1
+    VPN1 -->|tunnel| RTSP
+    VPN2 -->|tunnel| MAVE2
+    MAVR -->|router| MAVE1
+    MAVR -->|router| MAVE2
+
+    FC <-->|MAVLink| MAVR
+    GCS <-->|MAVLink via VPN| MAVE1
+    GCS <-->|MAVLink via VPN| MAVE2
+    CAM -->|RTSP ingest| RTSP
+    RTSP -->|RTSP output| MON

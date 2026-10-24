@@ -1,0 +1,42 @@
+flowchart LR
+    subgraph Entry["User Entry Points"]
+        Standalone["Standalone CLI\n--cli --config /dev/null"]
+        Daemon["Daemon-connected CLI\nauto-detect /run/.../sock"]
+        Config["config.json\n{\"rtsp\": {...}}"]
+    end
+
+    subgraph Backend["Backend Layer"]
+        LocalBackend["CliLocalBackend\nrtsp_compressor_ == nullptr ?"]
+        RemoteBackend["CliRemoteBackend\nIPC send_request()"]
+        IPC["IPC MethodRegistry\nrtsp.status / start / stop"]
+    end
+
+    subgraph Manager["RtspCompressorManager"]
+        StartFn["start_compressor(id, iface, ip)\n→ spawn_compressor()"]
+        StopFn["stop_compressor(id)\n→ teardown_compressor()"]
+        ListFn["list_compressors()\n→ vector<CompressorInfo>"]
+        AutoFn["auto-spawn via EventBus\nVpnInterfaceEvent → spawn"]
+    end
+
+    subgraph Output["User-Visible Output"]
+        Success["stdout: Started compressor: mycam"]
+        Status["stdout: connection: mycam\nrunning: yes"]
+        Empty["stdout: No compressor instances active."]
+        Error["stderr: RTSP compressor not configured"]
+        Help["stdout: RTSP Compressor Commands:\n  rtsp status / start / stop"]
+    end
+
+    Standalone --> LocalBackend
+    Standalone --> Help
+    Daemon --> RemoteBackend
+    RemoteBackend --> IPC --> StartFn & StopFn & ListFn
+    LocalBackend -->|rtsp_compressor_ != nullptr| StartFn & StopFn & ListFn
+    LocalBackend -->|rtsp_compressor_ == nullptr| Error
+    Config -->|enabled + auto_start| AutoFn
+
+    StartFn --> Success
+    StopFn --> Success
+    ListFn -->|running| Status
+    ListFn -->|empty| Empty
+    AutoFn -->|spawned| Status
+    AutoFn -->|torn down| Empty

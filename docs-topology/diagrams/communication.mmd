@@ -1,0 +1,24 @@
+flowchart TB
+  molt["molt\n192.168.10.10\nodc-hook + monitor"]
+  hexa["hexa-five\n192.168.10.16"]
+  pi4["rpi-4b\n192.168.10.11"]
+  pi5["rpi-5\n192.168.10.12"]
+
+  molt -->|"SSH orchestration"| hexa
+  molt -->|"SSH orchestration"| pi4
+  molt -->|"SSH orchestration"| pi5
+
+  molt -->|"odc-hook WSS mTLS :9443"| hexa
+  hexa -->|"WG / OVPN tunnels"| pi4
+  hexa -->|"WG / OVPN tunnels"| pi5
+
+  subgraph localIpc["Local IPC Unix sockets"]
+    hexaIpc["tunnel-ipc + odc-ipc"]
+    moltIpc["hook.sock on molt"]
+    piIpc["odc-onboard.sock"]
+  end
+
+  hexa --- hexaIpc
+  molt --- moltIpc
+  pi4 --- piIpc
+  pi5 --- piIpc

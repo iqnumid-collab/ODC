@@ -1,0 +1,27 @@
+[Unit]
+Description=HexaRtspCompressor RTSP Bridge
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=hexa
+Group=hexa
+WorkingDirectory=/opt/hexa
+ExecStart=/opt/hexa/bin/HexaRtspCompressor bridge /opt/hexa/config/bridge.json
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=65536
+
+# GPU access for VAAPI / NVENC
+SupplementaryGroups=video render
+
+# Hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/opt/hexa/config
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
