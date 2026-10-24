@@ -98,5 +98,6 @@ odc-onboard/docs/
 odc-onboard-v2/docs/
 odc-root/docs/
 odc-onboard-v2/odc-hosts-architecture/
+diagrams-fixed-logic/
 # Always keep the root README
 !/README.md
