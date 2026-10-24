@@ -1,0 +1,149 @@
+{
+  "test_suite": "odc-root-integration",
+  "timestamp": "2026-10-24T17:44:37+00:00",
+  "start_time": "1792863726",
+  "end_time": "1792863877",
+  "elapsed_seconds": 151,
+  "total": 43,
+  "passed": 16,
+  "failed": 27,
+  "skipped": 0,
+  "pass_rate": "37.2%",
+  "problems": [
+    {
+      "index": 3,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 4,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 5,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 6,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 7,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 8,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 13,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 15,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 17,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 18,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 19,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 20,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 21,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 22,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 23,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 26,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 31,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 32,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 34,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 35,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 36,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 37,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 38,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 39,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 40,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 41,
+      "source": "",
+      "detail": ""
+    },
+    {
+      "index": 42,
+      "source": "",
+      "detail": ""
+    }
+  ]
+}

@@ -36,10 +36,18 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /usr/bin/odc-* /usr/bin/
-# Note: odc-common is a STATIC library, so there is no shared lib to copy.
-# (A COPY instruction cannot use shell redirection like `2>/dev/null`.)
+# odc-common is a STATIC library, so there is no shared lib to copy.
+# But the binaries link against CPM-built shared libs (spdlog, fmt) that are
+# NOT part of any apt package version — copy them from the builder so the
+# binaries resolve their shared objects at runtime.
+COPY --from=builder /tmp/build/_deps/spdlog-build/libspdlog.so* /usr/lib/
+COPY --from=builder /tmp/build/_deps/fmt-build/libfmt.so* /usr/lib/
 
 RUN ldconfig
+
+# The entrypoint reads component configs from /src/odc-root/... and cd's there
+# to run the test suite. Provide the source tree in the runtime image.
+COPY . /src/odc-root
 
 COPY deploy/test/entrypoint.sh /entrypoint.sh
 COPY deploy/test/test_suite.sh /test_suite.sh
