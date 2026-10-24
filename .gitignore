@@ -99,3 +99,7 @@ odc-onboard-v2/odc-hosts-architecture/
 diagrams-fixed-logic/
 # Always keep the root README
 !/README.md
+
+# Integration test run output
+odc-root/deploy/test/output/*
+!odc-root/deploy/test/output/.gitkeep
