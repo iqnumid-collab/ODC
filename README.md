@@ -11,7 +11,7 @@ agent and a server-side control plane.
 |-----------|-------------|
 | `odc-onboard-v2/` | Onboard agent (current). Graph runtime, QMI cellular modem control, VPN tunnels (OpenVPN/WireGuard), MAVLink router, RTSP compression. |
 | `odc-onboard/` | Previous-generation onboard agent. |
-| `odc-root/` | Server-side control plane: registry-manager, tunnel-manager, odc-hook, CLI tooling, and the desktop app (`odc-app`). |
+| `odc-root/` | Server-side control plane: registry-manager, tunnel-manager, odc-hook, and CLI tooling. |
 | `scripts/` | Build helper scripts. |
 
 ## Architecture
