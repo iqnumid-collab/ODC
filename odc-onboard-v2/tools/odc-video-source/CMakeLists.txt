@@ -53,18 +53,28 @@ set_target_properties(odc-video-source PROPERTIES
     AUTORCC OFF
 )
 
-# Stage launcher script and sample videos next to the built binary.
+# Stage launcher script next to the built binary. Sample videos (vid-src/) are
+# large media kept out of version control; stage them only when present locally.
 add_custom_command(TARGET odc-video-source POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
         "${CMAKE_CURRENT_SOURCE_DIR}/run-server.sh"
         "${CMAKE_CURRENT_BINARY_DIR}/run-server.sh"
     COMMAND chmod 755 "${CMAKE_CURRENT_BINARY_DIR}/run-server.sh"
-    COMMAND ${CMAKE_COMMAND} -E copy_directory
-        "${CMAKE_CURRENT_SOURCE_DIR}/vid-src"
-        "${CMAKE_CURRENT_BINARY_DIR}/vid-src"
-    COMMENT "Staging odc-video-source runtime files (run-server.sh, vid-src/)"
+    COMMENT "Staging odc-video-source launcher (run-server.sh)"
     VERBATIM
 )
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/vid-src")
+    add_custom_command(TARGET odc-video-source POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+            "${CMAKE_CURRENT_SOURCE_DIR}/vid-src"
+            "${CMAKE_CURRENT_BINARY_DIR}/vid-src"
+        COMMENT "Staging odc-video-source sample media (vid-src/)"
+        VERBATIM
+    )
+else()
+    message(STATUS "odc-video-source: vid-src/ not present — skipping sample media staging")
+endif()
 
 include(GNUInstallDirs)
 install(TARGETS odc-video-source
@@ -73,7 +83,9 @@ install(TARGETS odc-video-source
 install(PROGRAMS "${CMAKE_CURRENT_SOURCE_DIR}/run-server.sh"
     DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
-install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/vid-src/"
-    DESTINATION ${CMAKE_INSTALL_BINDIR}/vid-src
-    USE_SOURCE_PERMISSIONS
-)
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/vid-src")
+    install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/vid-src/"
+        DESTINATION ${CMAKE_INSTALL_BINDIR}/vid-src
+        USE_SOURCE_PERMISSIONS
+    )
+endif()

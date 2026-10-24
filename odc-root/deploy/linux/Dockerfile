@@ -40,7 +40,10 @@ RUN cmake -B /tmp/build -DCMAKE_BUILD_TYPE=Release -GNinja \
     -DBUILD_TESTING=ON \
     && cmake --build /tmp/build -j$(nproc)
 
-RUN cd /tmp/build && ctest --output-on-failure -j$(nproc)
+# Run unit tests in the build stage. E2E tests (full TLS handshake over
+# loopback, NET_ADMIN/tun) are excluded here and run by the dedicated
+# docker-compose integration job (deploy/test/docker-compose.yml).
+RUN cd /tmp/build && ctest --output-on-failure -j$(nproc) --label-exclude e2e
 
 # ── Package binaries + configs + test artifacts ───────────────────────────
 RUN mkdir -p /output/tests /output/config \

@@ -79,6 +79,20 @@ add_odc_test(test_hook_mtls_integration test_hook_mtls_integration.cpp
     ${CMAKE_SOURCE_DIR}/common/src/logging.cpp
     ${CMAKE_SOURCE_DIR}/common/src/platform_linux.cpp
 )
+# Full TLS handshake over loopback — needs the integration runtime environment
+# (NET_ADMIN, tun, loopback TLS). Labelled "e2e" so the unit-test pass can skip
+# it; it is exercised by the dedicated docker-compose integration job.
+set_tests_properties(test_hook_mtls_integration PROPERTIES LABELS "e2e")
 
-# T5: CLI subprocess tests — runs odc-cli binary via popen
-add_odc_test(test_cli test_cli.cpp)
+# T5: CLI subprocess tests — runs odc-cli binary via popen.
+# Only register when the CLI is actually built; otherwise the binary is absent
+# and the subprocess calls return 127 (command not found).
+if(BUILD_ODC_CLI)
+    add_odc_test(test_cli test_cli.cpp)
+    # Point the test at the freshly built binary regardless of CWD.
+    set_tests_properties(test_cli PROPERTIES
+        ENVIRONMENT "ODC_CLI_PATH=$<TARGET_FILE:odc-cli>"
+    )
+else()
+    message(STATUS "tests: BUILD_ODC_CLI=OFF — skipping test_cli")
+endif()

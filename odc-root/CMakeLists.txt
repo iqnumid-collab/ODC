@@ -111,25 +111,53 @@ endif()
 # SQLite3: use system if available, otherwise build from amalgamation via CPM
 find_package(SQLite3 QUIET)
 if(NOT SQLite3_FOUND)
-  message(STATUS "SQLite3 not found via find_package — building from source")
+  message(STATUS "SQLite3 not found via find_package — building from amalgamation")
   CPMAddPackage(
     NAME sqlite3_source
     URL https://www.sqlite.org/2024/sqlite-amalgamation-3450200.zip
     URL_HASH SHA256=bc9064412e07cffb7c1bbf28529c62999bd90c45e85ba1e0c6a61d316b9accc1
     DOWNLOAD_ONLY YES
   )
-  if(sqlite3_source_ADDED)
-    add_library(sqlite3_obj OBJECT ${sqlite3_source_SOURCE_DIR}/sqlite3.c)
-    target_include_directories(sqlite3_obj PUBLIC ${sqlite3_source_SOURCE_DIR})
-    target_compile_definitions(sqlite3_obj PRIVATE
-      SQLITE_THREADSAFE=1
-      SQLITE_ENABLE_FTS5
-      SQLITE_ENABLE_JSON1
-    )
-    add_library(SQLite3::SQLite3 ALIAS sqlite3_obj)
-  else()
-    find_package(SQLite3 REQUIRED)
+  if(NOT sqlite3_source_ADDED)
+    message(FATAL_ERROR "SQLite3 unavailable: system package not found and amalgamation download failed")
   endif()
+  # Build a real STATIC library (not an OBJECT alias) so that linking and
+  # include-dir propagation work for every consumer of SQLite3::SQLite3.
+  add_library(odc_sqlite3 STATIC ${sqlite3_source_SOURCE_DIR}/sqlite3.c)
+  target_include_directories(odc_sqlite3 PUBLIC ${sqlite3_source_SOURCE_DIR})
+  target_compile_definitions(odc_sqlite3 PRIVATE
+    SQLITE_THREADSAFE=1
+    SQLITE_ENABLE_FTS5
+    SQLITE_ENABLE_JSON1
+  )
+  set_target_properties(odc_sqlite3 PROPERTIES POSITION_INDEPENDENT_CODE ON)
+  if(NOT TARGET SQLite3::SQLite3)
+    add_library(SQLite3::SQLite3 ALIAS odc_sqlite3)
+  endif()
+endif()
+
+# Final guarantee: the imported/alias target must exist before any subdirectory
+# (common/, registry-manager/, odc-hook/, tests/) links against it.
+#
+# Some CMake FindSQLite3 variants set SQLite3_FOUND=TRUE but DO NOT create the
+# SQLite3::SQLite3 imported target. In that case, synthesize it from the
+# discovered include dirs and library path.
+if(SQLite3_FOUND AND NOT TARGET SQLite3::SQLite3)
+  message(STATUS "SQLite3 found but imported target missing — creating SQLite3::SQLite3 from found vars")
+  if(NOT SQLite3_LIBRARIES OR NOT SQLite3_INCLUDE_DIRS)
+    # Fall back to a plain search if the module left vars empty.
+    find_library(SQLite3_LIBRARIES NAMES sqlite3)
+    find_path(SQLite3_INCLUDE_DIRS NAMES sqlite3.h)
+  endif()
+  add_library(SQLite3::SQLite3 UNKNOWN IMPORTED)
+  set_target_properties(SQLite3::SQLite3 PROPERTIES
+    IMPORTED_LOCATION "${SQLite3_LIBRARIES}"
+    INTERFACE_INCLUDE_DIRECTORIES "${SQLite3_INCLUDE_DIRS}"
+  )
+endif()
+
+if(NOT TARGET SQLite3::SQLite3)
+  message(FATAL_ERROR "SQLite3::SQLite3 target was not created (find_package reported FOUND=${SQLite3_FOUND})")
 endif()
 
 CPMAddPackage(
