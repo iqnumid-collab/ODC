@@ -32,14 +32,17 @@ jobs:
             echo "version=0.0.0-dev+${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Build odc-root in Docker (Release)
+      - name: Build odc-root in Docker (Release) and export artifacts
         working-directory: odc-root
+        env:
+          DOCKER_BUILDKIT: "1"
         run: |
-          docker build -t odc-root-linux:release -f deploy/linux/Dockerfile .
-          cid=$(docker create odc-root-linux:release)
+          # Final stage is `FROM scratch` with /output; use BuildKit local
+          # exporter (docker create fails on scratch — no command).
           mkdir -p out
-          docker cp "$cid:/output/." out/
-          docker rm "$cid"
+          docker build --output type=local,dest=out \
+            -f deploy/linux/Dockerfile .
+          # BuildKit writes the scratch stage's /output tree -> out/output/*
           ls -lhR out
 
       - name: Package tarball + checksum
@@ -48,7 +51,7 @@ jobs:
           V='${{ steps.ver.outputs.version }}'
           pkg="odc-root-linux-x86_64-v${V}"
           mkdir -p "dist/${pkg}"
-          cp -a out/. "dist/${pkg}/"
+          cp -a out/output/. "dist/${pkg}/"
           tar -C dist -czf "dist/${pkg}.tar.gz" "${pkg}"
           ( cd dist && sha256sum "${pkg}.tar.gz" > "${pkg}.tar.gz.sha256" )
           ls -lh dist

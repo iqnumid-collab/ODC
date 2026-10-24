@@ -42,18 +42,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build odc-root in Docker (unit tests run inside image build)
+      - name: Build odc-root in Docker and export artifacts
         working-directory: odc-root
+        env:
+          DOCKER_BUILDKIT: "1"
         run: |
-          docker build -t odc-root-linux:ci -f deploy/linux/Dockerfile .
-
-      - name: Export built artifacts from image
-        working-directory: odc-root
-        run: |
+          # The Dockerfile's final stage is `FROM scratch` containing /output.
+          # BuildKit's local exporter writes that filesystem straight to disk
+          # (no `docker create` on a scratch image, which has no command).
           mkdir -p deploy/export/linux
-          cid=$(docker create odc-root-linux:ci)
-          docker cp "$cid:/output/." deploy/export/linux/
-          docker rm "$cid"
+          docker build --output type=local,dest=deploy/export/linux \
+            -f deploy/linux/Dockerfile .
+          echo "Exported artifacts:"
           ls -lhR deploy/export/linux
 
       - name: Integration tests (docker compose)
